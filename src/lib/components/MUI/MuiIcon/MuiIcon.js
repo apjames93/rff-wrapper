@@ -22,7 +22,10 @@ export const MuiIcon = ({
 export default MuiIcon;
 
 MuiIcon.propTypes = {
-  /** any icon from https://material.io/resources/icons/?style=baseline */
+  /**
+      * any icon from [material.io](https://material.io/resources/icons/?style=baseline)
+      * ex star | alarm_off
+      * */
   iconName: PropTypes.string.isRequired,
   /**
    * mui prop: "inherit", "primary", "secondary", "action", "error", "disabled"
@@ -34,15 +37,9 @@ MuiIcon.propTypes = {
    * The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size.
    * */
   fontSize: PropTypes.string,
-  /**
-   * storyblok multiselect of css classes
-   * Override or extend the styles applied to the component
-   * */
-  rootClass: PropTypes.arrayOf(PropTypes.string),
 };
 
 MuiIcon.defaultProps = {
-  rootClass: [],
   color: 'secondary',
   fontSize: 'default',
 };
