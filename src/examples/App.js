@@ -3,7 +3,7 @@ import React from 'react';
 import ReactFinalForm from '../lib/components/Form/Form';
 import Input from '../lib/components/Input/Input';
 import Select from '../lib/components/Select/Select';
-
+import CheckBox from '../lib/components/CheckBox/CheckBox';
 import Submit from '../lib/components/Submit/Submit';
 
 
@@ -33,6 +33,8 @@ const App = () => (
       options={[{ num: 'six' }, { num: 'nine' }]}
       displayKey="num"
     />
+
+    <CheckBox name="cool" />
     <Submit />
   </ReactFinalForm>
 );
