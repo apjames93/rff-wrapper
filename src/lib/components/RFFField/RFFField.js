@@ -25,8 +25,10 @@ export const RFFField = ({
   validate,
   validateFields,
   type,
+  value,
 }) => (
   <Field
+    value={value}
     afterSubmit={afterSubmit}
     allowNull={allowNull}
     beforeSubmit={beforeSubmit}

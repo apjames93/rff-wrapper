@@ -4,6 +4,8 @@ import ReactFinalForm from '../lib/components/Form/Form';
 import Input from '../lib/components/Input/Input';
 import Select from '../lib/components/Select/Select';
 import CheckBox from '../lib/components/CheckBox/CheckBox';
+import Radio from '../lib/components/Radio/Radio';
+
 import Submit from '../lib/components/Submit/Submit';
 
 
@@ -33,8 +35,24 @@ const App = () => (
       options={[{ num: 'six' }, { num: 'nine' }]}
       displayKey="num"
     />
-
     <CheckBox name="cool" />
+    <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '100px'}}>
+      <Radio
+        name="radioName"
+        value='testValue1'
+        color='default'
+        label='radioButton1'
+        checkedIcon={{ iconName: 'menu' }}
+        icon={{ iconName: 'star' }}
+        />
+      <Radio
+        name="radioName"
+        value='testValue2'
+        color='default'
+        label='radioButton2'
+        />
+
+    </div>
     <Submit />
   </ReactFinalForm>
 );
