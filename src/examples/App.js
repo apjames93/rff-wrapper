@@ -7,6 +7,7 @@ import Select from '../lib/components/Select/Select';
 import CheckBox from '../lib/components/CheckBox/CheckBox';
 import Submit from '../lib/components/Submit/Submit';
 import RFFFieldArray from '../lib/components/RFFFieldArray/RFFFieldArray';
+import CheckBoxArray from '../lib/components/CheckBoxArray/CheckBoxArray';
 
 
 const onSubmit = async (values) => {
@@ -15,6 +16,8 @@ const onSubmit = async (values) => {
   }, 20);
   return true;
 };
+
+const data = [{ key: 'value' }, 'one', 69];
 
 const App = () => (
   <ReactFinalForm
@@ -25,6 +28,7 @@ const App = () => (
         thing: 'wooo',
         otherThing: 'cool',
       }],
+      checkbox: data,
     }}
   >
     <Input
@@ -57,6 +61,15 @@ const App = () => (
         name="otherThing"
         label="otherThing"
       />
+
+    </RFFFieldArray>
+
+    <RFFFieldArray
+      fieldArrayName="checkbox"
+    >
+      {data.map(thing => (
+        <CheckBoxArray name="checkboxarray" value={thing} />
+      ))}
 
     </RFFFieldArray>
 
