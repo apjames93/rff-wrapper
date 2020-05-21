@@ -42,6 +42,8 @@ const App = () => (
         value='testValue1'
         color='default'
         label='radioButton1'
+        checkedIcon={{ iconName: 'menu' }}
+        icon={{ iconName: 'star' }}
         />
       <Radio
         name="radioName"

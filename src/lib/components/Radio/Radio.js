@@ -16,42 +16,43 @@ export const Radio = ({
   size,
   value,
   label,
-}) => (
-  <RFFField
-    type='radio'
-    name={name}
-    value={value}
-    // passProps={(field) => {
-    //   console.log(field)
-    //   // checked: field.input.checked,
-    // }}
-    passProps={(field) => ({
-      id: field.input.name,
-      value: field.input.value,
-      checked: field.input.checked,
-      onChange: () => {
-        console.log('hit')
-        field.input.onChange(field.input.value)
-      },
-    })}
-  >
-    <FormControlLabel
-      control={
-        <MuiRadio
-          // checkedIcon={checkedIcon?.iconName && <MuiIcon {...checkedIcon} />}
-          color={color}
-          disabled={disabled}
-          disableRipple={disableRipple}
-          // icon={icon?.iconName && <MuiIcon {...icon} />}
-          size={size}
-        />
-      }
+}) => {
+  let radioProps;
+  if (checkedIcon && icon) {
+    radioProps = { checkedIcon: <MuiIcon {...checkedIcon} />, color, disabled, disableRipple, icon: <MuiIcon {...icon} /> };
+  } else if (checkedIcon) {
+    radioProps = { checkedIcon: <MuiIcon {...checkedIcon} />, color, disabled, disableRipple };
+  } else if (icon) {
+    radioProps = { color, disabled, disableRipple, icon: <MuiIcon {...icon} /> };
+  } else {
+    radioProps = { color, disabled, disableRipple };
+  }
+
+  return (
+    <RFFField
+      type='radio'
+      name={name}
       value={value}
-      label={label}
-      // labelPlacement='bottom'
-    />
-  </RFFField>
-);
+      passProps={(field) => ({
+        id: field.input.name,
+        value: field.input.value,
+        checked: field.input.checked,
+        onChange: () => {
+          console.log('hit')
+          field.input.onChange(field.input.value)
+        },
+      })}
+    >
+      <FormControlLabel
+        control={
+          <MuiRadio {...radioProps} />
+        }
+        value={value}
+        label={label}
+      />
+    </RFFField>
+  )
+};
 
 export default Radio;
 
@@ -95,10 +96,10 @@ Radio.propTypes = {
 Radio.defaultProps = {
   // mui
   color: 'secondary',
-  checkedIcon: null,
+  checkedIcon: undefined,
   disabled: false,
   disabledRipple: false,
-  icon: null,
+  icon: undefined,
   size: 'medium',
   value: null,
 };
