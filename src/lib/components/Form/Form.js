@@ -1,8 +1,6 @@
-import React, { cloneElement, lazy } from 'react';
+import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-final-form';
-
-const arrayMutators = lazy(() => import('final-form-arrays'));
 
 export const ReactFinalForm = ({
   children,
@@ -21,7 +19,7 @@ export const ReactFinalForm = ({
     initialValues={initialValues}
     initialValuesEqual={initialValuesEqual}
     keepDirtyOnReinitialize={keepDirtyOnReinitialize}
-    // mutators={tators}
+    mutators={mutators}
     onSubmit={onSubmit}
     subscription={subscription}
     validate={validate}
