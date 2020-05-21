@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Radio as MuiRadio, FormControlLabel } from '@material-ui/core';
-// import { Radio, FormControlLabel } from '@material-ui/core/Radio';
-
 import MuiIcon from '../MUI/MuiIcon/MuiIcon';
 import RFFField from '../RFFField/RFFField';
 
@@ -19,13 +17,13 @@ export const Radio = ({
 }) => {
   let radioProps;
   if (checkedIcon && icon) {
-    radioProps = { checkedIcon: <MuiIcon {...checkedIcon} />, color, disabled, disableRipple, icon: <MuiIcon {...icon} /> };
+    radioProps = { checkedIcon: <MuiIcon {...checkedIcon} />, color, disabled, disableRipple, size, icon: <MuiIcon {...icon} /> };
   } else if (checkedIcon) {
-    radioProps = { checkedIcon: <MuiIcon {...checkedIcon} />, color, disabled, disableRipple };
+    radioProps = { checkedIcon: <MuiIcon {...checkedIcon} />, color, disabled, disableRipple, size };
   } else if (icon) {
-    radioProps = { color, disabled, disableRipple, icon: <MuiIcon {...icon} /> };
+    radioProps = { color, disabled, disableRipple, size, icon: <MuiIcon {...icon} /> };
   } else {
-    radioProps = { color, disabled, disableRipple };
+    radioProps = { color, disabled, disableRipple, size };
   }
 
   return (
@@ -38,8 +36,7 @@ export const Radio = ({
         value: field.input.value,
         checked: field.input.checked,
         onChange: () => {
-          console.log('hit')
-          field.input.onChange(field.input.value)
+          field.input.onChange(field.input.value);
         },
       })}
     >
@@ -64,7 +61,7 @@ Radio.propTypes = {
   /**
    * The icon to display when the component is checked.
    */
-  checkedIcon: PropTypes.node,
+  checkedIcon: PropTypes.any,
   /**
    * Mui Props: 'default' | 'primary' | 'secondary'
    * The color of the component. It supports those theme colors that make sense for this component.
