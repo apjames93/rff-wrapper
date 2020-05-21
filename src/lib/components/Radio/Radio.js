@@ -17,21 +17,29 @@ export const Radio = ({
 }) => {
   let radioProps;
   if (checkedIcon && icon) {
-    radioProps = { checkedIcon: <MuiIcon {...checkedIcon} />, color, disabled, disableRipple, size, icon: <MuiIcon {...icon} /> };
+    radioProps = {
+      checkedIcon: <MuiIcon {...checkedIcon} />, color, disabled, disableRipple, size, icon: <MuiIcon {...icon} />,
+    };
   } else if (checkedIcon) {
-    radioProps = { checkedIcon: <MuiIcon {...checkedIcon} />, color, disabled, disableRipple, size };
+    radioProps = {
+      checkedIcon: <MuiIcon {...checkedIcon} />, color, disabled, disableRipple, size,
+    };
   } else if (icon) {
-    radioProps = { color, disabled, disableRipple, size, icon: <MuiIcon {...icon} /> };
+    radioProps = {
+      color, disabled, disableRipple, size, icon: <MuiIcon {...icon} />,
+    };
   } else {
-    radioProps = { color, disabled, disableRipple, size };
+    radioProps = {
+      color, disabled, disableRipple, size,
+    };
   }
 
   return (
     <RFFField
-      type='radio'
+      type="radio"
       name={name}
       value={value}
-      passProps={(field) => ({
+      passProps={field => ({
         id: field.input.name,
         value: field.input.value,
         checked: field.input.checked,
@@ -48,7 +56,7 @@ export const Radio = ({
         label={label}
       />
     </RFFField>
-  )
+  );
 };
 
 export default Radio;
