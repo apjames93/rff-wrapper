@@ -1,3 +1,4 @@
+
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
@@ -5,13 +6,62 @@ jobs:
   build-and-test:
     executor:
       name: node/default
+    environment:
+      CC_TEST_REPORTER_ID: 1a075d3355e6cb3eb7fc62e5853a978c371a47a30f62c25dba1f3d7683ce4f30
     steps:
       - checkout
       - node/with-cache:
           steps:
             - run: npm install
-            - run: npm test
+            # Setup Code Climate
+            - run:
+                name: "Setup Code Climate Test-Reporter"
+                command: |
+                  # download test reporter as a static binary
+                  curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+                  chmod +x ./cc-test-reporter
+            # Run tests
+            - run: ./cc-test-reporter before-build
+            - run: npm run test-ci && ./cc-test-reporter after-build --exit-code $?
+  deploy-docs:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run: sudo apt-get update && sudo apt-get install -y python-dev
+            - run: sudo curl -O https://bootstrap.pypa.io/get-pip.py
+            - run: sudo python get-pip.py
+            - run: sudo -H pip install awscli --upgrade --ignore-installed six
+            - run: npm uninstall node-sass -g && npm cache clean --force && npm install node-sass
+            - run: npm run deploy-docs
+  deploy-npm:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run:
+                name: Authenticate with registry
+                command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/.npmrc
+            - run:
+                name: Publish package
+                command: npm run publish-npm
 workflows:
-    build-and-test:
+    build-and-deploy:
       jobs:
         - build-and-test
+        - deploy-docs:
+            requires:
+              - build-and-test
+            filters:
+              branches:
+                only: circleci-project-setup
+        - deploy-npm:
+            requires:
+              - deploy-docs
+            filters:
+              branches:
+                only: circleci-project-setup
