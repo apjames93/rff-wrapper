@@ -5,6 +5,7 @@ import MuiInput from '../lib/components/MuiInput/MuiInput';
 import Select from '../lib/components/MuiSelect/MuiSelect';
 import MuiCheckBox from '../lib/components/MuiCheckBox/MuiCheckBox';
 import MuiRadio from '../lib/components/MuiRadio/MuiRadio';
+import HTMLInput from '../lib/components/HTMLInput/HTMLInput';
 
 import Submit from '../lib/components/Submit/Submit';
 
@@ -20,38 +21,37 @@ const App = () => (
   <ReactFinalForm
     onSubmit={onSubmit}
   >
-    <MuiInput
-      name="thing"
-      label="thing"
-    />
-    <Select
-      name="otherThing"
-      type="select"
-      options={['one', 'two', 'three']}
-    />
-    <Select
-      name="stuff"
-      type="select"
-      options={[{ num: 'six' }, { num: 'nine' }]}
-      displayKey="num"
-    />
-    <MuiCheckBox name="cool" />
-    <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '100px'}}>
+    <div style={{ textAlign: 'center' }}>
+      <MuiInput
+        name="thing"
+        label="thing"
+      />
+    </div>
+    <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '100px' }}>
       <MuiRadio
         name="radioName"
-        value='testValue1'
-        color='default'
-        label='radioButton1'
+        value="testValue1"
+        color="default"
+        label="radioButton1"
         checkedIcon={{ iconName: 'menu' }}
         icon={{ iconName: 'star' }}
       />
       <MuiRadio
         name="radioName"
-        value='testValue2'
-        color='default'
-        label='radioButton2'
+        value="testValue2"
+        color="default"
+        label="radioButton2"
       />
-
+    </div>
+    <div style={{
+      marginTop: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center',
+    }}
+    >
+      <HTMLInput
+        name="htmlInput"
+        label="EnterValue"
+        maxLength={10}
+      />
     </div>
     <Submit />
   </ReactFinalForm>
