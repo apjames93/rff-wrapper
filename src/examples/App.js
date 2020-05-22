@@ -1,6 +1,7 @@
 import React from 'react';
 
 import arrayMutators from 'final-form-arrays';
+import { FieldArray } from 'react-final-form-arrays';
 import ReactFinalForm from '../lib/components/Form/Form';
 import Input from '../lib/components/Input/Input';
 import Select from '../lib/components/Select/Select';
@@ -17,21 +18,27 @@ const onSubmit = async (values) => {
   return true;
 };
 
-const data = [{ key: 'value' }, 'one', 69];
+// const data = [{ key: 'value' }, 'one', 69];
+const checkbox = [{ key: 'value' }, 'one'];
+
+const coolStuff = [{
+  thing: 'wooo',
+  otherThing: 'cool',
+}, {
+  thing: 'poop',
+  otherThing: 'cool',
+}];
 
 const App = () => (
   <ReactFinalForm
     onSubmit={onSubmit}
     mutators={{ ...arrayMutators }}
     initialValues={{
-      coolStuff: [{
-        thing: 'wooo',
-        otherThing: 'cool',
-      }],
-      checkbox: data,
+      coolStuff,
+      checkbox,
     }}
   >
-    <Input
+    {/* <Input
       name="thing"
       label="thing"
     />
@@ -51,7 +58,7 @@ const App = () => (
 
 
     <RFFFieldArray
-      fieldArrayName="coolStuff"
+      name="coolStuff"
     >
       <Input
         name="thing"
@@ -62,16 +69,43 @@ const App = () => (
         label="otherThing"
       />
 
-    </RFFFieldArray>
-
+    </RFFFieldArray> */}
+    {/* {checkbox.map((thing, i) => ( */}
     <RFFFieldArray
       fieldArrayName="checkbox"
     >
-      {data.map(thing => (
-        <CheckBoxArray name="checkboxarray" value={thing} />
-      ))}
-
+      <CheckBoxArray name="checkboxarray" value="wada" />
     </RFFFieldArray>
+    {/* ))} */}
+
+    {/* <RFFFieldArray
+      fieldArrayName="coolStuff"
+    >
+      <Input
+        name="thing"
+        label="thing"
+      />
+    </RFFFieldArray> */}
+
+
+    {/* {checkbox.map((thing, i) => (
+      <RFFFieldArray
+        name="checkbox"
+      >
+        <CheckBoxArray key={i} name="checkboxarray" value={thing} />
+      </RFFFieldArray>
+    ))} */}
+    {/* <FieldArray
+      name="checkbox"
+    >
+      {({ fields }) => (
+        <>
+          {checkbox.map((thing, i) => (
+            <CheckBoxArray fields={fields} key={i} name="checkboxarray" value={thing} />
+          ))}
+        </>
+      )}
+    </FieldArray> */}
 
     <Submit />
   </ReactFinalForm>

@@ -9,10 +9,6 @@ import RFFField from '../RFFField/RFFField';
 */
 
 export const handleOnChange = (value, fields, index) => {
-  console.log('!!!!!!!!!!!!!!!!!!!!!!!!')
-  console.log(value, fields, index)
-  console.log('!!!!!!!!!!!!!!!!!!!!!!!!')
-
   if (!index && typeof index !== 'number') return fields.push(value);
   return fields.remove(index);
 };
@@ -30,7 +26,7 @@ export const assignIndex = (fields, value) => {
 };
 
 
-export const CheckBox = ({
+export const CheckBoxArray = ({
   name,
   // mui
   disabled,
@@ -46,16 +42,18 @@ export const CheckBox = ({
   callback,
 }) => (
   <RFFField
-    // type="checkbox"
+    type="checkbox"
     name={name}
     passProps={(field) => {
-      const index = assignIndex(fields, field.input.value);
+      console.log('!!!!!!', field)
+      const index = assignIndex(fields, value);
       return ({
         id: field.input.name,
-        value: (field.input.value || typeof index === 'number'),
+        value,
+        checked: typeof index === 'number',
         onChange: () => {
           if (callback) callback(fields);
-          else handleOnChange(field.input.value, fields, index);
+          else handleOnChange(value, fields, index);
         },
       });
     }
@@ -78,9 +76,9 @@ export const CheckBox = ({
     />
   </RFFField>
 );
-export default CheckBox;
+export default CheckBoxArray;
 
-CheckBox.propTypes = {
+CheckBoxArray.propTypes = {
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
    */
@@ -160,7 +158,7 @@ CheckBox.propTypes = {
   size: PropTypes.string,
 };
 
-CheckBox.defaultProps = {
+CheckBoxArray.defaultProps = {
   // mui
   label: '',
   checkedIcon: null,
