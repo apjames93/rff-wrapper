@@ -1,15 +1,15 @@
 Select example:
 
 ```js noeditor
-import Submit from '../Submit/Submit';
+import Form from '../Form/Form';
+import MuiSubmit from '../MuiSubmit/MuiSubmit';
 import MuiSelect from './MuiSelect';
 ```
 
 ```js
 import Form from '../Form/Form';
-import Submit from '../Submit/Submit';
-import MuiSelect from '.Mui/Select';
-
+import MuiSubmit from '../MuiSubmit/MuiSubmit';
+import MuiSelect from './MuiSelect';
 
 const onSubmit = async (values) => {
   console.log('Select Form', values)
@@ -29,6 +29,6 @@ const onSubmit = async (values) => {
       options={[{ num: 'six' }, { num: 'nine' }]}
       displayKey="num"
     />
-    <Submit />
+    <MuiSubmit />
   </Form>
 ```

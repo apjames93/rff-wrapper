@@ -1,14 +1,14 @@
 CheckBox example:
 
 ```js noeditor
-import Submit from '../Submit/Submit';
-import CheckBox from './CheckBox';
+import MuiSubmit from '../MuiSubmit/MuiSubmit';
+import MuiCheckBox from './MuiCheckBox';
 ```
 
 ```js
 import Form from '../Form/Form';
-import Submit from '../Submit/Submit';
-import CheckBox from './CheckBox';
+import MuiSubmit from '../MuiSubmit/MuiSubmit';
+import MuiCheckBox from './MuiCheckBox';
 
 
 const onSubmit = async (values) => {
@@ -18,7 +18,7 @@ const onSubmit = async (values) => {
   <Form
     onSubmit={onSubmit}
   >
-    <CheckBox
+    <MuiCheckBox
       name="thing"
       label="thing"
       checkedIcon={{
@@ -26,7 +26,7 @@ const onSubmit = async (values) => {
         }}
     />
 
-    <CheckBox
+    <MuiCheckBox
       name="otherThing"
       label="otherThing"
       icon={{
@@ -34,10 +34,10 @@ const onSubmit = async (values) => {
         }}
     />
 
-    <CheckBox
+    <MuiCheckBox
       name="normalThing"
     />
 
-    <Submit />
+    <MuiSubmit />
   </Form>
 ```
