@@ -2,14 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import { Input } from './Input';
+import { MuiInput } from './MuiInput';
 import Form from '../Form/Form';
 
 function setup() {
   const props = {
     name: 'cool',
   };
-  const comp = shallow(<Input {...props} />);
+  const comp = shallow(<MuiInput {...props} />);
   return { comp, props };
 }
 
@@ -24,7 +24,7 @@ describe('<Input />', () => {
     const tree = renderer.create((
       <Form onSubmit={() => true}>
         <MemoryRouter>
-          <Input {...props} />
+          <MuiInput {...props} />
         </MemoryRouter>
       </Form>
     ));

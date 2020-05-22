@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import { Input } from '../Input/Input';
+import { MuiInput } from '../MuiInput/MuiInput';
 import Form from './Form';
 
 function setup() {
@@ -24,7 +24,7 @@ describe('<Form />', () => {
     const tree = renderer.create((
       <Form onSubmit={() => true}>
         <MemoryRouter>
-          <Input {...props} />
+          <MuiInput {...props} />
         </MemoryRouter>
       </Form>
     ));

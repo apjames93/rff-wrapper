@@ -5,12 +5,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import RFFField from '../RFFField/RFFField';
 
 /**
- * Select
+ * MuiSelect
  * Render a Select element while passing the Input element to Select as input parameter.
  * ⚠️ IMPORTANT ⚠️ – you must pass the options of the select as children.
 */
 
-export const Select = ({
+export const MuiSelect = ({
   options,
   displayKey,
   // mui
@@ -70,9 +70,9 @@ export const Select = ({
   </RFFField>
 );
 
-export default Select;
+export default MuiSelect;
 
-Select.propTypes = {
+MuiSelect.propTypes = {
   /** options for select */
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([
@@ -82,7 +82,7 @@ Select.propTypes = {
     ]),
   ).isRequired,
   /**
-   * if passing an array of objects to the select then use displayKey to show the key value in the select
+   * If passing an array of objects to the select then use displayKey to show the key value in the select
    * */
   displayKey: PropTypes.string,
   /**
@@ -156,7 +156,7 @@ Select.propTypes = {
   variant: PropTypes.string,
 };
 
-Select.defaultProps = {
+MuiSelect.defaultProps = {
   displayKey: '',
   // mui
   label: '',
