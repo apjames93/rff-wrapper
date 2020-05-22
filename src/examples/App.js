@@ -1,12 +1,16 @@
 import React from 'react';
 
-import ReactFinalForm from '../lib/components/Form/Form';
+// import ReactFinalForm from '../lib/components/Form/Form';
 import Input from '../lib/components/Input/Input';
 import Select from '../lib/components/Select/Select';
 import CheckBox from '../lib/components/CheckBox/CheckBox';
 import Radio from '../lib/components/Radio/Radio';
 
 import Submit from '../lib/components/Submit/Submit';
+
+
+import { Form } from '../lib/index.mjs';
+
 
 
 const onSubmit = async (values) => {
@@ -17,7 +21,7 @@ const onSubmit = async (values) => {
 };
 
 const App = () => (
-  <ReactFinalForm
+  <Form
     onSubmit={onSubmit}
   >
     <Input
@@ -54,7 +58,7 @@ const App = () => (
 
     </div>
     <Submit />
-  </ReactFinalForm>
+  </Form>
 );
 
 export default App;

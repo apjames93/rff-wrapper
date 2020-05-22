@@ -1,14 +1,14 @@
 {
   "name": "rff-wrapper",
   "version": "1.0.0",
-  "description": "",
+  "description": "react-final-form wrapper",
   "author": "apjames93",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "apjames93/rff-wrapper"
+    "url": "apjames93/rff-wrapper.git"
   },
   "files": [
     "dist"
@@ -144,7 +144,6 @@
     "styleguide:build": "npx styleguidist build",
     "deploy-docs": "npm run styleguide:build && aws s3 sync styleguide/ s3://rff-wrapper-docs.com/ --delete"
   },
-  "bin": {},
   "browserslist": {
     "production": [
       ">0.2%",
