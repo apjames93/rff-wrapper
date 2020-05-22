@@ -58,10 +58,10 @@ workflows:
               - build-and-test
             filters:
               branches:
-                only: circleci-project-setup
+                only: master
         - deploy-npm:
             requires:
               - deploy-docs
             filters:
               branches:
-                only: circleci-project-setup
+                only: master
