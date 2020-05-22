@@ -6,7 +6,7 @@ import RFFField from '../RFFField/RFFField';
  * Input
 */
 
-export const Input = ({
+export const MuiInput = ({
 // mui
   name,
   autoComplete,
@@ -55,9 +55,9 @@ export const Input = ({
   </RFFField>
 );
 
-export default Input;
+export default MuiInput;
 
-Input.propTypes = {
+MuiInput.propTypes = {
 
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
@@ -134,7 +134,7 @@ Input.propTypes = {
   variant: PropTypes.string,
 };
 
-Input.defaultProps = {
+MuiInput.defaultProps = {
   // mui
   label: '',
   type: 'text',

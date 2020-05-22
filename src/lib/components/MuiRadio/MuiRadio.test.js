@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import Radio from './Radio';
+import MuiRadio from './MuiRadio';
 import Form from '../Form/Form';
 
 function setup(checkedIcon = '', icon = '') {
@@ -11,11 +11,11 @@ function setup(checkedIcon = '', icon = '') {
     icon,
     name: 'radio name',
   };
-  const comp = shallow(<Radio {...props} />);
+  const comp = shallow(<MuiRadio {...props} />);
   return { comp, props };
 }
 
-describe('<Radio />', () => {
+describe('<MuiRadio />', () => {
   it('renders Radio', () => {
     const { comp } = setup();
     expect(comp).toBeDefined();
@@ -26,7 +26,7 @@ describe('<Radio />', () => {
     const tree = renderer.create(
       <Form onSubmit={() => true}>
         <MemoryRouter>
-          <Radio {...props} />
+          <MuiRadio {...props} />
         </MemoryRouter>
       </Form>,
     );

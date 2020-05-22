@@ -1,10 +1,10 @@
 import React from 'react';
 
 import ReactFinalForm from '../lib/components/Form/Form';
-import Input from '../lib/components/Input/Input';
-import Select from '../lib/components/Select/Select';
-import CheckBox from '../lib/components/CheckBox/CheckBox';
-import Radio from '../lib/components/Radio/Radio';
+import MuiInput from '../lib/components/MuiInput/MuiInput';
+import Select from '../lib/components/MuiSelect/MuiSelect';
+import MuiCheckBox from '../lib/components/MuiCheckBox/MuiCheckBox';
+import MuiRadio from '../lib/components/MuiRadio/MuiRadio';
 
 import Submit from '../lib/components/Submit/Submit';
 
@@ -20,7 +20,7 @@ const App = () => (
   <ReactFinalForm
     onSubmit={onSubmit}
   >
-    <Input
+    <MuiInput
       name="thing"
       label="thing"
     />
@@ -35,22 +35,22 @@ const App = () => (
       options={[{ num: 'six' }, { num: 'nine' }]}
       displayKey="num"
     />
-    <CheckBox name="cool" />
+    <MuiCheckBox name="cool" />
     <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '100px'}}>
-      <Radio
+      <MuiRadio
         name="radioName"
         value='testValue1'
         color='default'
         label='radioButton1'
         checkedIcon={{ iconName: 'menu' }}
         icon={{ iconName: 'star' }}
-        />
-      <Radio
+      />
+      <MuiRadio
         name="radioName"
         value='testValue2'
         color='default'
         label='radioButton2'
-        />
+      />
 
     </div>
     <Submit />
