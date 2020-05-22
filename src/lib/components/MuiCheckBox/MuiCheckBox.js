@@ -5,10 +5,10 @@ import MuiIcon from '../MUI/MuiIcon/MuiIcon';
 import RFFField from '../RFFField/RFFField';
 
 /**
- * CheckBox
+ * MuiCheckBox
 */
 
-export const CheckBox = ({
+export const MuiCheckBox = ({
   name,
   // mui
   disabled,
@@ -47,9 +47,9 @@ export const CheckBox = ({
 
 );
 
-export default CheckBox;
+export default MuiCheckBox;
 
-CheckBox.propTypes = {
+MuiCheckBox.propTypes = {
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
    */
@@ -58,7 +58,6 @@ CheckBox.propTypes = {
  * The label content.
  */
   label: PropTypes.string,
-
   /**
  * material-ui. PROPS
  */
@@ -117,9 +116,11 @@ CheckBox.propTypes = {
    * */
     fontSize: PropTypes.string,
   }),
-
   /**
-   * If true, the component appears indeterminate. This does not set the native input element to indeterminate due to inconsistent behavior across browsers. However, we set a data-indeterminate attribute on the input.
+   * If true, the component appears indeterminate.
+   * This does not set the native input element to indeterminate
+   * due to inconsistent behavior across browsers.
+   * However, we set a data-indeterminate attribute on the input.
    */
   indeterminate: PropTypes.bool,
   /**
@@ -129,7 +130,7 @@ CheckBox.propTypes = {
   size: PropTypes.string,
 };
 
-CheckBox.defaultProps = {
+MuiCheckBox.defaultProps = {
   // mui
   label: '',
   checkedIcon: null,

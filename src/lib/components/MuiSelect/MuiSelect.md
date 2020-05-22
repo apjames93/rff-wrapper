@@ -2,13 +2,13 @@ Select example:
 
 ```js noeditor
 import Submit from '../Submit/Submit';
-import Select from './Select';
+import MuiSelect from './MuiSelect';
 ```
 
 ```js
 import Form from '../Form/Form';
 import Submit from '../Submit/Submit';
-import Select from './Select';
+import MuiSelect from '.Mui/Select';
 
 
 const onSubmit = async (values) => {
@@ -18,12 +18,12 @@ const onSubmit = async (values) => {
   <Form
     onSubmit={onSubmit}
   >
-    <Select
+    <MuiSelect
       name="otherThing"
       type="select"
       options={['one', 'two', 'three']}
     />
-    <Select
+    <MuiSelect
       name="stuff"
       type="select"
       options={[{ num: 'six' }, { num: 'nine' }]}
