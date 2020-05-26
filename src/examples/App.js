@@ -7,7 +7,8 @@ import MuiCheckBox from '../lib/components/MuiCheckBox/MuiCheckBox';
 import MuiRadio from '../lib/components/MuiRadio/MuiRadio';
 import HTMLSelect from '../lib/components/HTMLSelect/HTMLSelect';
 
-import Submit from '../lib/components/Submit/Submit';
+import MuiSubmit from '../lib/components/MuiSubmit/MuiSubmit';
+import HTMLSubmit from '../lib/components/HTMLSubmit/HTMLSubmit';
 
 
 const onSubmit = async (values) => {
@@ -69,7 +70,8 @@ const App = () => (
 
       </div>
     </div>
-    <Submit />
+    <MuiSubmit />
+    <HTMLSubmit buttonText='Submit Button'/>
   </ReactFinalForm>
 );
 

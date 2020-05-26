@@ -8,7 +8,7 @@ import MuiIcon from '../MUI/MuiIcon/MuiIcon';
    * Submit Button For Form
 */
 
-export const Submit = ({
+export const MuiSubmit = ({
   submitting,
   color,
   disableElevation,
@@ -52,9 +52,9 @@ export const Submit = ({
   );
 };
 
-export default Submit;
+export default MuiSubmit;
 
-Submit.propTypes = {
+MuiSubmit.propTypes = {
   /** passed down from React Final Form when submitting */
   submitting: PropTypes.bool,
   /** button text */
@@ -109,7 +109,7 @@ Submit.propTypes = {
   variant: PropTypes.string,
 };
 
-Submit.defaultProps = {
+MuiSubmit.defaultProps = {
   submitting: false,
   buttonText: 'submit',
   color: 'secondary',
