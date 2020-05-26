@@ -6,6 +6,7 @@ import Select from '../lib/components/MuiSelect/MuiSelect';
 import MuiCheckBox from '../lib/components/MuiCheckBox/MuiCheckBox';
 import MuiRadio from '../lib/components/MuiRadio/MuiRadio';
 import HTMLInput from '../lib/components/HTMLInput/HTMLInput';
+import HTMLRadio from '../lib/components/HTMLRadio/HTMLRadio';
 
 import Submit from '../lib/components/Submit/Submit';
 
@@ -51,6 +52,20 @@ const App = () => (
         name="htmlInput"
         label="EnterValue"
         maxLength={10}
+      />
+    </div>
+    <div>
+      <HTMLRadio
+        name="htmlRadioButton"
+        label="RadioLabel1"
+        value="RadioValue1"
+        labelPlacement="bottom"
+      />
+      <HTMLRadio
+        name="htmlRadioButton"
+        label="RadioLabel2"
+        value="RadioValue2"
+        labelPlacement="top"
       />
     </div>
     <Submit />

@@ -23,6 +23,7 @@ export const HTMLInput = ({
     })}
   >
     <input
+      type="text"
       placeholder={placeholder}
       disabled={disabled}
       required={required}
