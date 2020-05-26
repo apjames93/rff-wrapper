@@ -1,14 +1,14 @@
-Input example:
+MuiInput example:
 
 ```js noeditor
-import Submit from '../Submit/Submit';
-import Input from './Input';
+import MuiSubmit from '../MuiSubmit/MuiSubmit';
+import MuiInput from './MuiInput';
 ```
 
 ```js
 import Form from '../Form/Form';
-import Submit from '../Submit/Submit';
-import Input from './Input';
+import MuiSubmit from '../MuiSubmit/MuiSubmit';
+import MuiInput from './MuiInput';
 
 
 const onSubmit = async (values) => {
@@ -18,20 +18,20 @@ const onSubmit = async (values) => {
   <Form
     onSubmit={onSubmit}
   >
-    <Input
+    <MuiInput
       name="thing"
       label="thing"
     />
-    <Input
+    <MuiInput
       name="number"
       label="number"
       type="number"
     />
-    <Input
+    <MuiInput
       name="date"
       label="date"
       type="date"
     />
-    <Submit />
+    <MuiSubmit />
   </Form>
 ```

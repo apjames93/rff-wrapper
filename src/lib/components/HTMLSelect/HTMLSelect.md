@@ -1,14 +1,14 @@
-MuiSelect example:
+HTMLSelect example:
 
 ```js noeditor
 import MuiSubmit from '../MuiSubmit/MuiSubmit';
-import MuiSelect from './MuiSelect';
+import HTMLSelect from './HTMLSelect';
 ```
 
 ```js
 import Form from '../Form/Form';
 import MuiSubmit from '../MuiSubmit/MuiSubmit';
-import MuiSelect from './MuiSelect';
+import HTMLSelect from './HTMLSelect';
 
 
 const onSubmit = async (values) => {
@@ -18,16 +18,19 @@ const onSubmit = async (values) => {
   <Form
     onSubmit={onSubmit}
   >
-    <MuiSelect
+    <HTMLSelect
       name="otherThing"
       type="select"
       options={['one', 'two', 'three']}
+      label='First Select'
+      labelPlacement='top'
     />
-    <MuiSelect
+    <HTMLSelect
       name="stuff"
       type="select"
       options={[{ num: 'six' }, { num: 'nine' }]}
       displayKey="num"
+      label='Second Select'
     />
     <MuiSubmit />
   </Form>
