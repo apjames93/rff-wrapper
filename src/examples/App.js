@@ -55,11 +55,11 @@ const App = () => (
       />
 
       <div>
-        {/* <HTMLSelect
-          name="HTMLSelect1"
+        <HTMLSelect
+          name="HTMLSelect121"
           label="testingSelect"
-          options={['one', 'two', 'three']}
-        /> */}
+          options={[1, 'two', 'three']}
+        />
 
         <HTMLSelect
           name="HTMLSelect1"

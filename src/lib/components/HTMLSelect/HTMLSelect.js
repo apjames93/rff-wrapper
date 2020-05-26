@@ -28,8 +28,9 @@ export const HTMLSelect = ({
         <select name={name} id={name}>
           {options.map((item, i) => {
             const itemVal = item instanceof Object ? item[displayKey] : item;
+            const stringifyVal = item instanceof Object ? JSON.stringify(item) : item;
             return (
-              <option value={JSON.stringify(item)} key={i}>
+              <option value={stringifyVal} key={i}>
                 {itemVal}
               </option>
             );
