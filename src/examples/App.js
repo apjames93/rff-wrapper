@@ -66,12 +66,13 @@ const App = () => (
           label="Numbers"
           options={[{ num: 'six' }, { num: 'nine' }]}
           displayKey="num"
+          initalValue={{ num: 'six' }}
         />
 
       </div>
     </div>
     <MuiSubmit />
-    <HTMLSubmit buttonText='Submit Button'/>
+    <HTMLSubmit />
   </ReactFinalForm>
 );
 

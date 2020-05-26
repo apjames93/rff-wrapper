@@ -9,23 +9,16 @@ export const HTMLSelect = ({
   options,
   displayKey,
   labelPlacement,
+  initialValue,
 }) => (
   <RFFField
     name={name}
     label={label}
+    initialValue={initialValue}
     passProps={field => ({
       name: field.input.name,
       value: field.input.value,
-      onChange: (e) => {
-        const { value } = e.target;
-        const matchingVal = options.find((option) => {
-          const itemVal = option instanceof Object ? option[displayKey] : option;
-          return value === itemVal;
-        });
-        console.log(field.input.onChange);
-        return field.input.onChange(value);
-      },
-      // onChange: field.input.onChange,
+      onChange: field.input.onChange,
       label: (label || field.input.name),
       error: (field.meta.error && field.meta.touched),
     })}
@@ -35,15 +28,8 @@ export const HTMLSelect = ({
         <select name={name} id={name}>
           {options.map((item, i) => {
             const itemVal = item instanceof Object ? item[displayKey] : item;
-            if (i === 0) {
-              return (
-                <option value={itemVal} key={i} selected>
-                  {itemVal}
-                </option>
-              );
-            }
             return (
-              <option value={itemVal} key={i} selected>
+              <option value={JSON.stringify(item)} key={i}>
                 {itemVal}
               </option>
             );
@@ -61,7 +47,7 @@ export default HTMLSelect;
 HTMLSelect.propTypes = {
   /** options for select */
   options: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.shape, PropTypes.string, PropTypes.number]),
+    PropTypes.oneOfType([PropTypes.shape, PropTypes.string, PropTypes.number])
   ).isRequired,
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
@@ -70,7 +56,7 @@ HTMLSelect.propTypes = {
   /**
    * If passing an array of objects to the select
    * then use displayKey to show the key value in the select
-  */
+   */
   displayKey: PropTypes.string,
   /**
    * The label content.
@@ -81,10 +67,16 @@ HTMLSelect.propTypes = {
    * The position of the label.
    */
   labelPlacement: PropTypes.string,
+  /**
+   * The initial value for the field. This value will be used to calculate dirty and pristine by comparing it to the current value of the field. If you want field to be dirty upon creation, you can set one value with initialValue and set the value of the field with defaultValue.
+   * The value given here will override any initialValues given to the entire form.
+   */
+  initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 HTMLSelect.defaultProps = {
   label: '',
   displayKey: '',
   labelPlacement: 'top',
+  initialValue: undefined,
 };

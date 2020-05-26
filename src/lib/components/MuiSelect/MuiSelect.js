@@ -58,7 +58,6 @@ export const MuiSelect = ({
       type="select"
       variant={variant}
     >
-
       {options.map((item, i) => (
         <MenuItem key={i} value={item}>
           <option value={item}>
