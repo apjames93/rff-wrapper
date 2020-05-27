@@ -7,6 +7,7 @@ import MuiCheckBox from '../lib/components/MuiCheckBox/MuiCheckBox';
 import MuiRadio from '../lib/components/MuiRadio/MuiRadio';
 import HTMLInput from '../lib/components/HTMLInput/HTMLInput';
 import HTMLRadio from '../lib/components/HTMLRadio/HTMLRadio';
+import HTMLCheckbox from '../lib/components/HTMLCheckbox/HTMLCheckbox';
 
 import Submit from '../lib/components/Submit/Submit';
 
@@ -66,6 +67,34 @@ const App = () => (
         label="RadioLabel2"
         value="RadioValue2"
         labelPlacement="top"
+      />
+    </div>
+    <div>
+      <HTMLCheckbox
+        name="car"
+        label="car"
+        labelPlacement="top"
+      />
+    </div>
+    <div>
+      <MuiCheckBox
+        name="thing"
+        label="thing"
+        checkedIcon={{
+          iconName: 'alarm_off',
+        }}
+      />
+
+      <MuiCheckBox
+        name="otherThing"
+        label="otherThing"
+        icon={{
+          iconName: 'alarm_off',
+        }}
+      />
+
+      <MuiCheckBox
+        name="normalThing"
       />
     </div>
     <Submit />
