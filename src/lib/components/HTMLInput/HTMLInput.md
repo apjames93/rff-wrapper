@@ -1,4 +1,4 @@
-MuiSubmit example:
+HTMLInput example:
 
 ```js noeditor
 import MuiSubmit from '../MuiSubmit/MuiSubmit';
