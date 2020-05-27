@@ -1,13 +1,12 @@
 import React from 'react';
-
-import ReactFinalForm from '../lib/components/Form/Form';
-import MuiInput from '../lib/components/MuiInput/MuiInput';
-import Select from '../lib/components/MuiSelect/MuiSelect';
-import MuiCheckBox from '../lib/components/MuiCheckBox/MuiCheckBox';
-import MuiRadio from '../lib/components/MuiRadio/MuiRadio';
-
-import Submit from '../lib/components/Submit/Submit';
-
+import {
+  Form,
+  MuiInput,
+  MuiSelect,
+  MuiCheckBox,
+  MuiRadio,
+  MuiSubmit,
+} from '../lib/index.mjs';
 
 const onSubmit = async (values) => {
   await setTimeout(() => {
@@ -17,44 +16,45 @@ const onSubmit = async (values) => {
 };
 
 const App = () => (
-  <ReactFinalForm
+  <Form
     onSubmit={onSubmit}
   >
     <MuiInput
       name="thing"
       label="thing"
     />
-    <Select
+
+    <MuiSelect
       name="otherThing"
-      type="select"
       options={['one', 'two', 'three']}
     />
-    <Select
+
+    <MuiSelect
       name="stuff"
-      type="select"
       options={[{ num: 'six' }, { num: 'nine' }]}
       displayKey="num"
     />
+
     <MuiCheckBox name="cool" />
-    <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '100px'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '100px' }}>
       <MuiRadio
         name="radioName"
-        value='testValue1'
-        color='default'
-        label='radioButton1'
+        value="testValue1"
+        color="default"
+        label="radioButton1"
         checkedIcon={{ iconName: 'menu' }}
         icon={{ iconName: 'star' }}
       />
       <MuiRadio
         name="radioName"
-        value='testValue2'
-        color='default'
-        label='radioButton2'
+        value="testValue2"
+        color="default"
+        label="radioButton2"
       />
 
     </div>
-    <Submit />
-  </ReactFinalForm>
+    <MuiSubmit />
+  </Form>
 );
 
 export default App;

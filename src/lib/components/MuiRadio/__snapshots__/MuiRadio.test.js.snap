@@ -5,9 +5,3 @@ exports[`<MuiRadio /> snapshot 1`] = `
   onSubmit={[Function]}
 />
 `;
-
-exports[`<Radio /> snapshot 1`] = `
-<form
-  onSubmit={[Function]}
-/>
-`;
