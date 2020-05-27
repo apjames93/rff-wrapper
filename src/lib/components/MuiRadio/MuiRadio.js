@@ -14,6 +14,7 @@ export const MuiRadio = ({
   size,
   value,
   label,
+  labelPlacement,
 }) => {
   let radioProps;
   if (checkedIcon && icon) {
@@ -49,11 +50,10 @@ export const MuiRadio = ({
       })}
     >
       <FormControlLabel
-        control={
-          <Radio {...radioProps} />
-        }
+        control={<Radio {...radioProps} />}
         value={value}
         label={label}
+        labelPlacement={labelPlacement}
       />
     </RFFField>
   );
@@ -133,8 +133,13 @@ MuiRadio.propTypes = {
    */
   value: PropTypes.string,
   /** The label content.
-  */
+   */
   label: PropTypes.string,
+  /**
+   * MUI Props: 'bottom' | 'end' | 'start' | 'top'
+   * The position of the label.
+   */
+  labelPlacement: PropTypes.string,
 };
 
 MuiRadio.defaultProps = {
@@ -147,4 +152,5 @@ MuiRadio.defaultProps = {
   size: 'medium',
   value: null,
   label: '',
+  labelPlacement: 'end',
 };
