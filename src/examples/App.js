@@ -5,11 +5,10 @@ import MuiInput from '../lib/components/MuiInput/MuiInput';
 import Select from '../lib/components/MuiSelect/MuiSelect';
 import MuiCheckBox from '../lib/components/MuiCheckBox/MuiCheckBox';
 import MuiRadio from '../lib/components/MuiRadio/MuiRadio';
-import HTMLInput from '../lib/components/HTMLInput/HTMLInput';
-import HTMLRadio from '../lib/components/HTMLRadio/HTMLRadio';
-import HTMLCheckbox from '../lib/components/HTMLCheckbox/HTMLCheckbox';
+import HTMLSelect from '../lib/components/HTMLSelect/HTMLSelect';
 
-import Submit from '../lib/components/Submit/Submit';
+import MuiSubmit from '../lib/components/MuiSubmit/MuiSubmit';
+import HTMLSubmit from '../lib/components/HTMLSubmit/HTMLSubmit';
 
 
 const onSubmit = async (values) => {
@@ -23,12 +22,22 @@ const App = () => (
   <ReactFinalForm
     onSubmit={onSubmit}
   >
-    <div style={{ textAlign: 'center' }}>
-      <MuiInput
-        name="thing"
-        label="thing"
-      />
-    </div>
+    <MuiInput
+      name="thing"
+      label="thing"
+    />
+    <Select
+      name="otherThing"
+      type="select"
+      options={['one', 'two', 'three']}
+    />
+    <Select
+      name="stuff"
+      type="select"
+      options={[{ num: 'six' }, { num: 'nine' }]}
+      displayKey="num"
+    />
+    <MuiCheckBox name="cool" />
     <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '100px' }}>
       <MuiRadio
         name="radioName"
@@ -44,58 +53,26 @@ const App = () => (
         color="default"
         label="radioButton2"
       />
+
+      <div>
+        <HTMLSelect
+          name="HTMLSelect121"
+          label="testingSelect"
+          options={[1, 'two', 'three']}
+        />
+
+        <HTMLSelect
+          name="HTMLSelect1"
+          label="Numbers"
+          options={[{ num: 'six' }, { num: 'nine' }]}
+          displayKey="num"
+          initalValue={{ num: 'six' }}
+        />
+
+      </div>
     </div>
-    <div style={{
-      marginTop: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center',
-    }}
-    >
-      <HTMLInput
-        name="htmlInput"
-        label="EnterValue"
-        maxLength={10}
-      />
-    </div>
-    <div>
-      <HTMLRadio
-        name="htmlRadioButton"
-        label="RadioLabel1"
-        value="RadioValue1"
-        labelPlacement="bottom"
-      />
-      <HTMLRadio
-        name="htmlRadioButton"
-        label="RadioLabel2"
-        value="RadioValue2"
-        labelPlacement="top"
-      />
-    </div>
-    <div>
-      <HTMLCheckbox
-        name="car"
-        label="car"
-        labelPlacement="top"
-      />
-    </div>
-    <div>
-      <MuiCheckBox
-        name="thing"
-        label="thing"
-        checkedIcon={{
-          iconName: 'alarm_off',
-        }}
-      />
-      <MuiCheckBox
-        name="otherThing"
-        label="otherThing"
-        icon={{
-          iconName: 'alarm_off',
-        }}
-      />
-      <MuiCheckBox
-        name="normalThing"
-      />
-    </div>
-    <Submit />
+    <MuiSubmit />
+    <HTMLSubmit />
   </ReactFinalForm>
 );
 
