@@ -18,17 +18,21 @@ const onSubmit = async (values) => {
   <Form
     onSubmit={onSubmit}
   >
-    <MuiSelect
-      name="otherThing"
-      type="select"
-      options={['one', 'two', 'three']}
-    />
-    <MuiSelect
-      name="stuff"
-      type="select"
-      options={[{ num: 'six' }, { num: 'nine' }]}
-      displayKey="num"
-    />
+    <div>
+      <MuiSelect
+        name="otherThing"
+        type="select"
+        options={['one', 'two', 'three']}
+      />
+    </div>
+    <div>
+      <MuiSelect
+        name="stuff"
+        type="select"
+        options={[{ num: 'six' }, { num: 'nine' }]}
+        displayKey="num"
+      />
+    </div>
     <MuiSubmit />
   </Form>
 ```
