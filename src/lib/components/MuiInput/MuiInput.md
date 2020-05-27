@@ -12,7 +12,7 @@ import MuiInput from './MuiInput';
 
 
 const onSubmit = async (values) => {
-  console.log('Input Form', values)
+  console.log('MuiInput Form', values)
 }
 
   <Form

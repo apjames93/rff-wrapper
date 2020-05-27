@@ -1,11 +1,10 @@
-Input example:
+Form example:
 
 ```js noeditor
 import Form from './Form';
 import MuiSubmit from '../MuiSubmit/MuiSubmit';
 import MuiInput from '../MuiInput/MuiInput';
 import MuiSelect from '../MuiSelect/MuiSelect';
-
 ```
 
 ```js
@@ -36,14 +35,11 @@ const onSubmit = async (values) => {
       label="date"
       type="date"
     />
-
     <MuiSelect
       name="stuff"
-      type="select"
       options={[{ num: 'six' }, { num: 'nine' }]}
       displayKey="num"
     />
-
     <MuiSubmit />
   </Form>
 ```

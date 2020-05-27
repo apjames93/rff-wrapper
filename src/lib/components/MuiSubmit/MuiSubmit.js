@@ -6,6 +6,7 @@ import MuiIcon from '../MUI/MuiIcon/MuiIcon';
 
 /**
    * Submit Button For Form
+   * MuiSubmit Button For Form
 */
 
 export const MuiSubmit = ({
