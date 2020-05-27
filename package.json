@@ -1,14 +1,14 @@
 {
-  "name": "mui-rff",
-  "version": "1.0.33",
-  "description": "",
+  "name": "rff-wrapper",
+  "version": "1.0.01",
+  "description": "react-final-form wrapper",
   "author": "apjames93",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "apjames93/mui-rff"
+    "url": "apjames93/rff-wrapper.git"
   },
   "files": [
     "dist"
@@ -111,7 +111,10 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "3.4.1",
     "react-styleguidist": "^11.0.4",
-    "react-test-renderer": "^16.3.2"
+    "react-test-renderer": "^16.3.2",
+    "final-form": "^4.19.1",
+    "final-form-arrays": "^3.0.2",
+    "react-final-form": "^6.4.0"
   },
   "peerDependencies": {
     "react-hot-loader": "3.0.0-beta.5",
@@ -119,6 +122,9 @@
     "@material-ui/core": "^4.9.4",
     "@material-ui/icons": "^3.0.2",
     "node-sass": "^4.13.1",
+    "final-form": "^4.19.1",
+    "final-form-arrays": "^3.0.2",
+    "react-final-form": "^6.4.0",
     "react-router-dom": "^4.3.1",
     "prop-types": "^15.5.4",
     "react": "^16.13.1",
@@ -136,9 +142,8 @@
     "test-ci": "react-scripts test --env=jsdom --coverage --runInBand --testPathPattern=src/lib/components",
     "styleguide": "npx styleguidist server",
     "styleguide:build": "npx styleguidist build",
-    "deploy-docs": "npm run styleguide:build && aws s3 sync styleguide/ s3://mui-storyblok-docs.com/ --delete"
+    "deploy-docs": "npm run styleguide:build && aws s3 sync styleguide/ s3://rff-wrapper-docs.com/ --delete"
   },
-  "bin": {},
   "browserslist": {
     "production": [
       ">0.2%",
@@ -162,7 +167,6 @@
     "node-sass": "^4.13.1",
     "react-final-form": "^6.4.0",
     "react-router-dom": "^4.3.1",
-    "react-swipeable-views": "^0.13.9",
-    "storyblok-migrate": "^0.3.3"
+    "react-swipeable-views": "^0.13.9"
   }
 }
