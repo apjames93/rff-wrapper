@@ -1,4 +1,4 @@
-CheckBox example:
+MuiCheckbox example:
 
 ```js noeditor
 import MuiSubmit from '../MuiSubmit/MuiSubmit';
