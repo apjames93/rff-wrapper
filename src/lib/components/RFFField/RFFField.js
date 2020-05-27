@@ -47,6 +47,7 @@ export const RFFField = ({
   >
     {field => (
       <>
+        {console.log('field: ', field)}
         {children && cloneElement(
           children,
           {
