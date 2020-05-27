@@ -84,7 +84,6 @@ const App = () => (
           iconName: 'alarm_off',
         }}
       />
-
       <MuiCheckBox
         name="otherThing"
         label="otherThing"
@@ -92,7 +91,6 @@ const App = () => (
           iconName: 'alarm_off',
         }}
       />
-
       <MuiCheckBox
         name="normalThing"
       />
