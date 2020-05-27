@@ -2,7 +2,7 @@ import React from 'react';
 
 import ReactFinalForm from '../lib/components/Form/Form';
 import MuiInput from '../lib/components/MuiInput/MuiInput';
-import Select from '../lib/components/MuiSelect/MuiSelect';
+import MuiSelect from '../lib/components/MuiSelect/MuiSelect';
 import MuiCheckBox from '../lib/components/MuiCheckBox/MuiCheckBox';
 import MuiRadio from '../lib/components/MuiRadio/MuiRadio';
 import HTMLSelect from '../lib/components/HTMLSelect/HTMLSelect';
@@ -26,12 +26,12 @@ const App = () => (
       name="thing"
       label="thing"
     />
-    <Select
+    <MuiSelect
       name="otherThing"
       type="select"
       options={['one', 'two', 'three']}
     />
-    <Select
+    <MuiSelect
       name="stuff"
       type="select"
       options={[{ num: 'six' }, { num: 'nine' }]}
@@ -68,7 +68,6 @@ const App = () => (
           displayKey="num"
           initalValue={{ num: 'six' }}
         />
-
       </div>
     </div>
     <MuiSubmit />

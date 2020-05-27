@@ -48,7 +48,7 @@ export default HTMLSelect;
 HTMLSelect.propTypes = {
   /** options for select */
   options: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.shape, PropTypes.string, PropTypes.number])
+    PropTypes.oneOfType([PropTypes.shape, PropTypes.string, PropTypes.number]),
   ).isRequired,
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
