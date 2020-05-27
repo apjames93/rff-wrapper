@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<HTMLSubmit /> snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+/>
+`;
+
 exports[`<Select /> snapshot 1`] = `
 <form
   onSubmit={[Function]}

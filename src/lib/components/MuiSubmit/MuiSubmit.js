@@ -21,37 +21,34 @@ export const MuiSubmit = ({
   startIcon,
   variant,
   buttonText,
-}) => {
-  return (
-    <>
-      {submitting && (
-      <CircularProgress />
-      )}
-      {!submitting && (
-      <Button
-        type="submit"
-        color={color}
-        disableElevation={disableElevation}
-        disableFocusRipple={disableFocusRipple}
-        disableRipple={disableRipple}
-        endIcon={endIcon ? (
-          <MuiIcon iconName={endIcon} />
-        ) : null}
-        fullWidth={fullWidth}
-        size={size}
-        startIcon={startIcon ? (
-          <MuiIcon iconName={startIcon} />
-        ) : null}
-        variant={variant}
-        data-testid="Button"
-      >
-        {buttonText}
-      </Button>
-      )}
-
-    </>
-  );
-};
+}) => (
+  <>
+    {submitting && (
+    <CircularProgress />
+    )}
+    {!submitting && (
+    <Button
+      type="submit"
+      color={color}
+      disableElevation={disableElevation}
+      disableFocusRipple={disableFocusRipple}
+      disableRipple={disableRipple}
+      endIcon={endIcon ? (
+        <MuiIcon iconName={endIcon} />
+      ) : null}
+      fullWidth={fullWidth}
+      size={size}
+      startIcon={startIcon ? (
+        <MuiIcon iconName={startIcon} />
+      ) : null}
+      variant={variant}
+      data-testid="Button"
+    >
+      {buttonText}
+    </Button>
+    )}
+  </>
+);
 
 export default MuiSubmit;
 
@@ -62,7 +59,8 @@ MuiSubmit.propTypes = {
   buttonText: PropTypes.string,
   /**
      * mui prop: 'default'| 'inherit'| 'primary'| 'secondary'
-     * The color of the component. It supports those theme colors that make sense for this component.
+     * The color of the component.
+     * It supports those theme colors that make sense for this component.
      * */
   color: PropTypes.string,
   /**
