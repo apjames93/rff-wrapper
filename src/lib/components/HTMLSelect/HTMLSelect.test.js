@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import { HTMLSelect } from './HTMLSelect';
 import Form from '../Form/Form';
@@ -25,9 +24,7 @@ describe('<Select />', () => {
     const { props } = setup();
     const tree = renderer.create(
       <Form onSubmit={() => true}>
-        <MemoryRouter>
-          <HTMLSelect {...props} />
-        </MemoryRouter>
+        <HTMLSelect {...props} />
       </Form>,
     );
     expect(tree).toMatchSnapshot();
