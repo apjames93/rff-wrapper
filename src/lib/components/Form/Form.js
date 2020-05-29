@@ -1,8 +1,6 @@
-import React, { cloneElement, lazy } from 'react';
+import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-final-form';
-
-const arrayMutators = lazy(() => import('final-form-arrays'));
 
 export const ReactFinalForm = ({
   children,
@@ -10,7 +8,6 @@ export const ReactFinalForm = ({
   initialValues,
   initialValuesEqual,
   keepDirtyOnReinitialize,
-  mutators,
   onSubmit,
   subscription,
   validate,
@@ -21,7 +18,6 @@ export const ReactFinalForm = ({
     initialValues={initialValues}
     initialValuesEqual={initialValuesEqual}
     keepDirtyOnReinitialize={keepDirtyOnReinitialize}
-    // mutators={tators}
     onSubmit={onSubmit}
     subscription={subscription}
     validate={validate}
@@ -29,15 +25,24 @@ export const ReactFinalForm = ({
   >
     {({ handleSubmit, submitting, form }) => (
       <form onSubmit={handleSubmit}>
+        <>
+          {Array.isArray(children) && children.map((child, key) => cloneElement(
+            child,
+            {
+              key,
+              submitting,
+              form,
+            },
+          ))}
 
-        {children && children.length && children.map((child, index) => cloneElement(
-          child,
-          {
-            key: index,
-            submitting,
-            form,
-          },
-        ))}
+          {!Array.isArray(children) && cloneElement(
+            children,
+            {
+              submitting,
+              form,
+            },
+          )}
+        </>
       </form>
     )}
   </Form>
@@ -72,11 +77,6 @@ ReactFinalForm.propTypes = {
    */
   keepDirtyOnReinitialize: PropTypes.bool,
   /**
-     * Named mutator functions.
-     * obj of setters and getters for mutator mui-rff will spread arrayMutators if object is not empty
-    */
-  mutators: PropTypes.shape(),
-  /**
    * An object of the parts of FormState to subscribe to. If a subscription is provided, the <Form/> will only rerender when those parts of form state change.
     If no subscription is provided, it will default to subscribing to all form state changes. i.e. <Form/> will rerender whenever any part of the form state changes.
    * ex : { [string]: boolean }
@@ -98,7 +98,6 @@ ReactFinalForm.defaultProps = {
   initialValues: {},
   initialValuesEqual: false,
   keepDirtyOnReinitialize: false,
-  mutators: {},
   subscription: undefined,
   validate: undefined,
   validateOnBlur: false,
