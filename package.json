@@ -142,7 +142,9 @@
     "test-ci": "react-scripts test --env=jsdom --coverage --runInBand --testPathPattern=src/lib/components",
     "styleguide": "npx styleguidist server",
     "styleguide:build": "npx styleguidist build",
-    "deploy-docs": "npm run styleguide:build && aws s3 sync styleguide/ s3://rff-wrapper-docs.com/ --delete"
+    "deploy-docs": "npm run styleguide:build && aws s3 sync styleguide/ s3://rff-wrapper-docs.com/ --delete",
+    "test-report": "react-scripts test --watchAll=false --coverage"
+
   },
   "browserslist": {
     "production": [
