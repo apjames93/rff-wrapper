@@ -125,7 +125,7 @@ MuiCheckBox.propTypes = {
   indeterminate: PropTypes.bool,
   /**
      * The size of the checkbox. small is equivalent to the dense checkbox styling.
-     * mui prop: 'medium'| 'small' | 'medium'
+     * mui prop: 'medium'| 'small'
      */
   size: PropTypes.string,
 };

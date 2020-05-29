@@ -58,7 +58,6 @@ export const MuiInput = ({
 export default MuiInput;
 
 MuiInput.propTypes = {
-
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
    */

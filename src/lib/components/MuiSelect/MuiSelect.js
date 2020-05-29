@@ -22,7 +22,6 @@ export const MuiSelect = ({
   helperText,
   label,
   margin,
-  multiline,
   placeholder,
   rows,
   rowsMax,
@@ -50,7 +49,6 @@ export const MuiSelect = ({
       fullWidth={fullWidth}
       helperText={helperText}
       margin={margin}
-      multiline={multiline}
       placeholder={placeholder}
       rows={rows}
       rowsMax={rowsMax}
@@ -127,22 +125,11 @@ MuiSelect.propTypes = {
  * ex 'dense' | 'none' | 'normal'
  */
   margin: PropTypes.string,
-  /**
- * If true, a textarea element will be rendered instead of an input.
- */
-  multiline: PropTypes.bool,
+
   /**
  * The short hint displayed in the input before the user enters a value.
  */
   placeholder: PropTypes.string,
-  /**
- * Number of rows to display when multiline option is set to true.
- */
-  rows: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /**
- * Maximum number of rows to display when multiline option is set to true.
- */
-  rowsMax: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
  * The size of the text field.
  * ex: 'medium'| 'small'
@@ -166,10 +153,7 @@ MuiSelect.defaultProps = {
   fullWidth: false,
   helperText: null,
   margin: 'normal',
-  multiline: false,
   placeholder: '',
-  rows: '',
-  rowsMax: '',
   size: 'medium',
   variant: 'standard',
 };
