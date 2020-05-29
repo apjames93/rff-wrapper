@@ -50,7 +50,13 @@ export const MuiRadio = ({
       })}
     >
       <FormControlLabel
-        control={<Radio {...radioProps} />}
+        data-testid="MuiRadioID"
+        control={(
+          <Radio
+            {...radioProps}
+            // data-testid="MuiRadio"
+          />
+        )}
         value={value}
         label={label}
         labelPlacement={labelPlacement}
