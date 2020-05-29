@@ -1,15 +1,15 @@
 import React from 'react';
 
-import ReactFinalForm from '../lib/components/Form/Form';
-import MuiInput from '../lib/components/MuiInput/MuiInput';
-import MuiSelect from '../lib/components/MuiSelect/MuiSelect';
-import MuiCheckBox from '../lib/components/MuiCheckBox/MuiCheckBox';
-import MuiRadio from '../lib/components/MuiRadio/MuiRadio';
-import HTMLSelect from '../lib/components/HTMLSelect/HTMLSelect';
-
-import MuiSubmit from '../lib/components/MuiSubmit/MuiSubmit';
-import HTMLSubmit from '../lib/components/HTMLSubmit/HTMLSubmit';
-
+import {
+  Form,
+  MuiInput,
+  MuiSelect,
+  MuiCheckbox,
+  MuiRadio,
+  HTMLSelect,
+  MuiSubmit,
+  HTMLSubmit,
+} from '../lib/index';
 
 const onSubmit = async (values) => {
   await setTimeout(() => {
@@ -19,7 +19,7 @@ const onSubmit = async (values) => {
 };
 
 const App = () => (
-  <ReactFinalForm
+  <Form
     onSubmit={onSubmit}
   >
     <MuiInput
@@ -37,7 +37,7 @@ const App = () => (
       options={[{ num: 'six' }, { num: 'nine' }]}
       displayKey="num"
     />
-    <MuiCheckBox name="cool" />
+    <MuiCheckbox name="cool" />
     <div style={{ display: 'flex', flexDirection: 'column', marginLeft: '100px' }}>
       <MuiRadio
         name="radioName"
@@ -72,7 +72,7 @@ const App = () => (
     </div>
     <MuiSubmit />
     <HTMLSubmit />
-  </ReactFinalForm>
+  </Form>
 );
 
 export default App;
