@@ -10,6 +10,14 @@ import RFFField from '../RFFField/RFFField';
  * ⚠️ IMPORTANT ⚠️ – you must pass the options of the select as children.
 */
 
+export const passPropsCallBack = (field, label) => ({
+  name: field.input.name,
+  value: field.input.value,
+  onChange: field.input.onChange,
+  label: (label || field.input.name),
+  error: (field.meta.error && field.meta.touched),
+});
+
 export const MuiSelect = ({
   options,
   displayKey,
@@ -23,22 +31,13 @@ export const MuiSelect = ({
   label,
   margin,
   placeholder,
-  rows,
-  rowsMax,
   size,
   variant,
   name,
 }) => (
   <RFFField
     name={name}
-    label={label}
-    passProps={field => ({
-      name: field.input.name,
-      value: field.input.value,
-      onChange: field.input.onChange,
-      label: (label || field.input.name),
-      error: (field.meta.error && field.meta.touched),
-    })}
+    passProps={field => passPropsCallBack(field, label)}
   >
     <TextField
       select
@@ -50,8 +49,6 @@ export const MuiSelect = ({
       helperText={helperText}
       margin={margin}
       placeholder={placeholder}
-      rows={rows}
-      rowsMax={rowsMax}
       size={size}
       type="select"
       variant={variant}
