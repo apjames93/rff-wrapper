@@ -37,6 +37,7 @@ export const MuiInput = ({
     })}
   >
     <TextField
+      data-testid="muiinput"
       autoComplete={autoComplete}
       autoFocus={autoFocus}
       color={color}
