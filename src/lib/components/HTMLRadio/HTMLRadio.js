@@ -26,6 +26,7 @@ export const HTMLRadio = ({
     <FormControlLabel
       control={(
         <input
+          data-testid="HTMLRadio"
           type="radio"
           disabled={disabled}
         />

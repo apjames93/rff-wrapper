@@ -37,6 +37,7 @@ export const MuiInput = ({
     })}
   >
     <TextField
+      data-testid="muiinput"
       autoComplete={autoComplete}
       autoFocus={autoFocus}
       color={color}
@@ -58,7 +59,6 @@ export const MuiInput = ({
 export default MuiInput;
 
 MuiInput.propTypes = {
-
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
    */

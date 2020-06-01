@@ -3,5 +3,10 @@
 exports[`<Select /> snapshot 1`] = `
 <form
   onSubmit={[Function]}
-/>
+>
+  <input
+    type="submit"
+    value="submit"
+  />
+</form>
 `;

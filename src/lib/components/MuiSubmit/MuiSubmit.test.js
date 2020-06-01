@@ -1,19 +1,19 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-import { HTMLInput } from './HTMLInput';
+import { MuiSubmit } from './MuiSubmit';
 import Form from '../Form/Form';
 
 function setup() {
   const props = {
-    name: 'cool',
+    buttonText: 'submit',
   };
-  const comp = shallow(<HTMLInput {...props} />);
+  const comp = shallow(<MuiSubmit {...props} />);
   return { comp, props };
 }
 
-describe('<Input />', () => {
-  it('renders Input', () => {
+describe('<Select />', () => {
+  it('renders Select', () => {
     const { comp } = setup();
     expect(comp).toBeDefined();
   });
@@ -22,7 +22,7 @@ describe('<Input />', () => {
     const { props } = setup();
     const tree = renderer.create(
       <Form onSubmit={() => true}>
-        <HTMLInput {...props} />
+        <MuiSubmit {...props} />
       </Form>,
     );
     expect(tree).toMatchSnapshot();

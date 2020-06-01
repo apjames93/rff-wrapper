@@ -10,6 +10,14 @@ import RFFField from '../RFFField/RFFField';
  * ⚠️ IMPORTANT ⚠️ – you must pass the options of the select as children.
 */
 
+export const passPropsCallBack = (field, label) => ({
+  name: field.input.name,
+  value: field.input.value,
+  onChange: field.input.onChange,
+  label: (label || field.input.name),
+  error: (field.meta.error && field.meta.touched),
+});
+
 export const MuiSelect = ({
   options,
   displayKey,
@@ -22,24 +30,14 @@ export const MuiSelect = ({
   helperText,
   label,
   margin,
-  multiline,
   placeholder,
-  rows,
-  rowsMax,
   size,
   variant,
   name,
 }) => (
   <RFFField
     name={name}
-    label={label}
-    passProps={field => ({
-      name: field.input.name,
-      value: field.input.value,
-      onChange: field.input.onChange,
-      label: (label || field.input.name),
-      error: (field.meta.error && field.meta.touched),
-    })}
+    passProps={field => passPropsCallBack(field, label)}
   >
     <TextField
       select
@@ -50,10 +48,7 @@ export const MuiSelect = ({
       fullWidth={fullWidth}
       helperText={helperText}
       margin={margin}
-      multiline={multiline}
       placeholder={placeholder}
-      rows={rows}
-      rowsMax={rowsMax}
       size={size}
       type="select"
       variant={variant}
@@ -127,22 +122,11 @@ MuiSelect.propTypes = {
  * ex 'dense' | 'none' | 'normal'
  */
   margin: PropTypes.string,
-  /**
- * If true, a textarea element will be rendered instead of an input.
- */
-  multiline: PropTypes.bool,
+
   /**
  * The short hint displayed in the input before the user enters a value.
  */
   placeholder: PropTypes.string,
-  /**
- * Number of rows to display when multiline option is set to true.
- */
-  rows: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /**
- * Maximum number of rows to display when multiline option is set to true.
- */
-  rowsMax: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
  * The size of the text field.
  * ex: 'medium'| 'small'
@@ -166,10 +150,7 @@ MuiSelect.defaultProps = {
   fullWidth: false,
   helperText: null,
   margin: 'normal',
-  multiline: false,
   placeholder: '',
-  rows: '',
-  rowsMax: '',
   size: 'medium',
   variant: 'standard',
 };

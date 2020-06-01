@@ -3,5 +3,51 @@
 exports[`<Input /> snapshot 1`] = `
 <form
   onSubmit={[Function]}
-/>
+>
+  <input
+    disabled={false}
+    field={
+      Object {
+        "input": Object {
+          "checked": undefined,
+          "name": "cool",
+          "onBlur": [Function],
+          "onChange": [Function],
+          "onFocus": [Function],
+          "value": "",
+        },
+        "meta": Object {
+          "active": false,
+          "data": Object {},
+          "dirty": false,
+          "dirtySinceLastSubmit": false,
+          "error": undefined,
+          "initial": undefined,
+          "invalid": false,
+          "length": undefined,
+          "modified": false,
+          "modifiedSinceLastSubmit": false,
+          "pristine": true,
+          "submitError": undefined,
+          "submitFailed": false,
+          "submitSucceeded": false,
+          "submitting": false,
+          "touched": false,
+          "valid": true,
+          "validating": false,
+          "visited": false,
+        },
+      }
+    }
+    label="cool"
+    maxLength={null}
+    name="cool"
+    onChange={[Function]}
+    placeholder=""
+    required={false}
+    size={0}
+    type="text"
+    value=""
+  />
+</form>
 `;

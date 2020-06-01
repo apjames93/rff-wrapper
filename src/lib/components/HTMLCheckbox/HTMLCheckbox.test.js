@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import { HTMLCheckbox } from './HTMLCheckbox';
 import Form from '../Form/Form';
@@ -24,9 +23,7 @@ describe('<HTMLCheckbox />', () => {
     const { props } = setup();
     const tree = renderer.create(
       <Form onSubmit={() => true}>
-        <MemoryRouter>
-          <HTMLCheckbox {...props} />
-        </MemoryRouter>
+        <HTMLCheckbox {...props} />
       </Form>,
     );
     expect(tree).toMatchSnapshot();
