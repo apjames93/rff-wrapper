@@ -2,13 +2,13 @@ MuiCheckbox example:
 
 ```js noeditor
 import MuiSubmit from '../MuiSubmit/MuiSubmit';
-import MuiCheckBox from './MuiCheckBox';
+import MuiCheckbox from './MuiCheckbox';
 ```
 
 ```js
 import Form from '../Form/Form';
 import MuiSubmit from '../MuiSubmit/MuiSubmit';
-import MuiCheckBox from './MuiCheckBox';
+import MuiCheckbox from './MuiCheckbox';
 
 
 const onSubmit = async (values) => {
@@ -18,7 +18,7 @@ const onSubmit = async (values) => {
   <Form
     onSubmit={onSubmit}
   >
-    <MuiCheckBox
+    <MuiCheckbox
       name="thing"
       label="thing"
       checkedIcon={{
@@ -26,7 +26,7 @@ const onSubmit = async (values) => {
         }}
     />
 
-    <MuiCheckBox
+    <MuiCheckbox
       name="otherThing"
       label="otherThing"
       icon={{
@@ -34,7 +34,7 @@ const onSubmit = async (values) => {
         }}
     />
 
-    <MuiCheckBox
+    <MuiCheckbox
       name="normalThing"
     />
 
