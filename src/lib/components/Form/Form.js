@@ -1,8 +1,8 @@
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
-import { Form } from 'react-final-form';
+import { Form as ReactFinalForm } from 'react-final-form';
 
-export const ReactFinalForm = ({
+export const RffWrapper = ({
   children,
   debug,
   initialValues,
@@ -13,7 +13,7 @@ export const ReactFinalForm = ({
   validate,
   validateOnBlur,
 }) => (
-  <Form
+  <ReactFinalForm
     debug={debug}
     initialValues={initialValues}
     initialValuesEqual={initialValuesEqual}
@@ -45,12 +45,12 @@ export const ReactFinalForm = ({
         </>
       </form>
     )}
-  </Form>
+  </ReactFinalForm>
 );
-export default ReactFinalForm;
+export default RffWrapper;
 
 // https://final-form.org/docs/react-final-form/types/FormProps
-ReactFinalForm.propTypes = {
+RffWrapper.propTypes = {
   /**
      * A render function that is given FormRenderProps, as well as any non-API props passed into the <Form/> component.
     */
@@ -93,7 +93,7 @@ ReactFinalForm.propTypes = {
   validateOnBlur: PropTypes.bool,
 };
 
-ReactFinalForm.defaultProps = {
+RffWrapper.defaultProps = {
   debug: undefined,
   initialValues: {},
   initialValuesEqual: false,
