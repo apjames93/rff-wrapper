@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import { MuiInput } from './MuiInput';
 import Form from '../Form/Form';
@@ -23,9 +22,7 @@ describe('<Input />', () => {
     const { props } = setup();
     const tree = renderer.create((
       <Form onSubmit={() => true}>
-        <MemoryRouter>
-          <MuiInput {...props} />
-        </MemoryRouter>
+        <MuiInput {...props} />
       </Form>
     ));
     expect(tree).toMatchSnapshot();

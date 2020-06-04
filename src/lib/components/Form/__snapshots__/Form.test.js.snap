@@ -3,5 +3,65 @@
 exports[`<Form /> snapshot 1`] = `
 <form
   onSubmit={[Function]}
-/>
+>
+  <div
+    className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+    data-testid="muiinput"
+    field={
+      Object {
+        "input": Object {
+          "checked": undefined,
+          "name": undefined,
+          "onBlur": [Function],
+          "onChange": [Function],
+          "onFocus": [Function],
+          "value": Object {},
+        },
+        "meta": Object {
+          "active": false,
+          "data": Object {},
+          "dirty": true,
+          "dirtySinceLastSubmit": false,
+          "error": Object {},
+          "initial": Object {},
+          "invalid": true,
+          "length": undefined,
+          "modified": false,
+          "modifiedSinceLastSubmit": false,
+          "pristine": false,
+          "submitError": undefined,
+          "submitFailed": false,
+          "submitSucceeded": false,
+          "submitting": false,
+          "touched": false,
+          "valid": false,
+          "validating": false,
+          "visited": false,
+        },
+      }
+    }
+  >
+    <div
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+      onClick={[Function]}
+    >
+      <input
+        aria-invalid={false}
+        autoComplete=""
+        autoFocus={false}
+        className="MuiInputBase-input MuiInput-input"
+        disabled={false}
+        onAnimationStart={[Function]}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder=""
+        required={false}
+        rows=""
+        type="text"
+        value={Object {}}
+      />
+    </div>
+  </div>
+</form>
 `;

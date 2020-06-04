@@ -50,7 +50,13 @@ export const MuiRadio = ({
       })}
     >
       <FormControlLabel
-        control={<Radio {...radioProps} />}
+        data-testid="MuiRadioID"
+        control={(
+          <Radio
+            {...radioProps}
+            // data-testid="MuiRadio"
+          />
+        )}
         value={value}
         label={label}
         labelPlacement={labelPlacement}
@@ -131,7 +137,7 @@ MuiRadio.propTypes = {
   /**
    * The value of the component. The DOM API casts this to a string.
    */
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   /** The label content.
    */
   label: PropTypes.string,
@@ -150,7 +156,6 @@ MuiRadio.defaultProps = {
   disableRipple: false,
   icon: null,
   size: 'medium',
-  value: null,
   label: '',
   labelPlacement: 'end',
 };

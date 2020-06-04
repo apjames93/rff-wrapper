@@ -5,10 +5,10 @@ import MuiIcon from '../MUI/MuiIcon/MuiIcon';
 import RFFField from '../RFFField/RFFField';
 
 /**
- * MuiCheckBox
+ * MuiCheckbox
 */
 
-export const MuiCheckBox = ({
+export const MuiCheckbox = ({
   name,
   // mui
   disabled,
@@ -47,9 +47,9 @@ export const MuiCheckBox = ({
 
 );
 
-export default MuiCheckBox;
+export default MuiCheckbox;
 
-MuiCheckBox.propTypes = {
+MuiCheckbox.propTypes = {
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
    */
@@ -125,12 +125,12 @@ MuiCheckBox.propTypes = {
   indeterminate: PropTypes.bool,
   /**
      * The size of the checkbox. small is equivalent to the dense checkbox styling.
-     * mui prop: 'medium'| 'small' | 'medium'
+     * mui prop: 'medium'| 'small'
      */
   size: PropTypes.string,
 };
 
-MuiCheckBox.defaultProps = {
+MuiCheckbox.defaultProps = {
   // mui
   label: '',
   checkedIcon: null,
