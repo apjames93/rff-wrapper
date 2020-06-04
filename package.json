@@ -1,11 +1,12 @@
 {
   "name": "rff-wrapper",
-  "version": "1.0.02",
+  "version": "1.0.04",
   "description": "react-final-form wrapper",
   "author": "apjames93",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "apjames93/rff-wrapper.git"
