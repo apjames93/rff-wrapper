@@ -82,7 +82,7 @@ MuiRadio.propTypes = {
      * */
     iconName: PropTypes.string.isRequired,
     /**
-     * mui prop: "inherit", "primary", "secondary", "action", "error", "disabled"
+     * mui prop: ["default","primary","secondary"]
      * The color of the component.
      * It supports those theme colors that make sense for this component.
      * */
