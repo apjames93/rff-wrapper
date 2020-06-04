@@ -1,6 +1,6 @@
 {
   "name": "rff-wrapper",
-  "version": "1.0.06",
+  "version": "1.0.07",
   "description": "react-final-form wrapper",
   "author": "apjames93",
   "license": "MIT",
@@ -142,7 +142,7 @@
     "build-examples": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build-app": "NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "build-app": "NODE_ENV=production babel src/lib --out-dir dist --copy-files",
     "build": "rm -rf dist && npm run build-app",
     "publish-npm": "npm run build && npm publish",
     "test-ci": "react-scripts test --env=jsdom --coverage --runInBand --testPathPattern=src/lib/components",
