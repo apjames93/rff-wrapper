@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "apjames93/rff-wrapper.git"
