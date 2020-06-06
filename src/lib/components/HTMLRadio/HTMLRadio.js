@@ -9,19 +9,13 @@ export const HTMLRadio = ({
   disabled,
   label,
   labelPlacement,
+  passProps,
 }) => (
   <RFFField
     type="radio"
     name={name}
     value={value}
-    passProps={field => ({
-      id: field.input.name,
-      value: field.input.value,
-      checked: field.input.checked,
-      onChange: () => {
-        field.input.onChange(field.input.value);
-      },
-    })}
+    passProps={passProps}
   >
     <FormControlLabel
       control={(
@@ -41,6 +35,10 @@ export const HTMLRadio = ({
 export default HTMLRadio;
 
 HTMLRadio.propTypes = {
+  /**
+   * props to pass to react final form field in call back have access to field as first arg
+   */
+  passProps: PropTypes.func,
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
    */
@@ -65,6 +63,12 @@ HTMLRadio.propTypes = {
 };
 
 HTMLRadio.defaultProps = {
+  passProps: field => ({
+    id: field.input.name,
+    value: field.input.value,
+    checked: field.input.checked,
+    onChange: field.input.onChange,
+  }),
   label: '',
   disabled: false,
   value: null,

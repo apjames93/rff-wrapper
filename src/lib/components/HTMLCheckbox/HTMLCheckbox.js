@@ -7,15 +7,12 @@ export const HTMLCheckbox = ({
   name,
   label,
   labelPlacement,
+  passProps,
 }) => (
   <RFFField
     type="checkbox"
     name={name}
-    passProps={field => ({
-      id: field.input.name,
-      value: field.input.value,
-      onChange: field.input.onChange,
-    })}
+    passProps={passProps}
   >
     <FormControlLabel
       control={(
@@ -25,12 +22,15 @@ export const HTMLCheckbox = ({
       labelPlacement={labelPlacement}
     />
   </RFFField>
-
 );
 
 export default HTMLCheckbox;
 
 HTMLCheckbox.propTypes = {
+  /**
+   * props to pass to react final form field in call back have access to field as first arg
+   */
+  passProps: PropTypes.func,
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
    */
@@ -47,6 +47,11 @@ HTMLCheckbox.propTypes = {
 };
 
 HTMLCheckbox.defaultProps = {
+  passProps: field => ({
+    id: field.input.name,
+    value: field.input.value,
+    onChange: field.input.onChange,
+  }),
   label: '',
   labelPlacement: 'end',
 };

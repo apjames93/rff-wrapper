@@ -22,6 +22,13 @@ const App = () => (
   <Form
     onSubmit={onSubmit}
   >
+
+    <MuiInput
+      name="thing2"
+      label="thing2"
+      type="number"
+    />
+
     <MuiInput
       name="thing"
       label="thing"

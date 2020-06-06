@@ -19,15 +19,12 @@ export const MuiCheckbox = ({
   indeterminate,
   size,
   label,
+  passProps,
 }) => (
   <RFFField
     type="checkbox"
     name={name}
-    passProps={field => ({
-      id: field.input.name,
-      value: field.input.value,
-      onChange: field.input.onChange,
-    })}
+    passProps={passProps}
   >
     <FormControlLabel
       control={(
@@ -50,6 +47,10 @@ export const MuiCheckbox = ({
 export default MuiCheckbox;
 
 MuiCheckbox.propTypes = {
+  /**
+   * props to pass to react final form field in call back have access to field as first arg
+   */
+  passProps: PropTypes.func,
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
    */
@@ -131,6 +132,11 @@ MuiCheckbox.propTypes = {
 };
 
 MuiCheckbox.defaultProps = {
+  passProps: field => ({
+    id: field.input.name,
+    value: field.input.value,
+    onChange: field.input.onChange,
+  }),
   // mui
   label: '',
   checkedIcon: null,

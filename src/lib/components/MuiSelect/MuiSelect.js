@@ -10,14 +10,6 @@ import RFFField from '../RFFField/RFFField';
  * ⚠️ IMPORTANT ⚠️ – you must pass the options of the select as children.
 */
 
-export const passPropsCallBack = (field, label) => ({
-  name: field.input.name,
-  value: field.input.value,
-  onChange: field.input.onChange,
-  label: (label || field.input.name),
-  error: (field.meta.error && field.meta.touched),
-});
-
 export const MuiSelect = ({
   options,
   displayKey,
@@ -34,10 +26,12 @@ export const MuiSelect = ({
   size,
   variant,
   name,
+  passProps,
 }) => (
   <RFFField
     name={name}
-    passProps={field => passPropsCallBack(field, label)}
+    label={label}
+    passProps={passProps}
   >
     <TextField
       select
@@ -67,6 +61,10 @@ export const MuiSelect = ({
 export default MuiSelect;
 
 MuiSelect.propTypes = {
+  /**
+   * props to pass to react final form field in call back have access to field as first arg
+   */
+  passProps: PropTypes.func,
   /** options for select */
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([
@@ -140,6 +138,13 @@ MuiSelect.propTypes = {
 };
 
 MuiSelect.defaultProps = {
+  passProps: field => ({
+    name: field.input.name,
+    value: field.input.value,
+    onChange: field.input.onChange,
+    label: (field.input.label || field.input.name),
+    error: (field.meta.error && field.meta.touched),
+  }),
   displayKey: '',
   // mui
   label: '',

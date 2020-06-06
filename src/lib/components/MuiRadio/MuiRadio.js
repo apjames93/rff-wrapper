@@ -15,6 +15,7 @@ export const MuiRadio = ({
   value,
   label,
   labelPlacement,
+  passProps,
 }) => {
   let radioProps;
   if (checkedIcon && icon) {
@@ -40,21 +41,13 @@ export const MuiRadio = ({
       type="radio"
       name={name}
       value={value}
-      passProps={field => ({
-        id: field.input.name,
-        value: field.input.value,
-        checked: field.input.checked,
-        onChange: () => {
-          field.input.onChange(field.input.value);
-        },
-      })}
+      passProps={passProps}
     >
       <FormControlLabel
         data-testid="MuiRadioID"
         control={(
           <Radio
             {...radioProps}
-            // data-testid="MuiRadio"
           />
         )}
         value={value}
@@ -68,6 +61,10 @@ export const MuiRadio = ({
 export default MuiRadio;
 
 MuiRadio.propTypes = {
+  /**
+   * props to pass to react final form field in call back have access to field as first arg
+   */
+  passProps: PropTypes.func,
   /**
    * Name attribute of the input element.
    */
@@ -149,6 +146,12 @@ MuiRadio.propTypes = {
 };
 
 MuiRadio.defaultProps = {
+  passProps: field => ({
+    id: field.input.name,
+    value: field.input.value,
+    checked: field.input.checked,
+    onChange: field.input.onChange,
+  }),
   // mui
   color: 'secondary',
   checkedIcon: null,

@@ -10,18 +10,13 @@ export const HTMLSelect = ({
   displayKey,
   labelPlacement,
   initialValue,
+  passProps,
 }) => (
   <RFFField
     name={name}
     label={label}
     initialValue={initialValue}
-    passProps={field => ({
-      name: field.input.name,
-      value: field.input.value,
-      onChange: field.input.onChange,
-      label: (label || field.input.name),
-      error: (field.meta.error && field.meta.touched),
-    })}
+    passProps={passProps}
   >
     <FormControlLabel
       control={(
@@ -46,6 +41,10 @@ export const HTMLSelect = ({
 export default HTMLSelect;
 
 HTMLSelect.propTypes = {
+  /**
+   * props to pass to react final form field in call back have access to field as first arg
+   */
+  passProps: PropTypes.func,
   /** options for select */
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.shape, PropTypes.string, PropTypes.number]),
@@ -76,6 +75,13 @@ HTMLSelect.propTypes = {
 };
 
 HTMLSelect.defaultProps = {
+  passProps: field => ({
+    name: field.input.name,
+    value: field.input.value,
+    onChange: field.input.onChange,
+    label: (field.input.label || field.input.name),
+    error: (field.meta.error && field.meta.touched),
+  }),
   label: '',
   displayKey: '',
   labelPlacement: 'top',
