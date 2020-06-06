@@ -10,20 +10,17 @@ export const HTMLInput = ({
   required,
   size,
   maxLength,
+  type,
+  passProps,
 }) => (
   <RFFField
     name={name}
     label={label}
-    passProps={field => ({
-      name: field.input.name,
-      value: field.input.value,
-      onChange: field.input.onChange,
-      label: (label || field.input.name),
-      error: (field.meta.error && field.meta.touched),
-    })}
+    passProps={passProps}
+    type={type}
   >
     <input
-      type="text"
+      type={type}
       placeholder={placeholder}
       disabled={disabled}
       required={required}
@@ -36,6 +33,14 @@ export const HTMLInput = ({
 export default HTMLInput;
 
 HTMLInput.propTypes = {
+  /**
+   * props to pass to react final form field
+   */
+  passProps: PropTypes.func,
+  /**
+ * Type of the input element. It should be a valid [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types) input type.
+ */
+  type: PropTypes.string,
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
    */
@@ -67,6 +72,20 @@ HTMLInput.propTypes = {
 };
 
 HTMLInput.defaultProps = {
+  passProps: field => ({
+    name: field.input.name,
+    value: field.input.value,
+    onChange: (e) => {
+      let { value } = e.target;
+      if (field.input.type === 'number') {
+        value = parseInt(value, 10);
+      }
+      field.input.onChange(value);
+    },
+    label: (field.inputlabel || field.input.name),
+    error: (field.meta.error && field.meta.touched),
+  }),
+  type: 'text',
   label: '',
   placeholder: '',
   disabled: false,

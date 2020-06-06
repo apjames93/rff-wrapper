@@ -6,10 +6,11 @@ import { Field } from 'react-final-form';
  * RFFField
 */
 
-export const passPropsCallback = field => ({
+export const passPropsCallback = (field, type = 'text') => ({
   name: field.input.name,
   value: field.input.value,
   onChange: field.input.onChange,
+  type,
 });
 
 export const RFFField = ({

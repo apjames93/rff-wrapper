@@ -24,17 +24,13 @@ export const MuiInput = ({
   size,
   type,
   variant,
+  passProps,
 }) => (
   <RFFField
     name={name}
     label={label}
-    passProps={field => ({
-      name: field.input.name,
-      value: field.input.value,
-      onChange: field.input.onChange,
-      label: (label || field.input.name),
-      error: (field.meta.error && field.meta.touched),
-    })}
+    passProps={passProps}
+    type={type}
   >
     <TextField
       data-testid="muiinput"
@@ -59,6 +55,10 @@ export const MuiInput = ({
 export default MuiInput;
 
 MuiInput.propTypes = {
+  /**
+   * props to pass to react final form field in call back have access to field as first arg
+   */
+  passProps: PropTypes.func,
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
    */
@@ -135,6 +135,19 @@ MuiInput.propTypes = {
 };
 
 MuiInput.defaultProps = {
+  passProps: field => ({
+    name: field.input.name,
+    value: field.input.value,
+    onChange: (e) => {
+      let { value } = e.target;
+      if (field.input.type === 'number') {
+        value = parseInt(value, 10);
+      }
+      field.input.onChange(value);
+    },
+    label: (field.input.label || field.input.name),
+    error: (field.meta.error && field.meta.touched),
+  }),
   // mui
   label: '',
   type: 'text',
