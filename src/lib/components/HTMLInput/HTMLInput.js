@@ -78,7 +78,7 @@ HTMLInput.defaultProps = {
     onChange: (e) => {
       let { value } = e.target;
       if (field.input.type === 'number') {
-        value = parseInt(value, 10);
+        value = parseFloat(value);
       }
       field.input.onChange(value);
     },

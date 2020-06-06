@@ -38,9 +38,9 @@ describe('<Input />', () => {
       </Form>,
     );
     let input = comp.find('input').first();
-    input.simulate('change', { target: { value: '69' } });
+    input.simulate('change', { target: { value: '69.69' } });
     input = comp.find('input').first();
-    expect(input.props().value).toEqual(69);
+    expect(input.props().value).toEqual(69.69);
   });
 
   test('snapshot', () => {
