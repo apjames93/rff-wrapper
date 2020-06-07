@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "bucket" {
-  bucket = "${var.bucket}"
-  acl    = "${var.acl}"
+  bucket = var.bucket
+  acl    = var.acl
 policy = <<POLICY
 {
   "Version":"2012-10-17",
@@ -20,7 +20,7 @@ POLICY
   }
 
   website {
-    index_document = "${var.index_document}"
-    error_document = "${var.error_document}"
+    index_document = var.index_document
+    error_document = var.error_document
   }
 }
