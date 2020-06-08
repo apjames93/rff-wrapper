@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HTMLCheckbox /> snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <label
+    className="MuiFormControlLabel-root"
+    field={
+      Object {
+        "input": Object {
+          "checked": false,
+          "name": "cool",
+          "onBlur": [Function],
+          "onChange": [Function],
+          "onFocus": [Function],
+          "type": "checkbox",
+          "value": undefined,
+        },
+        "meta": Object {
+          "active": false,
+          "data": Object {},
+          "dirty": false,
+          "dirtySinceLastSubmit": false,
+          "error": undefined,
+          "initial": undefined,
+          "invalid": false,
+          "length": undefined,
+          "modified": false,
+          "modifiedSinceLastSubmit": false,
+          "pristine": true,
+          "submitError": undefined,
+          "submitFailed": false,
+          "submitSucceeded": false,
+          "submitting": false,
+          "touched": false,
+          "valid": true,
+          "validating": false,
+          "visited": false,
+        },
+      }
+    }
+    id="cool"
+  >
+    <input
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span
+      className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+    >
+      apples
+    </span>
+  </label>
+</form>
+`;

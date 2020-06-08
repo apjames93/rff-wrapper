@@ -26,7 +26,6 @@ export const RFFFieldArray = ({
                 index,
               },
             ))}
-
             {!Array.isArray(children) && cloneElement(
               children,
               {
@@ -34,7 +33,6 @@ export const RFFFieldArray = ({
                 name: `${name}[${children.props.name}]`,
               },
             )}
-
           </div>
         ))}
       </>

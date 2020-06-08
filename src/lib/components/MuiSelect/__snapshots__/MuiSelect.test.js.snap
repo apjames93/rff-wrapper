@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Select /> snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal"
+    field={
+      Object {
+        "input": Object {
+          "checked": undefined,
+          "name": "cool",
+          "onBlur": [Function],
+          "onChange": [Function],
+          "onFocus": [Function],
+          "value": "",
+        },
+        "meta": Object {
+          "active": false,
+          "data": Object {},
+          "dirty": false,
+          "dirtySinceLastSubmit": false,
+          "error": undefined,
+          "initial": undefined,
+          "invalid": false,
+          "length": undefined,
+          "modified": false,
+          "modifiedSinceLastSubmit": false,
+          "pristine": true,
+          "submitError": undefined,
+          "submitFailed": false,
+          "submitSucceeded": false,
+          "submitting": false,
+          "touched": false,
+          "valid": true,
+          "validating": false,
+          "visited": false,
+        },
+      }
+    }
+  >
+    <label
+      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
+      data-shrink={false}
+    >
+      cool
+    </label>
+    <div
+      className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+      onClick={[Function]}
+    >
+      <div
+        aria-haspopup="listbox"
+        aria-labelledby="mui-component-select-cool"
+        className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+        id="mui-component-select-cool"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "&#8203;",
+            }
+          }
+        />
+      </div>
+      <input
+        autoComplete=""
+        autoFocus={false}
+        name="cool"
+        onAnimationStart={[Function]}
+        placeholder=""
+        type="hidden"
+        value=""
+      />
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root MuiSelect-icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+    </div>
+  </div>
+</form>
+`;

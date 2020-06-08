@@ -6,6 +6,13 @@ import { Field } from 'react-final-form';
  * RFFField
 */
 
+export const passPropsCallback = (field, type = 'text') => ({
+  name: field.input.name,
+  value: field.input.value,
+  onChange: field.input.onChange,
+  type,
+});
+
 export const RFFField = ({
   passProps,
   children,
@@ -25,8 +32,10 @@ export const RFFField = ({
   validate,
   validateFields,
   type,
+  value,
 }) => (
   <Field
+    value={value}
     afterSubmit={afterSubmit}
     allowNull={allowNull}
     beforeSubmit={beforeSubmit}
@@ -158,11 +167,7 @@ RFFField.propTypes = {
 };
 
 RFFField.defaultProps = {
-  passProps: field => ({
-    name: field.input.name,
-    value: field.input.value,
-    onChange: field.input.onChange,
-  }),
+  passProps: passPropsCallback,
   // rff
   type: undefined,
   afterSubmit: undefined,

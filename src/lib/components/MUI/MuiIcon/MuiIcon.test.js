@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import MuiIcon from './MuiIcon';
 
@@ -23,9 +22,7 @@ describe('<MuiIcon />', () => {
     const { props } = setup();
 
     const tree = renderer.create((
-      <MemoryRouter>
-        <MuiIcon {...props} />
-      </MemoryRouter>
+      <MuiIcon {...props} />
     ));
     expect(tree).toMatchSnapshot();
   });

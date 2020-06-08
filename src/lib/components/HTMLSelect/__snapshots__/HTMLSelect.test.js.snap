@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Select /> snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <label
+    className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementTop"
+    field={
+      Object {
+        "input": Object {
+          "checked": undefined,
+          "name": "cool",
+          "onBlur": [Function],
+          "onChange": [Function],
+          "onFocus": [Function],
+          "value": "",
+        },
+        "meta": Object {
+          "active": false,
+          "data": Object {},
+          "dirty": false,
+          "dirtySinceLastSubmit": false,
+          "error": undefined,
+          "initial": undefined,
+          "invalid": false,
+          "length": undefined,
+          "modified": false,
+          "modifiedSinceLastSubmit": false,
+          "pristine": true,
+          "submitError": undefined,
+          "submitFailed": false,
+          "submitSucceeded": false,
+          "submitting": false,
+          "touched": false,
+          "valid": true,
+          "validating": false,
+          "visited": false,
+        },
+      }
+    }
+  >
+    <select
+      id="cool"
+      name="cool"
+      onChange={[Function]}
+      value=""
+    >
+      <option
+        value="{\\"num\\":\\"six\\"}"
+      >
+        six
+      </option>
+      <option
+        value="{\\"num\\":\\"nine\\"}"
+      >
+        nine
+      </option>
+    </select>
+    <span
+      className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+    >
+      cool
+    </span>
+  </label>
+</form>
+`;

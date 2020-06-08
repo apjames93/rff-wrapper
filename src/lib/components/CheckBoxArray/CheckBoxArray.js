@@ -45,7 +45,6 @@ export const CheckBoxArray = ({
     type="checkbox"
     name={name}
     passProps={(field) => {
-      console.log('!!!!!!', field)
       const index = assignIndex(fields, value);
       return ({
         id: field.input.name,
