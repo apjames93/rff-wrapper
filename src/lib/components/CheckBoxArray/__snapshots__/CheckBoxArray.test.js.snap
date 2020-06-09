@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckBoxArray /> snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <label
+    className="MuiFormControlLabel-root"
+    field={
+      Object {
+        "input": Object {
+          "checked": true,
+          "name": undefined,
+          "onBlur": [Function],
+          "onChange": [Function],
+          "onFocus": [Function],
+          "type": "checkbox",
+          "value": undefined,
+        },
+        "meta": Object {
+          "active": false,
+          "data": Object {},
+          "dirty": true,
+          "dirtySinceLastSubmit": false,
+          "error": Object {},
+          "initial": Object {},
+          "invalid": true,
+          "length": undefined,
+          "modified": false,
+          "modifiedSinceLastSubmit": false,
+          "pristine": false,
+          "submitError": undefined,
+          "submitFailed": false,
+          "submitSucceeded": false,
+          "submitting": false,
+          "touched": false,
+          "valid": false,
+          "validating": false,
+          "visited": false,
+        },
+      }
+    }
+  >
+    <span
+      aria-disabled={false}
+      className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={null}
+    >
+      <span
+        className="MuiIconButton-label"
+      >
+        <input
+          checked={false}
+          className="PrivateSwitchBase-input-4"
+          data-indeterminate={false}
+          disabled={false}
+          onChange={[Function]}
+          type="checkbox"
+          value={
+            Object {
+              "id": 2,
+            }
+          }
+        />
+        <svg
+          aria-hidden={true}
+          className="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+    >
+      label
+    </span>
+  </label>
+</form>
+`;
