@@ -27,10 +27,10 @@ const App = () => (
     initialValues={{
       array: [
         {
-          name: 'wooo',
-          state: '',
-          gender: '',
-          canCall: false,
+          // apples: 'wooo',
+          // state: '',
+          // gender: '',
+          // canCall: false,
         },
       ],
     }}
@@ -43,7 +43,7 @@ const App = () => (
         alignItems: 'center',
       }}
     >
-      <MuiInput name="thing2" label="thing2" type="number" />
+      {/* <MuiInput name="thing2" label="thing2" type="number" />
 
       <MuiInput name="thing" label="thing" />
       <MuiSelect
@@ -71,9 +71,9 @@ const App = () => (
         value="testValue2"
         color="default"
         label="radioButton2"
-      />
+      /> */}
 
-      <div>
+      {/* <div>
         <HTMLSelect
           name="HTMLSelect121"
           label="testingSelect"
@@ -87,17 +87,17 @@ const App = () => (
           displayKey="num"
           initalValue={{ num: 'six' }}
         />
-      </div>
+      </div> */}
       <div style={{ height: '200px', width: '300px', margin: '30px' }}>
         <RFFFieldArray fieldArrayName="array">
-          <MuiInput name="name" label="name" />
+          <MuiInput label="apples" />
           <MuiRadio name="gender" value="male" color="default" label="male" />
-          <HTMLSelect
+          {/* <HTMLSelect
             name="state"
             label="state"
             options={[1, 'two', 'three']}
           />
-          <MuiCheckbox name="canCall" />
+          <MuiCheckbox name="canCall" /> */}
         </RFFFieldArray>
       </div>
     </div>
