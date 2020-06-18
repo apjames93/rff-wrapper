@@ -118,10 +118,10 @@ const App = () => (
           initalValue={{ num: 'six' }}
         />
       </div> */}
-      <div style={{ height: '200px', width: '300px', margin: '30px' }}>
+      <div>
         <RFFFieldArray fieldArrayName="shadows">
           <MuiInput label="shadow1" />
-          <MuiRadio name="gender" value="male" color="default" label="male" />
+          {/* <MuiRadio name="gender" value="male" color="default" label="male" /> */}
           {/* <HTMLSelect
             name="state"
             label="state"
