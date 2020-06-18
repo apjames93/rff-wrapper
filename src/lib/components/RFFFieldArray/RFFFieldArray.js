@@ -1,7 +1,6 @@
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { FieldArray } from 'react-final-form-arrays';
-import FieldArrayHelpers from '../../../utils/FieldArrayHelpers';
 
 /**
  * RFFFieldArray
@@ -10,47 +9,45 @@ import FieldArrayHelpers from '../../../utils/FieldArrayHelpers';
 export const RFFFieldArray = ({
   children,
   fieldArrayName,
-}) => {
-  const { checkFieldName } = FieldArrayHelpers;
-  return (
-    <FieldArray
-      name={fieldArrayName}
-    >
-      {({ fields }) => (
-        <>
-          {fields.map((name, index) => (
-            <div key={index}>
-              {Array.isArray(children) && children.map((child, i) => {
-                const fieldName = checkFieldName(child.props.name, i);
-                return cloneElement(
-                  child,
-                  {
-                    fields,
-                    key: i,
-                    name: `${name}[${fieldName}]`,
-                    index,
-                  },
-                );
-              })}
-              {!Array.isArray(children) && cloneElement(
-                children,
+}) => (
+  <FieldArray
+    name={fieldArrayName}
+  >
+    {({ fields }) => (
+      <>
+        {fields.map((name, index) => (
+          <div key={index}>
+            {Array.isArray(children) && children.map((child, i) => {
+              return cloneElement(
+                child,
                 {
                   fields,
-                  name: `${name}[${children.props.name}]`,
+                  key: i,
+                  name: child.props.name ? `${name}[${child.props.name}]` : name,
+                  index,
                 },
-              )}
-            </div>
-          ))}
-        </>
-      )}
-    </FieldArray>
-  );
-};
+              );
+            })}
+            {!Array.isArray(children) && cloneElement(
+              children,
+              {
+                fields,
+                name: children.props.name ? `${name}[${children.props.name}]` : name,
+              },
+            )}
+          </div>
+        ))}
+      </>
+    )}
+  </FieldArray>
+);
 
 export default RFFFieldArray;
 
 RFFFieldArray.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType(
+    [PropTypes.arrayOf(PropTypes.element), PropTypes.element],
+  ).isRequired,
   fieldArrayName: PropTypes.string.isRequired,
 };
 

@@ -6,6 +6,16 @@ import RFFField from '../RFFField/RFFField';
  * Input
 */
 
+export const customPropName = (props, propName, componentName) => {
+  if (props.fields === undefined && !props.name) {
+    return new Error(
+      `${componentName}: ${propName} requires to have name value if fields are not passed down. Please wrap this in RFFField Array or add a name prop.`,
+    );
+  }
+
+  return undefined;
+};
+
 export const MuiInput = ({
 // mui
   name,
@@ -62,7 +72,9 @@ MuiInput.propTypes = {
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
    */
-  name: PropTypes.string.isRequired,
+  name(props, propName, componentName) {
+    return customPropName(props, propName, componentName);
+  },
   /**
  * The label content.
  */
@@ -164,4 +176,5 @@ MuiInput.defaultProps = {
   rowsMax: '',
   size: 'medium',
   variant: 'standard',
+  name: undefined,
 };
