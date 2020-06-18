@@ -18,31 +18,29 @@ export const RFFFieldArray = ({
     >
       {({ fields }) => (
         <>
-          {fields.map((name, index) => {
-            return (
-              <div key={index}>
-                {Array.isArray(children) && children.map((child, i) => {
-                  const fieldName = checkFieldName(child.props.name, i);
-                  return cloneElement(
-                    child,
-                    {
-                      fields,
-                      key: i,
-                      name: `${name}[${fieldName}]`,
-                      index,
-                    },
-                  );
-                })}
-                {!Array.isArray(children) && cloneElement(
-                  children,
+          {fields.map((name, index) => (
+            <div key={index}>
+              {Array.isArray(children) && children.map((child, i) => {
+                const fieldName = checkFieldName(child.props.name, i);
+                return cloneElement(
+                  child,
                   {
                     fields,
-                    name: `${name}[${children.props.name}]`,
+                    key: i,
+                    name: `${name}[${fieldName}]`,
+                    index,
                   },
-                )}
-              </div>
-            );
-          })}
+                );
+              })}
+              {!Array.isArray(children) && cloneElement(
+                children,
+                {
+                  fields,
+                  name: `${name}[${children.props.name}]`,
+                },
+              )}
+            </div>
+          ))}
         </>
       )}
     </FieldArray>
