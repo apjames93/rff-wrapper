@@ -12,6 +12,7 @@ export const RffWrapper = ({
   subscription,
   validate,
   validateOnBlur,
+  mutators,
 }) => (
   <ReactFinalForm
     debug={debug}
@@ -22,6 +23,7 @@ export const RffWrapper = ({
     subscription={subscription}
     validate={validate}
     validateOnBlur={validateOnBlur}
+    mutators={mutators}
   >
     {({ handleSubmit, submitting, form }) => (
       <form onSubmit={handleSubmit}>
@@ -101,4 +103,5 @@ RffWrapper.defaultProps = {
   subscription: undefined,
   validate: undefined,
   validateOnBlur: false,
+  mutators: undefined,
 };

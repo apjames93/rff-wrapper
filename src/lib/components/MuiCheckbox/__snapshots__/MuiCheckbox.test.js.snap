@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Input /> snapshot 1`] = `
+exports[`<MuiCheckbox /> snapshot 1`] = `
 <form
   onSubmit={[Function]}
 >

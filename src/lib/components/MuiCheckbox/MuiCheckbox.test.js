@@ -12,7 +12,7 @@ function setup() {
   return { comp, props };
 }
 
-describe('<Input />', () => {
+describe('<MuiCheckbox />', () => {
   it('renders Input', () => {
     const { comp } = setup();
     expect(comp).toBeDefined();
