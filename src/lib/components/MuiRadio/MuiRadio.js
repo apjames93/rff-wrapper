@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Radio, FormControlLabel } from '@material-ui/core';
-import MuiIcon from '../MUI/MuiIcon/MuiIcon';
+import MuiIcon from '../MuiIcon/MuiIcon';
 import RFFField from '../RFFField/RFFField';
 
 export const MuiRadio = ({
