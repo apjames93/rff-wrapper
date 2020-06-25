@@ -143,7 +143,9 @@
     "build-examples": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build-app": "babel src/lib --out-dir dist",
+    "delete-test-from-dist": "del dist/**/**/*.test.js && del dist/**/**/*__snapshots__",
+    "delete-md-from-dist": "del dist/**/**/*.md",
+    "build-app": "babel src/lib --out-dir dist --copy-files && npm run delete-test-from-dist && npm run delete-md-from-dist",
     "build": "NODE_ENV=production rm -rf dist && npm run build-app",
     "publish-npm": "npm run build && npm publish",
     "test-ci": "react-scripts test --env=jsdom --coverage --runInBand --testPathPattern=src/lib/components",
@@ -167,6 +169,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.4",
     "@material-ui/icons": "^3.0.2",
+    "del-cli": "^3.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "final-form": "^4.19.1",
