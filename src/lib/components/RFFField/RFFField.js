@@ -1,6 +1,7 @@
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'react-final-form';
+import Typography from '@material-ui/core/Typography';
 
 /**
  * RFFField
@@ -61,6 +62,9 @@ export const RFFField = ({
             ...passProps(field),
           },
         )}
+        {field.meta.error && typeof field.meta.error === 'string' && (
+        <Typography color="error">{field.meta.error.toString()}</Typography>
+        )}
       </>
     )}
   </Field>
@@ -69,6 +73,7 @@ export const RFFField = ({
 export default RFFField;
 
 RFFField.propTypes = {
+  value: PropTypes.node.isRequired,
   /**
      * callback that will pass field as the first arg to set name values or any other prop
      * ex: passProps={field => ({
