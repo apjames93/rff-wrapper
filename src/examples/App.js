@@ -72,7 +72,8 @@ const App = () => (
         justifyContent: 'center',
         alignItems: 'center',
       }}
-    >
+      >
+      {console.log({shadows})}
       {/* <MuiInput name="thing2" label="thing2" type="number" />
 
       <MuiInput name="thing" label="thing" />
