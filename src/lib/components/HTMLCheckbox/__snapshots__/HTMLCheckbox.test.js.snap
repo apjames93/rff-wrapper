@@ -15,7 +15,7 @@ exports[`<HTMLCheckbox /> snapshot 1`] = `
           "onChange": [Function],
           "onFocus": [Function],
           "type": "checkbox",
-          "value": undefined,
+          "value": null,
         },
         "meta": Object {
           "active": false,
@@ -45,6 +45,7 @@ exports[`<HTMLCheckbox /> snapshot 1`] = `
     <input
       onChange={[Function]}
       type="checkbox"
+      value={null}
     />
     <span
       className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
