@@ -16,7 +16,7 @@ export const RFFFieldArray = ({
     {({ fields }) => (
       <>
         {fields.map((name, index) => (
-          <div key={index}>
+          <div key={index} style={{ width: '100%' }}>
             {Array.isArray(children) && children.map((child, i) => cloneElement(
               child,
               {
