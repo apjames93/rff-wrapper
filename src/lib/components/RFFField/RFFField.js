@@ -73,7 +73,7 @@ export const RFFField = ({
 export default RFFField;
 
 RFFField.propTypes = {
-  value: PropTypes.node.isRequired,
+  value: PropTypes.node,
   /**
      * callback that will pass field as the first arg to set name values or any other prop
      * ex: passProps={field => ({
@@ -188,4 +188,5 @@ RFFField.defaultProps = {
   subscription: undefined,
   validate: undefined,
   validateFields: undefined,
+  value: null,
 };
