@@ -2,36 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import Typography from '@material-ui/core/Typography';
+import EmbedPreview from './components/EmbedPreview/EmbedPreview';
+import ImgPreview from './components/ImgPreview/ImgPreview';
+import JsonPreview from './components/JsonPreview/JsonPreview';
 
 const showPreview = (file) => {
   switch (file.type) {
     case 'application/pdf':
-      return (
-        <embed
-          data-testid="embed"
-          src={file.preview}
-          type={file.type}
-          alt="Preview"
-          height="100%"
-          width="100%"
-        />
-      );
+      return <EmbedPreview file={file} />;
     case 'application/json':
-      return (
-        <Typography variant="subtitle1" data-testid="json">
-          {file.name}
-        </Typography>
-      );
+      return <JsonPreview file={file} />;
     default:
-      return (
-        <img
-          data-testid="image"
-          type={file.type}
-          src={file.preview}
-          alt={file.name}
-        />
-      );
+      return <ImgPreview file={file} />;
   }
 };
 
