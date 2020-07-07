@@ -14,21 +14,24 @@ const base64File = (file, field) => {
   });
 };
 
+const acceptedFile = async (file, setState, field) => {
+  const files = [{
+    name: file.name,
+    type: file.type,
+    preview: URL.createObjectURL(file),
+  }];
+
+  setState({ files });
+  await base64File(file, field);
+};
+
 export const onDrop = async (acceptedFiles, rejectedFiles, field, setState) => {
   setState({ file: {} });
   if (rejectedFiles.length > 0) {
-    const error = rejectedFiles[0];
-    field.input.onChange(error);
+    field.input.onChange(rejectedFiles[0]);
   } else {
     if (acceptedFiles.length === 1) {
-      const files = [{
-        name: acceptedFiles[0].name,
-        type: acceptedFiles[0].type,
-        preview: URL.createObjectURL(acceptedFiles[0]),
-      }];
-
-      setState({ files });
-      await base64File(acceptedFiles[0], field);
+      await acceptedFile(acceptedFiles[0], setState, field);
     }
     if (acceptedFiles.length > 1) {
       field.input.onChange({
