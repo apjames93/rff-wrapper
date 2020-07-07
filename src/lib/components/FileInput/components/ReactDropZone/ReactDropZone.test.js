@@ -56,6 +56,7 @@ describe('drop', () => {
     // eslint-disable-next-line no-undef
     const readAsDataURLSpy = jest.spyOn(FileReader.prototype, 'readAsDataURL');
     const { props } = setup();
+    // eslint-disable-next-line no-undef
     await drop([new Blob()], [], props.field);
     expect(readAsDataURLSpy).toBeCalled();
     expect(props.field.input.onChange).toBeCalled();
