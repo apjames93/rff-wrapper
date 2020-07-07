@@ -1,7 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RFFField from '../RFFField/RFFField';
-import ReactDropZone from './components/ReactDropZone/ReactDropZone';
+import ReactDropZone from '../ReactDropZone/ReactDropZone';
+
+const base64File = (file, field) => {
+  const reader = new FileReader(); // eslint-disable-line
+  return new Promise((resolve) => {
+    reader.onload = (event) => {
+      field.input.onChange(event.target.result);
+      resolve(event.target.result);
+    };
+    reader.readAsDataURL(file);
+  });
+};
+
+export const onDrop = async (acceptedFiles, rejectedFiles, field, setState) => {
+  setState({ file: {} });
+  if (rejectedFiles.length > 0) {
+    const error = rejectedFiles[0];
+    field.input.onChange(error);
+  } else {
+    if (acceptedFiles.length === 1) {
+      const files = [{
+        name: acceptedFiles[0].name,
+        type: acceptedFiles[0].type,
+        preview: URL.createObjectURL(acceptedFiles[0]),
+      }];
+
+      setState({ files });
+      await base64File(acceptedFiles[0], field);
+    }
+    if (acceptedFiles.length > 1) {
+      field.input.onChange({
+        errors: [{
+          code: 'one file',
+          message: 'only one file can be uploaded',
+        }],
+      });
+    }
+  }
+};
 
 const FileInput = ({
   acceptFileTypes,
@@ -39,7 +77,7 @@ const FileInput = ({
     validate={validate}
     validateFields={validateFields}
   >
-    <ReactDropZone acceptFileTypes={acceptFileTypes} />
+    <ReactDropZone onDrop={onDrop} acceptFileTypes={acceptFileTypes} />
   </RFFField>
 
 );

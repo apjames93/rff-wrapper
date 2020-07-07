@@ -34,6 +34,14 @@ exports[`<FileInput /> snapshot 1`] = `
     >
       Drag 'n' drop some files here, or click to select files
     </h6>
+    <ul
+      className="MuiGridList-root"
+      style={
+        Object {
+          "margin": -2,
+        }
+      }
+    />
   </div>
 </form>
 `;
