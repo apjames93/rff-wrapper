@@ -35,7 +35,8 @@ const thereCanOnlyBeOne = async (acceptedFiles, setState, field) => {
     });
   }
 
-  await acceptedFile(acceptedFiles[0], setState, field);
+  const base64 = await acceptedFile(acceptedFiles[0], setState, field);
+  return base64;
 };
 
 export const onDrop = async (acceptedFiles, rejectedFiles, field, setState) => {
