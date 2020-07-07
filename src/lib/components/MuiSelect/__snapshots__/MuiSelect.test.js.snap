@@ -71,12 +71,16 @@ exports[`<Select /> snapshot 1`] = `
         />
       </div>
       <input
+        aria-hidden={true}
         autoComplete=""
         autoFocus={false}
+        className="MuiSelect-nativeInput"
         name="cool"
         onAnimationStart={[Function]}
+        onChange={[Function]}
         placeholder=""
-        type="hidden"
+        required={false}
+        tabIndex={-1}
         value=""
       />
       <svg

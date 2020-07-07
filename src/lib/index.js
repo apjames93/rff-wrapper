@@ -10,6 +10,7 @@ import MuiRadio from './components/MuiRadio/MuiRadio';
 import MuiSelect from './components/MuiSelect/MuiSelect';
 import MuiSubmit from './components/MuiSubmit/MuiSubmit';
 import RFFFieldArray from './components/RFFFieldArray/RFFFieldArray';
+import FileInput from './components/FileInput/FileInput';
 
 export {
   Form,
@@ -24,4 +25,5 @@ export {
   MuiSelect,
   MuiSubmit,
   RFFFieldArray,
+  FileInput,
 };
