@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Thumbs /> snapshot 1`] = `
+<ul
+  className="MuiGridList-root"
+  style={
+    Object {
+      "margin": -2,
+    }
+  }
+>
+  <li
+    className="MuiGridListTile-root"
+    style={
+      Object {
+        "height": 104,
+        "padding": 2,
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="MuiGridListTile-tile"
+    >
+      <img
+        alt="name"
+        data-testid="image"
+        src="preview"
+        type=""
+      />
+    </div>
+  </li>
+</ul>
+`;
