@@ -25,22 +25,25 @@ const acceptedFile = async (file, setState, field) => {
   await base64File(file, field);
 };
 
+const thereCanOnlyBeOne = async (acceptedFiles, setState, field) => {
+  if (acceptedFiles.length !== 1) {
+    return field.input.onChange({
+      errors: [{
+        code: 'one file',
+        message: 'only one file can be uploaded',
+      }],
+    });
+  }
+
+  await acceptedFile(acceptedFiles[0], setState, field);
+};
+
 export const onDrop = async (acceptedFiles, rejectedFiles, field, setState) => {
   setState({ file: {} });
   if (rejectedFiles.length > 0) {
     field.input.onChange(rejectedFiles[0]);
   } else {
-    if (acceptedFiles.length === 1) {
-      await acceptedFile(acceptedFiles[0], setState, field);
-    }
-    if (acceptedFiles.length > 1) {
-      field.input.onChange({
-        errors: [{
-          code: 'one file',
-          message: 'only one file can be uploaded',
-        }],
-      });
-    }
+    await thereCanOnlyBeOne(acceptedFiles, setState, field);
   }
 };
 
