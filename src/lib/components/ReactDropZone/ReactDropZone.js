@@ -13,7 +13,9 @@ const ReactDropZone = ({
 
   return (
     <Dropzone
-      onDrop={(acceptedFiles, rejectedFiles) => onDrop(acceptedFiles, rejectedFiles, field, setState)}
+      onDrop={
+        (acceptedFiles, rejectedFiles) => onDrop(acceptedFiles, rejectedFiles, field, setState)
+      }
       accept={acceptFileTypes.join(', ')}
       data-testid="DropzoneInput"
     >
@@ -33,7 +35,13 @@ export default ReactDropZone;
 
 ReactDropZone.propTypes = {
   acceptFileTypes: PropTypes.arrayOf(PropTypes.string),
+  /**
+   * callBack function to set Thumbs to files state and bind data to rff
+   */
   onDrop: PropTypes.func.isRequired,
+  /**
+   * rff field
+   */
   field: PropTypes.shape({
     input: PropTypes.shape({
       onChange: PropTypes.func.isRequired,
