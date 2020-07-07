@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import ReactDropZone, { drop, base64File } from './ReactDropZone';
+import ReactDropZone, { drop } from './ReactDropZone';
 
 function setup() {
   const props = {
@@ -53,9 +53,10 @@ describe('drop', () => {
   });
 
   test('acceptedFiles.length === 1 calls base64File', async () => {
+    // eslint-disable-next-line no-undef
     const readAsDataURLSpy = jest.spyOn(FileReader.prototype, 'readAsDataURL');
     const { props } = setup();
-    await drop([new Blob], [], props.field);
+    await drop([new Blob()], [], props.field);
     expect(readAsDataURLSpy).toBeCalled();
     expect(props.field.input.onChange).toBeCalled();
   });
