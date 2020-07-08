@@ -97,8 +97,7 @@ describe('<FileInput />', () => {
     rffProps.validate('');
     expect(props.validate).toBeCalled();
 
-    const unde = rffProps.validate('wadwad');
-    expect(unde).toEqual(undefined);
+    expect(rffProps.validate('wadwad')).toEqual(undefined);
   });
 
   test('snapshot', () => {
