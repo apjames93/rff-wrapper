@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
-import FileInput, { onDrop } from './FileInput';
+import FileInput, { onDrop, defaultValidator } from './FileInput';
 import Form from '../Form/Form';
 
 function setup() {
@@ -16,6 +16,19 @@ function setup() {
   );
   return { comp, props };
 }
+
+describe('onDrop', () => {
+  const error = defaultValidator({
+    errors: [{
+      code: 'one file',
+      message: 'only one file can be uploaded',
+    }],
+  });
+  expect(error).toEqual('only one file can be uploaded');
+
+  const noError = defaultValidator('base66 string');
+  expect(noError).toEqual(undefined);
+});
 
 describe('onDrop', () => {
   const field = {
