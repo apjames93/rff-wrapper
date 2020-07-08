@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 import renderer from 'react-test-renderer';
 import FileInput, { onDrop, defaultValidator } from './FileInput';
 import Form from '../Form/Form';
