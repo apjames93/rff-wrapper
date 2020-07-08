@@ -42,19 +42,9 @@ const App = () => (
         alignItems: 'center',
       }}
     >
-      {console.log({ shadows })}
-
       <FileInput
         name="fileInput"
         acceptFileTypes={['application/json']}
-        validate={(value) => {
-          if (!value) {
-            return 'required';
-          }
-          if (value.errors) {
-            return `${value.errors[0].message}`;
-          }
-        }}
       />
 
       <MuiInput name="muiInputOne" label="mui Input One" type="number" />

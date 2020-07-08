@@ -48,6 +48,13 @@ export const onDrop = async (acceptedFiles, rejectedFiles, field, setState) => {
   }
 };
 
+export const defaultValidator = (value = {}) => {
+  if (typeof 'object' && value.errors) {
+    return `${value.errors[0].message}`;
+  }
+  return undefined;
+};
+
 const FileInput = ({
   acceptFileTypes,
   // rff
@@ -226,6 +233,6 @@ FileInput.defaultProps = {
   isEqual: undefined,
   parse: undefined,
   subscription: undefined,
-  validate: undefined,
+  validate: defaultValidator,
   validateFields: undefined,
 };
