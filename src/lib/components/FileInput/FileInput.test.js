@@ -1,19 +1,23 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import renderer from 'react-test-renderer';
 import FileInput, { onDrop, defaultValidator } from './FileInput';
 import Form from '../Form/Form';
 
-function setup() {
+
+const Comp = props => (
+  <Form onSubmit={() => true}>
+    <FileInput {...props} />
+  </Form>
+);
+function setup(validate = jest.fn(() => undefined)) {
   const props = {
     name: 'cool',
     label: 'apples',
+    validate,
   };
-  const comp = mount(
-    <Form onSubmit={() => true}>
-      <FileInput {...props} />
-    </Form>,
-  );
+  const comp = mount(<Comp {...props} />);
   return { comp, props };
 }
 
@@ -77,13 +81,30 @@ describe('<FileInput />', () => {
     expect(comp).toBeDefined();
   });
 
+
+  it('calls rff validate', async () => {
+    const { comp, props } = setup();
+
+    const rffProps = comp.find('RFFField').first().props();
+    const error = rffProps.validate({
+      errors: [{
+        code: 'one file',
+        message: 'only one file can be uploaded',
+      }],
+    });
+
+    expect(error).toEqual('only one file can be uploaded');
+
+    rffProps.validate('');
+    expect(props.validate).toBeCalled();
+
+    const unde = rffProps.validate('wadwad');
+    expect(unde).toEqual(undefined);
+  });
+
   test('snapshot', () => {
     const { props } = setup();
-    const tree = renderer.create(
-      <Form onSubmit={() => true}>
-        <FileInput {...props} />
-      </Form>,
-    );
+    const tree = renderer.create(<Comp {...props} />);
     expect(tree).toMatchSnapshot();
   });
 });
