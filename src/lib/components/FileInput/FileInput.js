@@ -240,7 +240,6 @@ FileInput.defaultProps = {
   isEqual: undefined,
   parse: undefined,
   subscription: undefined,
-  // validate: defaultValidator,
   validate: undefined,
   validateFields: undefined,
 };
