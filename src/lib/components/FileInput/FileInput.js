@@ -88,7 +88,14 @@ const FileInput = ({
     isEqual={isEqual}
     parse={parse}
     subscription={subscription}
-    validate={validate}
+    validate={(value) => {
+      let valid;
+      valid = defaultValidator(value);
+      if (validate && !valid) {
+        valid = validate(value);
+      }
+      return valid;
+    }}
     validateFields={validateFields}
   >
     <ReactDropZone onDrop={onDrop} acceptFileTypes={acceptFileTypes} />
@@ -233,6 +240,6 @@ FileInput.defaultProps = {
   isEqual: undefined,
   parse: undefined,
   subscription: undefined,
-  validate: defaultValidator,
+  validate: undefined,
   validateFields: undefined,
 };
