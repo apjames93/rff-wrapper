@@ -59,7 +59,8 @@ export const RFFField = ({
           children,
           {
             field,
-            ...passProps(field),
+            ...passPropsCallback(field),
+            ...(passProps ? passProps(field) : {}),
           },
         )}
         {field.meta.error && typeof field.meta.error === 'string' && (
