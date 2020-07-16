@@ -61,7 +61,7 @@ const App = () => (
         displayKey="num"
       />
 
-      <MuiCheckbox name="MuiCheckbox" />
+      <MuiCheckbox name="MuiCheckbox" value="Checkbox Value" />
       <HTMLCheckbox name="HTMLCheckbox" />
 
       <MuiRadio

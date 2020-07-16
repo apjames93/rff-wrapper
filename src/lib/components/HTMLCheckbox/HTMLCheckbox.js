@@ -18,6 +18,7 @@ export const HTMLCheckbox = ({
   formatOnBlur,
   initialValue,
   isEqual,
+  parse,
   subscription,
   validate,
   validateFields,
@@ -35,7 +36,7 @@ export const HTMLCheckbox = ({
     formatOnBlur={formatOnBlur}
     initialValue={initialValue}
     isEqual={isEqual}
-    parse={v => Array.isArray(v)}
+    parse={parse}
     subscription={subscription}
     validate={validate}
     validateFields={validateFields}
@@ -102,10 +103,7 @@ HTMLCheckbox.propTypes = {
       This value is only needed if you want your field be dirty
       upon creation (i.e. for its value to be different from its initial value).
     */
-  defaultValue: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
    * A function that takes the value from the form values
     and the name of the field and formats the value to give
@@ -128,15 +126,22 @@ HTMLCheckbox.propTypes = {
     and set the value of the field with defaultValue.
   * The value given here will override any initialValues given to the entire form.
   */
-  initialValue: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
-       * Optional. Defaults to ===.
-      * A function to determine if two values are equal.
-      */
+   * Optional. Defaults to ===.
+   * A function to determine if two values are equal.
+   */
   isEqual: PropTypes.func,
+  /**
+   * A function that takes the value from the input and name of the field and
+    converts the value into the value you want stored as this field's value in the form.
+    Common usecases include converting strings into Numbers or parsing localized dates into actual
+    javascript Date objects. Almost always used in conjuction with format.
+    * Note: If would like to override the default behavior of converting '' to undefined,
+    you can pass an identity function, v => v, to parse,
+    thus allowing you to have form values of ''.
+    */
+  parse: PropTypes.func,
   /**
        * An object of the parts of FieldState to subscribe to.
         If a subscription is provided, the <Field/> will only rerender when those parts
@@ -175,7 +180,7 @@ HTMLCheckbox.defaultProps = {
   passProps: field => ({
     id: field.input.name,
     value: field.input.value,
-    onChange: field.input.onChange,
+    onChange: (e) => { field.input.onChange(e.target.checked); },
   }),
   label: '',
   labelPlacement: 'end',
@@ -189,6 +194,7 @@ HTMLCheckbox.defaultProps = {
   formatOnBlur: false,
   initialValue: undefined,
   isEqual: undefined,
+  parse: undefined,
   subscription: undefined,
   validate: undefined,
   validateFields: undefined,

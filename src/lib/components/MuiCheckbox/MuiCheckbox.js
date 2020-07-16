@@ -30,46 +30,50 @@ export const MuiCheckbox = ({
   formatOnBlur,
   initialValue,
   isEqual,
+  parse,
   subscription,
   validate,
   validateFields,
-}) => (
-  <RFFField
-    type="checkbox"
-    name={name}
-    passProps={passProps}
-    afterSubmit={afterSubmit}
-    allowNull={allowNull}
-    beforeSubmit={beforeSubmit}
-    data={data}
-    defaultValue={defaultValue}
-    format={format}
-    formatOnBlur={formatOnBlur}
-    initialValue={initialValue}
-    isEqual={isEqual}
-    parse={value => Array.isArray(value)}
-    subscription={subscription}
-    validate={validate}
-    validateFields={validateFields}
-  >
+}) => {
+  return (
+    <RFFField
+      type="checkbox"
+      name={name}
+      passProps={passProps}
+      afterSubmit={afterSubmit}
+      allowNull={allowNull}
+      beforeSubmit={beforeSubmit}
+      data={data}
+      defaultValue={defaultValue}
+      format={format}
+      formatOnBlur={formatOnBlur}
+      initialValue={initialValue}
+      isEqual={isEqual}
+      parse={parse}
+      subscription={subscription}
+      validate={validate}
+      validateFields={validateFields}
+    >
 
-    <FormControlLabel
-      control={(
-        <Checkbox
-          checkedIcon={checkedIcon?.iconName && <MuiIcon {...checkedIcon} />}
-          color={color}
-          disabled={disabled}
-          disableRipple={disableRipple}
-          icon={icon?.iconName && <MuiIcon {...icon} />}
-          indeterminate={indeterminate}
-          size={size}
-        />
+      <FormControlLabel
+        control={(
+          <Checkbox
+            checkedIcon={checkedIcon?.iconName && <MuiIcon {...checkedIcon} />}
+            color={color}
+            disabled={disabled}
+            disableRipple={disableRipple}
+            icon={icon?.iconName && <MuiIcon {...icon} />}
+            indeterminate={indeterminate}
+            size={size}
+          />
         )}
-      label={label}
-    />
-  </RFFField>
+        label={label}
+      />
+    </RFFField>
 
-);
+  );
+};
+
 
 export default MuiCheckbox;
 
@@ -224,6 +228,16 @@ MuiCheckbox.propTypes = {
       */
   isEqual: PropTypes.func,
   /**
+   * A function that takes the value from the input and name of the field and
+    converts the value into the value you want stored as this field's value in the form.
+    Common usecases include converting strings into Numbers or parsing localized dates into actual
+    javascript Date objects. Almost always used in conjuction with format.
+    * Note: If would like to override the default behavior of converting '' to undefined,
+    you can pass an identity function, v => v, to parse,
+    thus allowing you to have form values of ''.
+    */
+  parse: PropTypes.func,
+  /**
        * An object of the parts of FieldState to subscribe to.
         If a subscription is provided, the <Field/> will only rerender when those parts
          of field state change.
@@ -261,7 +275,7 @@ MuiCheckbox.defaultProps = {
   passProps: field => ({
     id: field.input.name,
     value: field.input.value,
-    onChange: field.input.onChange,
+    onChange: (e) => { field.input.onChange(e.target.checked); },
   }),
   // mui
   label: '',
@@ -282,6 +296,7 @@ MuiCheckbox.defaultProps = {
   formatOnBlur: false,
   initialValue: undefined,
   isEqual: undefined,
+  parse: undefined,
   subscription: undefined,
   validate: undefined,
   validateFields: undefined,
