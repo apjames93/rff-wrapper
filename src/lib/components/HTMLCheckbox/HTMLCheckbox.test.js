@@ -28,4 +28,11 @@ describe('<HTMLCheckbox />', () => {
     );
     expect(tree).toMatchSnapshot();
   });
+
+  it('should parse the checkbox to determine if checkbox is checked or not', () => {
+    const { comp } = setup();
+    const rfffield = comp.find('RFFField').first();
+    const result = rfffield.prop('parse')([null]);
+    expect(result).toEqual(true);
+  });
 });
