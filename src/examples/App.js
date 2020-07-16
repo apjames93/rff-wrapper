@@ -12,6 +12,7 @@ import {
   HTMLSubmit,
   FileInput,
   RFFFieldArray,
+  HTMLCheckbox,
 } from '../lib/index';
 
 
@@ -31,7 +32,7 @@ const App = () => (
     mutators={{ ...arrayMutators }}
     onSubmit={onSubmit}
     initialValues={{
-      shadows,
+      MuiCheckbox: false,
     }}
   >
     <div
@@ -61,6 +62,7 @@ const App = () => (
       />
 
       <MuiCheckbox name="MuiCheckbox" />
+      <HTMLCheckbox name="HTMLCheckbox" />
 
       <MuiRadio
         name="radioName"
@@ -70,6 +72,7 @@ const App = () => (
         checkedIcon={{ iconName: 'checked' }}
         icon={{ iconName: 'clear' }}
       />
+
       <MuiRadio
         name="radioName"
         value="testValue2"
@@ -112,7 +115,6 @@ const App = () => (
           <MuiCheckbox name="canCall" />
         </RFFFieldArray>
       </div>
-
     </div>
     <MuiSubmit />
     {/* <HTMLSubmit /> */}

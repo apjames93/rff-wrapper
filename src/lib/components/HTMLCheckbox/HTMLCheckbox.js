@@ -18,7 +18,6 @@ export const HTMLCheckbox = ({
   formatOnBlur,
   initialValue,
   isEqual,
-  parse,
   subscription,
   validate,
   validateFields,
@@ -36,7 +35,7 @@ export const HTMLCheckbox = ({
     formatOnBlur={formatOnBlur}
     initialValue={initialValue}
     isEqual={isEqual}
-    parse={parse}
+    parse={v => Array.isArray(v)}
     subscription={subscription}
     validate={validate}
     validateFields={validateFields}
@@ -139,16 +138,6 @@ HTMLCheckbox.propTypes = {
       */
   isEqual: PropTypes.func,
   /**
-   * A function that takes the value from the input and name of the field and
-    converts the value into the value you want stored as this field's value in the form.
-    Common usecases include converting strings into Numbers or parsing localized dates into actual
-    javascript Date objects. Almost always used in conjuction with format.
-    * Note: If would like to override the default behavior of converting '' to undefined,
-    you can pass an identity function, v => v, to parse,
-    thus allowing you to have form values of ''.
-    */
-  parse: PropTypes.func,
-  /**
        * An object of the parts of FieldState to subscribe to.
         If a subscription is provided, the <Field/> will only rerender when those parts
          of field state change.
@@ -200,7 +189,6 @@ HTMLCheckbox.defaultProps = {
   formatOnBlur: false,
   initialValue: undefined,
   isEqual: undefined,
-  parse: undefined,
   subscription: undefined,
   validate: undefined,
   validateFields: undefined,
