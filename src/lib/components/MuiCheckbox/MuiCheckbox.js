@@ -34,45 +34,43 @@ export const MuiCheckbox = ({
   subscription,
   validate,
   validateFields,
-}) => {
-  return (
-    <RFFField
-      type="checkbox"
-      name={name}
-      passProps={passProps}
-      afterSubmit={afterSubmit}
-      allowNull={allowNull}
-      beforeSubmit={beforeSubmit}
-      data={data}
-      defaultValue={defaultValue}
-      format={format}
-      formatOnBlur={formatOnBlur}
-      initialValue={initialValue}
-      isEqual={isEqual}
-      parse={parse}
-      subscription={subscription}
-      validate={validate}
-      validateFields={validateFields}
-    >
+}) => (
+  <RFFField
+    type="checkbox"
+    name={name}
+    passProps={passProps}
+    afterSubmit={afterSubmit}
+    allowNull={allowNull}
+    beforeSubmit={beforeSubmit}
+    data={data}
+    defaultValue={defaultValue}
+    format={format}
+    formatOnBlur={formatOnBlur}
+    initialValue={initialValue}
+    isEqual={isEqual}
+    parse={parse}
+    subscription={subscription}
+    validate={validate}
+    validateFields={validateFields}
+  >
 
-      <FormControlLabel
-        control={(
-          <Checkbox
-            checkedIcon={checkedIcon?.iconName && <MuiIcon {...checkedIcon} />}
-            color={color}
-            disabled={disabled}
-            disableRipple={disableRipple}
-            icon={icon?.iconName && <MuiIcon {...icon} />}
-            indeterminate={indeterminate}
-            size={size}
-          />
+    <FormControlLabel
+      control={(
+        <Checkbox
+          checkedIcon={checkedIcon?.iconName && <MuiIcon {...checkedIcon} />}
+          color={color}
+          disabled={disabled}
+          disableRipple={disableRipple}
+          icon={icon?.iconName && <MuiIcon {...icon} />}
+          indeterminate={indeterminate}
+          size={size}
+        />
         )}
-        label={label}
-      />
-    </RFFField>
+      label={label}
+    />
+  </RFFField>
 
-  );
-};
+);
 
 
 export default MuiCheckbox;
