@@ -81,7 +81,7 @@ HTMLRadio.propTypes = {
   /**
    * A DOMString representing the value of the radio button.
    */
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.shape()]),
   /**
    * MUI Props: 'bottom' | 'end' | 'start' | 'top'
    * The position of the label.

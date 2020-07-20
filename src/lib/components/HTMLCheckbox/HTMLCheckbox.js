@@ -103,10 +103,7 @@ HTMLCheckbox.propTypes = {
       This value is only needed if you want your field be dirty
       upon creation (i.e. for its value to be different from its initial value).
     */
-  defaultValue: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  defaultValue: PropTypes.bool,
   /**
    * A function that takes the value from the form values
     and the name of the field and formats the value to give
@@ -129,14 +126,11 @@ HTMLCheckbox.propTypes = {
     and set the value of the field with defaultValue.
   * The value given here will override any initialValues given to the entire form.
   */
-  initialValue: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
+  initialValue: PropTypes.bool,
   /**
-       * Optional. Defaults to ===.
-      * A function to determine if two values are equal.
-      */
+   * Optional. Defaults to ===.
+   * A function to determine if two values are equal.
+   */
   isEqual: PropTypes.func,
   /**
    * A function that takes the value from the input and name of the field and
@@ -186,7 +180,7 @@ HTMLCheckbox.defaultProps = {
   passProps: field => ({
     id: field.input.name,
     value: field.input.value,
-    onChange: field.input.onChange,
+    onChange: (e) => { field.input.onChange(e.target.checked); },
   }),
   label: '',
   labelPlacement: 'end',
@@ -195,10 +189,10 @@ HTMLCheckbox.defaultProps = {
   allowNull: false,
   beforeSubmit: undefined,
   data: {},
-  defaultValue: undefined,
+  defaultValue: false,
   format: undefined,
   formatOnBlur: false,
-  initialValue: undefined,
+  initialValue: false,
   isEqual: undefined,
   parse: undefined,
   subscription: undefined,

@@ -28,4 +28,23 @@ describe('<HTMLCheckbox />', () => {
     );
     expect(tree).toMatchSnapshot();
   });
+
+  it('should call handle change and set the checked event to onChange', () => {
+    const { comp } = setup();
+    const field = {
+      input: {
+        name: 'name',
+        value: 'value',
+        onChange: jest.fn(),
+      },
+    };
+    const mockEvent = {
+      target: {
+        checked: true,
+      },
+    };
+    const rffField = comp.find('RFFField').first();
+    rffField.prop('passProps')(field).onChange(mockEvent);
+    expect(field.input.onChange).toHaveBeenCalled();
+  });
 });

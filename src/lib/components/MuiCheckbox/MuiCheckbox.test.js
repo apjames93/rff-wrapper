@@ -27,4 +27,23 @@ describe('<MuiCheckbox />', () => {
     );
     expect(tree).toMatchSnapshot();
   });
+
+  it('should handle change of checkbox and set the value to true or false', () => {
+    const { comp } = setup();
+    const field = {
+      input: {
+        name: 'name',
+        value: 'value',
+        onChange: jest.fn(),
+      },
+    };
+    const mockEvent = {
+      target: {
+        checked: true,
+      },
+    };
+    const rffField = comp.find('RFFField').first().prop('passProps');
+    rffField(field).onChange(mockEvent);
+    expect(field.input.onChange).toHaveBeenCalled();
+  });
 });
