@@ -161,7 +161,7 @@ MuiRadio.propTypes = {
   /**
    * The value of the component. The DOM API casts this to a string.
    */
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.shape()]).isRequired,
   /** The label content.
    */
   label: PropTypes.string,
