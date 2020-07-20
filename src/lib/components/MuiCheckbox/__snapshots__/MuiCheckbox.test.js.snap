@@ -23,7 +23,7 @@ exports[`<MuiCheckbox /> snapshot 1`] = `
           "dirty": false,
           "dirtySinceLastSubmit": false,
           "error": undefined,
-          "initial": undefined,
+          "initial": false,
           "invalid": false,
           "length": undefined,
           "modified": false,
