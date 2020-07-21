@@ -1,6 +1,6 @@
 {
   "name": "rff-wrapper",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "react-final-form wrapper",
   "author": "apjames93",
   "license": "MIT",
@@ -101,7 +101,7 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "@babel/runtime": "^7.10.2",
