@@ -53,7 +53,6 @@ export const MuiCheckbox = ({
     validate={validate}
     validateFields={validateFields}
   >
-
     <FormControlLabel
       control={(
         <Checkbox
