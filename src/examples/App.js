@@ -12,6 +12,7 @@ import {
   FileInput,
   RFFFieldArray,
   HTMLCheckbox,
+  TelephoneInput,
 } from '../lib/index';
 
 
@@ -104,6 +105,7 @@ const App = () => (
           <MuiCheckbox name="canCall" />
         </RFFFieldArray>
       </div>
+      <TelephoneInput />
     </div>
     <MuiSubmit />
   </Form>
