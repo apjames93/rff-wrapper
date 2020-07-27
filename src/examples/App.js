@@ -105,7 +105,7 @@ const App = () => (
           <MuiCheckbox name="canCall" />
         </RFFFieldArray>
       </div>
-      <TelephoneInput />
+      <TelephoneInput name="PhoneNumber" />
     </div>
     <MuiSubmit />
   </Form>
