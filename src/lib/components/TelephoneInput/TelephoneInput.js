@@ -18,53 +18,35 @@ const TelephoneInput = ({
   name,
   parse,
   subscription,
-  value,
   validate,
   validateFields,
   // react-telephone-input
   defaultCountry,
   initialPhoneValue,
-}) => {
-  const handleInputChange = (telNumber, selectedCountry) => {
-    console.log(
-      `input changed. Number: ${telNumber}. Country: ${selectedCountry}`
-    );
-  };
-
-  const handleInputBlur = (telNumber, selectedCountry) => {
-    console.log(
-      `Focus off TelephoneInput. Telephone Number: ${telNumber}. Selected Country: ${selectedCountry}.`
-    );
-  };
-
-  return (
-    <RFFField
-      name={name}
-      afterSubmit={afterSubmit}
-      allowNull={allowNull}
-      beforeSubmit={beforeSubmit}
-      data={data}
-      defaultValue={defaultValue}
-      format={format}
-      formatOnBlur={formatOnBlur}
-      initialValue={initialValue}
-      isEqual={isEqual}
-      parse={parse}
-      subscription={subscription}
-      value={value}
-      validate={validate}
-      validateFields={validateFields}
-    >
-      <ReactTelephoneInput
-        defaultCountry={defaultCountry}
-        flagsImagePath={flagsImagePath}
-        onChange={handleInputChange}
-        onBlur={handleInputBlur}
-        initialValue={initialPhoneValue}
-      />
-    </RFFField>
-  );
-};
+}) => (
+  <RFFField
+    name={name}
+    afterSubmit={afterSubmit}
+    allowNull={allowNull}
+    beforeSubmit={beforeSubmit}
+    data={data}
+    defaultValue={defaultValue}
+    format={format}
+    formatOnBlur={formatOnBlur}
+    initialValue={initialValue}
+    isEqual={isEqual}
+    parse={parse}
+    subscription={subscription}
+    validate={validate}
+    validateFields={validateFields}
+  >
+    <ReactTelephoneInput
+      defaultCountry={defaultCountry}
+      flagsImagePath={flagsImagePath}
+      initialValue={initialPhoneValue}
+    />
+  </RFFField>
+);
 
 export default TelephoneInput;
 
