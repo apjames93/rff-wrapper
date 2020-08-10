@@ -265,7 +265,7 @@ MuiCheckbox.propTypes = {
 MuiCheckbox.defaultProps = {
   passProps: field => ({
     id: field.input.name,
-    value: field.input.value,
+    value: field.input.value || false,
     onChange: (e) => { field.input.onChange(e.target.checked); },
   }),
   // mui
