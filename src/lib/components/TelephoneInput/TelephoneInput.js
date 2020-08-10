@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactTelephoneInput from 'react-telephone-input';
 import RFFField from '../RFFField/RFFField';
-import flagsImagePath from '../../../images/flags.png';
+import flagsImagePath from '../../../images/flags1.png';
 
 const TelephoneInput = ({
   // rff
