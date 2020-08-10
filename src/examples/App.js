@@ -12,6 +12,7 @@ import {
   FileInput,
   RFFFieldArray,
   HTMLCheckbox,
+  TelephoneInput,
 } from '../lib/index';
 
 
@@ -45,9 +46,10 @@ const App = () => (
         options={['one', 'two', 'three']}
       />
       <MuiSelect
-        name="muiSelectArrayOfObjects"
+        name="muiSelect"
         options={[{ num: 'six' }, { num: 'nine' }]}
         displayKey="num"
+        initialValue={{ num: 'six' }}
       />
 
       <MuiCheckbox name="MuiCheckbox" />
@@ -74,6 +76,7 @@ const App = () => (
           name="HTMLSelect121"
           label="testingSelect"
           options={[1, 'two', 'three']}
+          initialValue={1234}
         />
 
         <HTMLSelect
@@ -104,6 +107,7 @@ const App = () => (
           <MuiCheckbox name="canCall" />
         </RFFFieldArray>
       </div>
+      <TelephoneInput name="PhoneNumber" />
     </div>
     <MuiSubmit />
   </Form>

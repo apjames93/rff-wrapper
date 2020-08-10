@@ -11,6 +11,7 @@ import MuiSelect from './components/MuiSelect/MuiSelect';
 import MuiSubmit from './components/MuiSubmit/MuiSubmit';
 import RFFFieldArray from './components/RFFFieldArray/RFFFieldArray';
 import FileInput from './components/FileInput/FileInput';
+import TelephoneInput from './components/TelephoneInput/TelephoneInput';
 
 export {
   Form,
@@ -26,4 +27,5 @@ export {
   MuiSubmit,
   RFFFieldArray,
   FileInput,
+  TelephoneInput,
 };

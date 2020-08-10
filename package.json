@@ -183,6 +183,7 @@
     "react-final-form-arrays": "^3.1.1",
     "react-router-dom": "^4.3.1",
     "react-swipeable-views": "^0.13.9",
+    "react-telephone-input": "^5.0.0",
     "storyblok-migrate": "^0.3.3"
   }
 }

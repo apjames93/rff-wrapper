@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TelephoneInput /> snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="react-tel-input"
+    data-test-id="src_reacttelephoneinput_test_id_4"
+  >
+    <div
+      className="flag-dropdown"
+      data-test-id="src_reacttelephoneinput_test_id_6"
+      onKeyDown={[Function]}
+    >
+      <button
+        className="selected-flag"
+        data-test-id="src_reacttelephoneinput_test_id_7"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        title="United States: + 1"
+        type="button"
+      >
+        <div
+          className="flag us"
+          data-test-id="src_reacttelephoneinput_test_id_8"
+          style={
+            Object {
+              "backgroundImage": "url(flags1.png)",
+            }
+          }
+        >
+          <div
+            className="arrow"
+            data-test-id="src_reacttelephoneinput_test_id_9"
+          />
+        </div>
+      </button>
+      
+    </div>
+    <input
+      autoComplete="tel"
+      className="form-control"
+      data-test-id="src_reacttelephoneinput_test_id_5"
+      disabled={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder="+1 (702) 123-4567"
+      required={false}
+      type="tel"
+      value="+"
+    />
+  </div>
+</form>
+`;
