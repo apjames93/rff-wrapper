@@ -47,11 +47,12 @@ export const HTMLSelect = ({
       control={(
         <select name={name} id={name}>
           {options.map((item, i) => {
-            const itemVal = item instanceof Object ? item[displayKey] : item;
-            const stringifyVal = item instanceof Object ? JSON.stringify(item) : item;
+            const itmeInstanceofObject = item instanceof Object;
+            const displayValue = itmeInstanceofObject ? item[displayKey] : item;
+            const optionValue = itmeInstanceofObject ? JSON.stringify(item) : item;
             return (
-              <option value={stringifyVal} key={i}>
-                {itemVal}
+              <option value={optionValue} key={i}>
+                {displayValue}
               </option>
             );
           })}
@@ -72,7 +73,7 @@ HTMLSelect.propTypes = {
   passProps: PropTypes.func,
   /** options for select */
   options: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.shape, PropTypes.string, PropTypes.number]),
+    PropTypes.oneOfType([PropTypes.shape, PropTypes.string, PropTypes.number, PropTypes.shape(),]),
   ).isRequired,
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
@@ -128,6 +129,7 @@ HTMLSelect.propTypes = {
   defaultValue: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
+    PropTypes.shape(),
   ]),
   /**
        * A function that takes the value from the form values
@@ -154,6 +156,7 @@ HTMLSelect.propTypes = {
   initialValue: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
+    PropTypes.shape(),
   ]),
   /**
        * Optional. Defaults to ===.
@@ -208,7 +211,7 @@ HTMLSelect.defaultProps = {
     name: field.input.name,
     value: field.input.value,
     onChange: field.input.onChange,
-    label: (field.input.label || field.input.name),
+    label: field.input.label,
     error: (field.meta.error && field.meta.touched),
   }),
   label: '',
