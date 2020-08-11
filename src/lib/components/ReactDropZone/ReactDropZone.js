@@ -9,7 +9,7 @@ const ReactDropZone = ({
   onDrop,
   field,
 }) => {
-  const [state, setState] = useState({ files: {} });
+  const [state, setState] = useState({ files: [] });
 
   return (
     <Dropzone
@@ -38,17 +38,19 @@ ReactDropZone.propTypes = {
   /**
    * callBack function to set Thumbs to files state and bind data to rff
    */
-  onDrop: PropTypes.func.isRequired,
+  onDrop: PropTypes.func,
   /**
    * rff field
    */
   field: PropTypes.shape({
     input: PropTypes.shape({
-      onChange: PropTypes.func.isRequired,
+      onChange: PropTypes.func,
     }),
-  }).isRequired,
+  }),
 };
 
 ReactDropZone.defaultProps = {
   acceptFileTypes: ['image/jpeg', 'image/png', 'application/pdf'],
+  field: {},
+  onDrop: undefined,
 };
