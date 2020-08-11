@@ -45,7 +45,7 @@ exports[`<HTMLCheckbox /> snapshot 1`] = `
     <input
       onChange={[Function]}
       type="checkbox"
-      value={null}
+      value={false}
     />
     <span
       className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
