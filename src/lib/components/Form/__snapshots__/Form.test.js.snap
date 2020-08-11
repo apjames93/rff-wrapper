@@ -11,37 +11,38 @@ exports[`<Form /> snapshot 1`] = `
       Object {
         "input": Object {
           "checked": undefined,
-          "name": undefined,
+          "name": "firstName",
           "onBlur": [Function],
           "onChange": [Function],
           "onFocus": [Function],
           "type": "text",
-          "value": Object {},
+          "value": "",
         },
         "meta": Object {
           "active": false,
           "data": Object {},
-          "dirty": true,
+          "dirty": false,
           "dirtySinceLastSubmit": false,
-          "error": Object {},
-          "initial": Object {},
-          "invalid": true,
+          "error": undefined,
+          "initial": undefined,
+          "invalid": false,
           "length": undefined,
           "modified": false,
           "modifiedSinceLastSubmit": false,
-          "pristine": false,
+          "pristine": true,
           "submitError": undefined,
           "submitFailed": false,
           "submitSucceeded": false,
           "submitting": false,
           "touched": false,
-          "valid": false,
+          "valid": true,
           "validating": false,
           "visited": false,
         },
       }
     }
   >
+    
     <div
       className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
       onClick={[Function]}
@@ -52,6 +53,7 @@ exports[`<Form /> snapshot 1`] = `
         autoFocus={false}
         className="MuiInputBase-input MuiInput-input"
         disabled={false}
+        name="firstName"
         onAnimationStart={[Function]}
         onBlur={[Function]}
         onChange={[Function]}
@@ -60,7 +62,7 @@ exports[`<Form /> snapshot 1`] = `
         required={false}
         rows=""
         type="text"
-        value={Object {}}
+        value=""
       />
     </div>
   </div>
