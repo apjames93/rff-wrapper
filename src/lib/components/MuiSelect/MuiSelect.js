@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextField } from '@material-ui/core';
-import MenuItem from '@material-ui/core/MenuItem';
+import { MenuItem, TextField } from '@material-ui/core';
 import RFFField from '../RFFField/RFFField';
 
 /**
@@ -41,49 +40,61 @@ export const MuiSelect = ({
   subscription,
   validate,
   validateFields,
-}) => (
-  <RFFField
-    name={name}
-    label={label}
-    passProps={passProps}
-    afterSubmit={afterSubmit}
-    allowNull={allowNull}
-    beforeSubmit={beforeSubmit}
-    data={data}
-    defaultValue={defaultValue}
-    format={format}
-    formatOnBlur={formatOnBlur}
-    initialValue={initialValue}
-    isEqual={isEqual}
-    parse={parse}
-    subscription={subscription}
-    validate={validate}
-    validateFields={validateFields}
-  >
-    <TextField
-      select
-      autoComplete={autoComplete}
-      autoFocus={autoFocus}
-      color={color}
-      disabled={disabled}
-      fullWidth={fullWidth}
-      helperText={helperText}
-      margin={margin}
-      placeholder={placeholder}
-      size={size}
-      type="select"
-      variant={variant}
+}) => {
+  const isSelected = (item) => {
+    if (JSON.stringify(initialValue) === JSON.stringify(item)) {
+      return true;
+    }
+    return false;
+  };
+
+  return (
+    <RFFField
+      name={name}
+      label={label}
+      passProps={passProps}
+      afterSubmit={afterSubmit}
+      allowNull={allowNull}
+      beforeSubmit={beforeSubmit}
+      data={data}
+      defaultValue={defaultValue}
+      format={format}
+      formatOnBlur={formatOnBlur}
+      initialValue={initialValue}
+      isEqual={isEqual}
+      parse={parse}
+      subscription={subscription}
+      validate={validate}
+      validateFields={validateFields}
     >
-      {options.map((item, i) => (
-        <MenuItem key={i} value={item}>
-          <option value={item}>
-            {item instanceof Object ? item[displayKey] : item}
-          </option>
-        </MenuItem>
-      ))}
-    </TextField>
-  </RFFField>
-);
+      <TextField
+        select
+        autoComplete={autoComplete}
+        autoFocus={autoFocus}
+        color={color}
+        disabled={disabled}
+        defaultValue="six"
+        fullWidth={fullWidth}
+        helperText={helperText}
+        margin={margin}
+        placeholder={placeholder}
+        size={size}
+        type="select"
+        variant={variant}
+      >
+        {options.map((item, i) => (
+          <MenuItem key={i} value={item}>
+            {console.log(isSelected(item), item)}
+            <option value={item} defaultValue={isSelected(item)}>
+              {item instanceof Object ? item[displayKey] : item}
+            </option>
+          </MenuItem>
+        ))}
+      </TextField>
+    </RFFField>
+  );
+}
+
 
 export default MuiSelect;
 

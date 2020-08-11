@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactTelephoneInput from 'react-telephone-input';
+import 'react-telephone-input/css/default.css';
 import RFFField from '../RFFField/RFFField';
-import flagsImagePath from '../../../images/flags1.png';
 
 const TelephoneInput = ({
   // rff
@@ -23,6 +23,7 @@ const TelephoneInput = ({
   // react-telephone-input
   defaultCountry,
   initialPhoneValue,
+  preferredCountries,
 }) => (
   <RFFField
     name={name}
@@ -42,8 +43,9 @@ const TelephoneInput = ({
   >
     <ReactTelephoneInput
       defaultCountry={defaultCountry}
-      flagsImagePath={flagsImagePath}
+      flagsImagePath="./images/flags.png"
       initialValue={initialPhoneValue}
+      preferredCountries={preferredCountries}
     />
   </RFFField>
 );
@@ -53,6 +55,7 @@ export default TelephoneInput;
 TelephoneInput.propTypes = {
   defaultCountry: PropTypes.string,
   initialPhoneValue: PropTypes.string,
+  preferredCountries: PropTypes.arrayOf(PropTypes.string),
   /**
    * REACT FINAL FORM PROPS
    */
@@ -164,6 +167,7 @@ TelephoneInput.propTypes = {
 TelephoneInput.defaultProps = {
   defaultCountry: 'us',
   initialPhoneValue: null,
+  preferredCountries: undefined,
   afterSubmit: undefined,
   allowNull: false,
   beforeSubmit: undefined,

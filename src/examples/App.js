@@ -33,25 +33,25 @@ const App = () => (
         alignItems: 'center',
       }}
     >
-      <FileInput
+      {/* <FileInput
         name="fileInput"
         acceptFileTypes={['application/json']}
       />
 
       <MuiInput name="muiInputOne" label="mui Input One" type="number" />
-      <MuiInput name="muiInputTwo" label="mui Input Two" />
+      <MuiInput name="muiInputTwo" label="mui Input Two" /> */}
 
-      <MuiSelect
+      {/* <MuiSelect
         name="muiSelectArrayOfStrings"
         options={['one', 'two', 'three']}
-      />
+      /> */}
       <MuiSelect
         name="muiSelect"
         options={[{ num: 'six' }, { num: 'nine' }]}
         displayKey="num"
         initialValue={{ num: 'six' }}
       />
-
+{/*
       <MuiCheckbox name="MuiCheckbox" />
       <HTMLCheckbox name="HTMLCheckbox" />
 
@@ -69,9 +69,9 @@ const App = () => (
         value="testValue2"
         color="default"
         label="radioButton2"
-      />
+      /> */}
 
-      <div>
+      {/* <div>
         <HTMLSelect
           name="HTMLSelect121"
           label="testingSelect"
@@ -86,8 +86,8 @@ const App = () => (
           displayKey="num"
           initalValue={{ num: 'six' }}
         />
-      </div>
-
+      </div> */}
+{/*
       <div>
         <RFFFieldArray fieldArrayName="shadows">
           <MuiInput
@@ -106,7 +106,7 @@ const App = () => (
           />
           <MuiCheckbox name="canCall" />
         </RFFFieldArray>
-      </div>
+      </div> */}
       <TelephoneInput name="PhoneNumber" />
     </div>
     <MuiSubmit />
