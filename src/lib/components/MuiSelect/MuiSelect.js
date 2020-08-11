@@ -280,7 +280,7 @@ MuiSelect.defaultProps = {
     name: field.input.name,
     value: field.input.value,
     onChange: field.input.onChange,
-    label: (field.input.label || field.input.name),
+    label: field.input.label,
     error: (field.meta.error && field.meta.touched),
   }),
   displayKey: '',
