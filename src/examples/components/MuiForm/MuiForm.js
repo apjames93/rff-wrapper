@@ -45,6 +45,7 @@ const MuiForm = () => {
         <MuiCheckbox name="hasInsurance" label="Has Insurance" />
         <MuiSelect
           name="car"
+          label="pick a car"
           options={cars}
           displayKey="make"
           initialValue={cars[2]}

@@ -1,36 +1,28 @@
 import React from 'react';
+import Card from '@material-ui/core/Card';
 import {
   Form,
   FileInput,
   MuiSubmit,
 } from '../../../lib/index';
 
-const formStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-};
-
 const FileInputForm = () => {
   const onSubmitFileInputForm = async (values) => {
-    console.log('onSubmitHTMLForm values', values);
+    console.log('onSubmitFileInputForm values', values);
   };
 
   return (
-    <Form
-      onSubmit={onSubmitFileInputForm}
-    >
-      <div
-        style={formStyle}
+    <Card>
+      <Form
+        onSubmit={onSubmitFileInputForm}
       >
         <FileInput
           name="fileInput"
           acceptFileTypes={['application/json']}
         />
         <MuiSubmit />
-      </div>
-    </Form>
+      </Form>
+    </Card>
   );
 };
 

@@ -20,11 +20,15 @@ const Buttons = ({
 export default Buttons;
 
 Buttons.propTypes = {
-  // rff wrapper passes from prop to each root child element 
+  // rff wrapper passes from prop to each root child element
   form: PropTypes.shape({
     mutators: PropTypes.shape({
       push: PropTypes.func,
       pop: PropTypes.func,
     }),
-  }).isRequired,
+  }),
+};
+
+Buttons.defaultProps = {
+  form: {},
 };

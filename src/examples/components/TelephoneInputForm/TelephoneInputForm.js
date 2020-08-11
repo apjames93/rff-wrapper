@@ -23,8 +23,8 @@ const TelephoneInputForm = () => {
     >
       <div style={formStyle}>
         <TelephoneInput name="PhoneNumber" />
-        <MuiSubmit />
       </div>
+      <MuiSubmit />
     </Form>
   );
 };
