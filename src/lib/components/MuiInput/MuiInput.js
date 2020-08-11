@@ -70,6 +70,7 @@ export const MuiInput = ({
     validateFields={validateFields}
   >
     <TextField
+      label={label}
       data-testid="muiinput"
       autoComplete={autoComplete}
       autoFocus={autoFocus}
@@ -284,6 +285,8 @@ MuiInput.defaultProps = {
   passProps: field => ({
     name: field.input.name,
     value: field.input.value,
+    label: field.input.label,
+    error: (field.meta.error && field.meta.touched),
     onChange: (e) => {
       let { value } = e.target;
       if (field.input.type === 'number') {
@@ -291,8 +294,6 @@ MuiInput.defaultProps = {
       }
       field.input.onChange(value);
     },
-    label: (field.input.label || field.input.name),
-    error: (field.meta.error && field.meta.touched),
   }),
   afterSubmit: undefined,
   allowNull: false,
