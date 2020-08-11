@@ -25,28 +25,30 @@ export const RffWrapper = ({
     validateOnBlur={validateOnBlur}
     mutators={mutators}
   >
-    {({ handleSubmit, submitting, form }) => (
-      <form onSubmit={handleSubmit}>
-        <>
-          {Array.isArray(children) && children.map((child, key) => cloneElement(
-            child,
-            {
-              key,
-              submitting,
-              form,
-            },
-          ))}
+    {({ handleSubmit, submitting, form }) => {
+      return (
+        <form onSubmit={handleSubmit}>
+          <>
+            {Array.isArray(children) && children.map((child, key) => cloneElement(
+              child,
+              {
+                key,
+                submitting,
+                form,
+              },
+            ))}
 
-          {!Array.isArray(children) && cloneElement(
-            children,
-            {
-              submitting,
-              form,
-            },
-          )}
-        </>
-      </form>
-    )}
+            {!Array.isArray(children) && cloneElement(
+              children,
+              {
+                submitting,
+                form,
+              },
+            )}
+          </>
+        </form>
+      )
+    }}
   </ReactFinalForm>
 );
 export default RffWrapper;
