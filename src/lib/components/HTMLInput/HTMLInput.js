@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import RFFField from '../RFFField/RFFField';
+import Input from './components/Input/Input';
 
 export const HTMLInput = ({
   name,
-  label,
   placeholder,
   disabled,
   required,
@@ -12,6 +12,7 @@ export const HTMLInput = ({
   maxLength,
   type,
   passProps,
+  label,
   // rff
   afterSubmit,
   allowNull,
@@ -29,7 +30,6 @@ export const HTMLInput = ({
 }) => (
   <RFFField
     name={name}
-    label={label}
     passProps={passProps}
     type={type}
     afterSubmit={afterSubmit}
@@ -46,13 +46,15 @@ export const HTMLInput = ({
     validate={validate}
     validateFields={validateFields}
   >
-    <input
+    <Input
+      id={name}
       type={type}
       placeholder={placeholder}
       disabled={disabled}
       required={required}
       size={size}
       maxLength={maxLength}
+      label={label}
     />
   </RFFField>
 );
@@ -60,6 +62,10 @@ export const HTMLInput = ({
 export default HTMLInput;
 
 HTMLInput.propTypes = {
+  /**
+   * label for input
+   */
+  label: PropTypes.string,
   /**
    * props to pass to react final form field
    */
@@ -72,10 +78,6 @@ HTMLInput.propTypes = {
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
    */
   name: PropTypes.string.isRequired,
-  /**
-   * The label content.
-   */
-  label: PropTypes.node,
   /**
    * Specifies a short hint that describes the expected value of an <input> element
    */
@@ -210,6 +212,7 @@ HTMLInput.defaultProps = {
   passProps: field => ({
     name: field.input.name,
     value: field.input.value,
+    error: (field.meta.error && field.meta.touched),
     onChange: (e) => {
       let { value } = e.target;
       if (field.input.type === 'number') {
@@ -217,8 +220,6 @@ HTMLInput.defaultProps = {
       }
       field.input.onChange(value);
     },
-    label: (field.inputlabel || field.input.name),
-    error: (field.meta.error && field.meta.touched),
   }),
   type: 'text',
   label: '',
