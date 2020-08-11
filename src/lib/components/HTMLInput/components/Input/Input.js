@@ -10,27 +10,30 @@ export const HTMLInput = ({
   maxLength,
   type,
   label,
+  field,
 }) => (
-  <>
-    <label htmlFor={name}>
-      <input
-        id={name}
-        type={type}
-        placeholder={placeholder}
-        disabled={disabled}
-        required={required}
-        size={size}
-        maxLength={maxLength}
-      />
-      {label}
-    </label>
-
-  </>
+  <label htmlFor={name}>
+    <input
+      {...field.input}
+      id={name}
+      type={type}
+      placeholder={placeholder}
+      disabled={disabled}
+      required={required}
+      size={size}
+      maxLength={maxLength}
+    />
+    {label}
+  </label>
 );
 
 export default HTMLInput;
 
 HTMLInput.propTypes = {
+  // passed down from RFFField
+  field: PropTypes.shape({
+    input: PropTypes.shape({}).isRequired,
+  }).isRequired,
   /**
  * Type of the input element. It should be a valid [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types) input type.
  */
