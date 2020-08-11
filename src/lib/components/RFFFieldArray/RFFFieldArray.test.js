@@ -3,34 +3,32 @@ import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import arrayMutators from 'final-form-arrays';
 import {
-  Form, MuiInput, MuiRadio, MuiCheckbox,
+  Form, MuiInput,
 } from '../../index';
 import RFFFieldArray from './RFFFieldArray';
 
+const TestForm = props => (
+  <Form
+    onSubmit={() => true}
+    mutators={{ ...arrayMutators }}
+    initialValues={{
+      array: [
+        {
+          name: 'wooo',
+        },
+      ],
+    }}
+  >
+    <RFFFieldArray {...props}>
+      <MuiInput name="name" label="name" />
+      <MuiInput name="age" label="age" />
+    </RFFFieldArray>
+  </Form>
+);
+
 function setup() {
   const props = { fieldArrayName: 'array' };
-  const comp = mount(
-    <Form
-      onSubmit={() => true}
-      mutators={{ ...arrayMutators }}
-      initialValues={{
-        array: [
-          {
-            name: 'wooo',
-            state: '',
-            gender: '',
-            canCall: false,
-          },
-        ],
-      }}
-    >
-      <RFFFieldArray {...props}>
-        <MuiInput name="name" label="name" />
-        <MuiRadio name="gender" value="male" color="default" label="male" />
-        <MuiCheckbox name="canCall" />
-      </RFFFieldArray>
-    </Form>,
-  );
+  const comp = mount(<TestForm {...props} />);
   return { comp, props };
 }
 
@@ -54,11 +52,7 @@ describe('<RFFFieldArray />', () => {
 
   test('snapshot', () => {
     const { props } = setup();
-    const tree = renderer.create(
-      <Form onSubmit={() => true} mutators={{ ...arrayMutators }}>
-        <RFFFieldArray {...props} />
-      </Form>,
-    );
+    const tree = renderer.create(<TestForm {...props} />);
     expect(tree).toMatchSnapshot();
   });
 });
