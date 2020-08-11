@@ -15,7 +15,6 @@ export const HTMLInput = ({
   placeholder,
   disabled,
   required,
-  size,
   maxLength,
   type,
   passProps,
@@ -55,11 +54,9 @@ export const HTMLInput = ({
   >
     <Input
       id={name}
-      type={type}
       placeholder={placeholder}
       disabled={disabled}
       required={required}
-      size={size}
       maxLength={maxLength}
       label={label}
     />
@@ -97,10 +94,6 @@ HTMLInput.propTypes = {
    * Specifies that an input field must be filled out before submitting the form
    */
   required: PropTypes.bool,
-  /**
-   * Specifies the width, in characters, of an <input> element
-   */
-  size: PropTypes.number,
   /**
    * Maximum length (number of characters) of value
    */
@@ -222,7 +215,6 @@ HTMLInput.defaultProps = {
   placeholder: '',
   disabled: false,
   required: false,
-  size: 0,
   maxLength: null,
   // rff
   afterSubmit: undefined,

@@ -2,21 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const HTMLInput = ({
-  name,
   placeholder,
   disabled,
   required,
   size,
   maxLength,
-  type,
   label,
   field,
 }) => (
-  <label htmlFor={name}>
+  <label htmlFor={field.input.name}>
     <input
       {...field.input}
-      id={name}
-      type={type}
+      id={field.input.name}
       placeholder={placeholder}
       disabled={disabled}
       required={required}
@@ -32,16 +29,11 @@ export default HTMLInput;
 HTMLInput.propTypes = {
   // passed down from RFFField
   field: PropTypes.shape({
-    input: PropTypes.shape({}).isRequired,
-  }).isRequired,
-  /**
- * Type of the input element. It should be a valid [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types) input type.
- */
-  type: PropTypes.string,
-  /**
-   * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
-   */
-  name: PropTypes.string.isRequired,
+    input: PropTypes.shape({
+      name: PropTypes.string,
+    }),
+  }),
+
   /**
    * Specifies a short hint that describes the expected value of an <input> element
    */
@@ -69,6 +61,7 @@ HTMLInput.propTypes = {
 };
 
 HTMLInput.defaultProps = {
+  field: {},
   type: 'text',
   label: '',
   placeholder: '',
