@@ -27,20 +27,8 @@ describe('<Input />', () => {
     let input = comp.find('input').first();
     input.simulate('change', { target: { value: 'poop' } });
     input = comp.find('input').first();
+    // console.log(comp.debug())
     expect(input.props().value).toEqual('poop');
-  });
-
-  it('calls onChange in number input', () => {
-    const { props } = setup();
-    const comp = mount(
-      <Form onSubmit={() => true}>
-        <HTMLInput type="number" {...props} />
-      </Form>,
-    );
-    let input = comp.find('input').first();
-    input.simulate('change', { target: { value: '69.69' } });
-    input = comp.find('input').first();
-    expect(input.props().value).toEqual(69.69);
   });
 
   test('snapshot', () => {

@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import RFFField from '../RFFField/RFFField';
 import Input from './components/Input/Input';
 
+const passPropsDefault = field => ({
+  name: field.input.name,
+  value: field.input.value,
+  error: (field.meta.error && field.meta.touched),
+  onChange: field.input.onChange,
+});
+
 export const HTMLInput = ({
   name,
   placeholder,
@@ -209,18 +216,7 @@ HTMLInput.propTypes = {
 };
 
 HTMLInput.defaultProps = {
-  passProps: field => ({
-    name: field.input.name,
-    value: field.input.value,
-    error: (field.meta.error && field.meta.touched),
-    onChange: (e) => {
-      let { value } = e.target;
-      if (field.input.type === 'number') {
-        value = parseFloat(value);
-      }
-      field.input.onChange(value);
-    },
-  }),
+  passProps: passPropsDefault,
   type: 'text',
   label: '',
   placeholder: '',
