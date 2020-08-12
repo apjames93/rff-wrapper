@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormControlLabel } from '@material-ui/core';
 import RFFField from '../RFFField/RFFField';
+import Checkbox from './components/Checkbox/Checkbox';
+
+const passPropsDefault = field => ({
+  id: field.input.name,
+  value: field.input.value || undefined,
+  onChange: (e) => { field.input.onChange(e.target.checked); },
+});
 
 export const HTMLCheckbox = ({
   name,
   label,
-  labelPlacement,
+  flexDirection,
   passProps,
   // rff
   afterSubmit,
@@ -41,12 +47,9 @@ export const HTMLCheckbox = ({
     validate={validate}
     validateFields={validateFields}
   >
-    <FormControlLabel
-      control={(
-        <input type="checkbox" />
-      )}
+    <Checkbox
       label={label}
-      labelPlacement={labelPlacement}
+      flexDirection={flexDirection}
     />
   </RFFField>
 );
@@ -67,10 +70,11 @@ HTMLCheckbox.propTypes = {
    */
   label: PropTypes.string,
   /**
-   * MUI Props: 'bottom' | 'end' | 'start' | 'top'
-   * The position of the label.
+   * The flex-direction CSS property sets how flex items are placed in the flex container defining
+   the main axis and the direction (normal or reversed).
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction
    */
-  labelPlacement: PropTypes.string,
+  flexDirection: PropTypes.string,
   /**
    * REACT FINAL FORM PROPS
    */
@@ -177,13 +181,9 @@ HTMLCheckbox.propTypes = {
 };
 
 HTMLCheckbox.defaultProps = {
-  passProps: field => ({
-    id: field.input.name,
-    value: field.input.value || false,
-    onChange: (e) => { field.input.onChange(e.target.checked); },
-  }),
+  passProps: passPropsDefault,
   label: '',
-  labelPlacement: 'end',
+  flexDirection: 'column',
   // rff
   afterSubmit: undefined,
   allowNull: false,

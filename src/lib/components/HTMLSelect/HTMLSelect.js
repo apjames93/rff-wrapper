@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormControlLabel } from '@material-ui/core';
 import RFFField from '../RFFField/RFFField';
+
+import Select from './components/Select/Select';
+
+const passPropsDefault = field => ({
+  name: field.input.name,
+  value: field.input.value,
+  onChange: field.input.onChange,
+  error: (field.meta.error && field.meta.touched),
+});
 
 export const HTMLSelect = ({
   name,
   label,
   options,
   displayKey,
-  labelPlacement,
   initialValue,
   passProps,
   // rff
@@ -27,7 +34,6 @@ export const HTMLSelect = ({
 }) => (
   <RFFField
     name={name}
-    label={label}
     passProps={passProps}
     afterSubmit={afterSubmit}
     allowNull={allowNull}
@@ -43,23 +49,10 @@ export const HTMLSelect = ({
     validate={validate}
     validateFields={validateFields}
   >
-    <FormControlLabel
-      control={(
-        <select name={name} id={name}>
-          {options.map((item, i) => {
-            const itmeInstanceofObject = item instanceof Object;
-            const displayValue = itmeInstanceofObject ? item[displayKey] : item;
-            const optionValue = itmeInstanceofObject ? JSON.stringify(item) : item;
-            return (
-              <option value={optionValue} key={i}>
-                {displayValue}
-              </option>
-            );
-          })}
-        </select>
-      )}
+    <Select
+      displayKey={displayKey}
+      options={options}
       label={label}
-      labelPlacement={labelPlacement}
     />
   </RFFField>
 );
@@ -92,7 +85,7 @@ HTMLSelect.propTypes = {
    * MUI Props: 'bottom' | 'end' | 'start' | 'top'
    * The position of the label.
    */
-  labelPlacement: PropTypes.string,
+  flexDirection: PropTypes.string,
 
   /**
    * REACT FINAL FORM PROPS
@@ -207,16 +200,10 @@ HTMLSelect.propTypes = {
 };
 
 HTMLSelect.defaultProps = {
-  passProps: field => ({
-    name: field.input.name,
-    value: field.input.value,
-    onChange: field.input.onChange,
-    label: field.input.label,
-    error: (field.meta.error && field.meta.touched),
-  }),
+  passProps: passPropsDefault,
   label: '',
   displayKey: '',
-  labelPlacement: 'top',
+  flexDirection: 'column',
   // rff
   afterSubmit: undefined,
   allowNull: false,

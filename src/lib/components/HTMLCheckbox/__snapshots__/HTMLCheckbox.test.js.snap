@@ -5,53 +5,25 @@ exports[`<HTMLCheckbox /> snapshot 1`] = `
   onSubmit={[Function]}
 >
   <label
-    className="MuiFormControlLabel-root"
-    field={
+    htmlFor="cool"
+    style={
       Object {
-        "input": Object {
-          "checked": false,
-          "name": "cool",
-          "onBlur": [Function],
-          "onChange": [Function],
-          "onFocus": [Function],
-          "type": "checkbox",
-          "value": null,
-        },
-        "meta": Object {
-          "active": false,
-          "data": Object {},
-          "dirty": false,
-          "dirtySinceLastSubmit": false,
-          "error": undefined,
-          "initial": false,
-          "invalid": false,
-          "length": undefined,
-          "modified": false,
-          "modifiedSinceLastSubmit": false,
-          "pristine": true,
-          "submitError": undefined,
-          "submitFailed": false,
-          "submitSucceeded": false,
-          "submitting": false,
-          "touched": false,
-          "valid": true,
-          "validating": false,
-          "visited": false,
-        },
+        "display": "flex",
+        "flexDirection": "column",
       }
     }
-    id="cool"
   >
+    apples
     <input
+      checked={false}
+      id="cool"
+      name="cool"
+      onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       type="checkbox"
-      value={false}
+      value={null}
     />
-    <span
-      className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-    >
-      apples
-    </span>
   </label>
 </form>
 `;

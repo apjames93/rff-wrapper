@@ -6,7 +6,14 @@ exports[`<Input /> snapshot 1`] = `
 >
   <label
     htmlFor="cool"
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+      }
+    }
   >
+    
     <input
       disabled={false}
       id="cool"
@@ -17,11 +24,9 @@ exports[`<Input /> snapshot 1`] = `
       onFocus={[Function]}
       placeholder=""
       required={false}
-      size={0}
       type="text"
       value=""
     />
-    
   </label>
 </form>
 `;

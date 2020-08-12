@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const HTMLInput = ({
-  placeholder,
-  disabled,
-  required,
-  maxLength,
+export const Checkbox = ({
   label,
   field,
   flexDirection,
@@ -21,17 +17,13 @@ export const HTMLInput = ({
     <input
       {...field.input}
       id={field.input.name}
-      placeholder={placeholder}
-      disabled={disabled}
-      required={required}
-      maxLength={maxLength}
     />
   </label>
 );
 
-export default HTMLInput;
+export default Checkbox;
 
-HTMLInput.propTypes = {
+Checkbox.propTypes = {
   // passed down from RFFField
   field: PropTypes.shape({
     input: PropTypes.shape({
@@ -67,7 +59,7 @@ HTMLInput.propTypes = {
   flexDirection: PropTypes.string,
 };
 
-HTMLInput.defaultProps = {
+Checkbox.defaultProps = {
   flexDirection: 'column',
   field: {},
   label: '',
