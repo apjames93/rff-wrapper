@@ -4,6 +4,13 @@ import { Radio, FormControlLabel } from '@material-ui/core';
 import MuiIcon from '../MuiIcon/MuiIcon';
 import RFFField from '../RFFField/RFFField';
 
+const passPropsDefault = field => ({
+  id: field.input.name,
+  value: field.input.value,
+  checked: field.input.checked,
+  onChange: field.input.onChange,
+});
+
 export const MuiRadio = ({
   checkedIcon,
   color,
@@ -31,24 +38,15 @@ export const MuiRadio = ({
   validate,
   validateFields,
 }) => {
-  let radioProps;
-  if (checkedIcon && icon) {
-    radioProps = {
-      checkedIcon: <MuiIcon {...checkedIcon} />, color, disabled, disableRipple, size, icon: <MuiIcon {...icon} />,
-    };
-  } else if (checkedIcon) {
-    radioProps = {
-      checkedIcon: <MuiIcon {...checkedIcon} />, color, disabled, disableRipple, size,
-    };
-  } else if (icon) {
-    radioProps = {
-      color, disabled, disableRipple, size, icon: <MuiIcon {...icon} />,
-    };
-  } else {
-    radioProps = {
-      color, disabled, disableRipple, size,
-    };
-  }
+  let radioProps = {
+    color,
+    disabled,
+    disableRipple,
+    size,
+  };
+
+  if (checkedIcon) radioProps = { checkedIcon: <MuiIcon {...checkedIcon} /> };
+  if (icon) radioProps = { icon: <MuiIcon {...icon} /> };
 
   return (
     <RFFField
@@ -186,7 +184,7 @@ MuiRadio.propTypes = {
   allowNull: PropTypes.bool,
   /**
    * A function to call just before calling onSubmit.
-   If beforeSubmit returns false, the submission will be aborted.
+    If beforeSubmit returns false, the submission will be aborted.
     If one of your fields returns false on beforeSubmit,
     other fields may not have their beforeSubmit called,
     as the submission is aborted on the first one that returns false.
@@ -233,9 +231,9 @@ MuiRadio.propTypes = {
     PropTypes.number,
   ]),
   /**
-       * Optional. Defaults to ===.
-      * A function to determine if two values are equal.
-      */
+   * Optional. Defaults to ===.
+  * A function to determine if two values are equal.
+  */
   isEqual: PropTypes.func,
   /**
    * A function that takes the value from the input and name of the field and
@@ -248,12 +246,12 @@ MuiRadio.propTypes = {
     */
   parse: PropTypes.func,
   /**
-       * An object of the parts of FieldState to subscribe to.
-        If a subscription is provided, the <Field/> will only rerender when those parts
-         of field state change.
-      * If no subscription is provided, it will default to subscribing to all field state changes.
-       i.e. <Field/> will rerender whenever any part of the field state changes.
-      */
+   * An object of the parts of FieldState to subscribe to.
+    If a subscription is provided, the <Field/> will only rerender when those parts
+    of field state change.
+  * If no subscription is provided, it will default to subscribing to all field state changes.
+    i.e. <Field/> will rerender whenever any part of the field state changes.
+  */
   subscription: PropTypes.shape(),
   /**
  * A function that takes the field value, all the values of the form and the meta data
@@ -282,12 +280,7 @@ MuiRadio.propTypes = {
 };
 
 MuiRadio.defaultProps = {
-  passProps: field => ({
-    id: field.input.name,
-    value: field.input.value,
-    checked: field.input.checked,
-    onChange: field.input.onChange,
-  }),
+  passProps: passPropsDefault,
   // mui
   color: 'secondary',
   checkedIcon: null,
