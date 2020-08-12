@@ -26,7 +26,7 @@ exports[`<TelephoneInput /> snapshot 1`] = `
           data-test-id="src_reacttelephoneinput_test_id_8"
           style={
             Object {
-              "backgroundImage": "url(flags1.png)",
+              "backgroundImage": "url(flags.png)",
             }
           }
         >
