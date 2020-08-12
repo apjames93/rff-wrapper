@@ -5,15 +5,17 @@ import renderer from 'react-test-renderer';
 import { MuiInput, customPropName } from './MuiInput';
 import Form from '../Form/Form';
 
+const FormTest = props => (
+  <Form onSubmit={() => true}>
+    <MuiInput {...props} />
+  </Form>
+);
+
 function setup(name = undefined) {
   const props = {
     name,
   };
-  const comp = mount(
-    <Form onSubmit={() => true}>
-      <MuiInput {...props} />
-    </Form>,
-  );
+  const comp = mount(<FormTest {...props} />);
   return { comp, props };
 }
 
@@ -31,19 +33,6 @@ describe('<MuiInput />', () => {
     expect(input.props().value).toEqual('poop');
   });
 
-  it('calls onChange in number input', () => {
-    const { props } = setup('cool');
-    const comp = mount(
-      <Form onSubmit={() => true}>
-        <MuiInput type="number" {...props} />
-      </Form>,
-    );
-    let input = comp.find('input').first();
-    input.simulate('change', { target: { value: '69' } });
-    input = comp.find('input').first();
-    expect(input.props().value).toEqual(69);
-  });
-
   it('should return an error if no fields prop and no names prop is passed down', () => {
     const errorProp = customPropName({ fields: undefined }, 'apples', 'MuiInput');
     expect(errorProp.toString()).toEqual(
@@ -53,11 +42,7 @@ describe('<MuiInput />', () => {
 
   test('snapshot', () => {
     const { props } = setup('cool');
-    const tree = renderer.create((
-      <Form onSubmit={() => true}>
-        <MuiInput {...props} />
-      </Form>
-    ));
+    const tree = renderer.create(<FormTest {...props} />);
     expect(tree).toMatchSnapshot();
   });
 });
