@@ -5,6 +5,7 @@ export const Checkbox = ({
   label,
   field,
   flexDirection,
+  disabled,
 }) => (
   <label
     htmlFor={field.input.name}
@@ -17,6 +18,7 @@ export const Checkbox = ({
     <input
       {...field.input}
       id={field.input.name}
+      disabled={disabled}
     />
   </label>
 );
@@ -30,23 +32,11 @@ Checkbox.propTypes = {
       name: PropTypes.string,
     }),
   }),
-
-  /**
-   * Specifies a short hint that describes the expected value of an <input> element
-   */
-  placeholder: PropTypes.string,
   /**
    * If true, the input element will be disabled.
    */
   disabled: PropTypes.bool,
-  /**
-   * Specifies that an input field must be filled out before submitting the form
-   */
-  required: PropTypes.bool,
-  /**
-   * Maximum length (number of characters) of value
-   */
-  maxLength: PropTypes.number,
+
   /**
    * label for input
    */
@@ -63,8 +53,5 @@ Checkbox.defaultProps = {
   flexDirection: 'column',
   field: {},
   label: '',
-  placeholder: '',
   disabled: false,
-  required: false,
-  maxLength: null,
 };

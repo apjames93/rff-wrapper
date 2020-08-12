@@ -18,6 +18,7 @@ export const HTMLSelect = ({
   displayKey,
   initialValue,
   passProps,
+  labelFlexDirection,
   // rff
   afterSubmit,
   allowNull,
@@ -53,6 +54,7 @@ export const HTMLSelect = ({
       displayKey={displayKey}
       options={options}
       label={label}
+      flexDirection={labelFlexDirection}
     />
   </RFFField>
 );
@@ -66,7 +68,12 @@ HTMLSelect.propTypes = {
   passProps: PropTypes.func,
   /** options for select */
   options: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.shape, PropTypes.string, PropTypes.number, PropTypes.shape(),]),
+    PropTypes.oneOfType([
+      PropTypes.shape,
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.shape(),
+    ]),
   ).isRequired,
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
@@ -82,11 +89,11 @@ HTMLSelect.propTypes = {
    */
   label: PropTypes.node,
   /**
-   * MUI Props: 'bottom' | 'end' | 'start' | 'top'
-   * The position of the label.
+   * The flex-direction CSS property sets how flex items are placed in the flex container defining
+   the main axis and the direction (normal or reversed).
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction
    */
-  flexDirection: PropTypes.string,
-
+  labelFlexDirection: PropTypes.string,
   /**
    * REACT FINAL FORM PROPS
    */
@@ -203,7 +210,7 @@ HTMLSelect.defaultProps = {
   passProps: passPropsDefault,
   label: '',
   displayKey: '',
-  flexDirection: 'column',
+  labelFlexDirection: 'column',
   // rff
   afterSubmit: undefined,
   allowNull: false,
