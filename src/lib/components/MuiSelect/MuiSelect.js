@@ -10,6 +10,13 @@ import RFFField from '../RFFField/RFFField';
  * ⚠️ IMPORTANT ⚠️ – you must pass the options of the select as children.
 */
 
+const passPropsDefault = field => ({
+  name: field.input.name,
+  value: field.input.value,
+  onChange: field.input.onChange,
+  error: (field.meta.error && field.meta.touched),
+});
+
 export const MuiSelect = ({
   options,
   displayKey,
@@ -41,11 +48,9 @@ export const MuiSelect = ({
   subscription,
   validate,
   validateFields,
-  value,
 }) => (
   <RFFField
     name={name}
-    label={label}
     passProps={passProps}
     afterSubmit={afterSubmit}
     allowNull={allowNull}
@@ -63,6 +68,7 @@ export const MuiSelect = ({
   >
     <TextField
       select
+      label={label}
       autoComplete={autoComplete}
       autoFocus={autoFocus}
       color={color}
@@ -112,7 +118,6 @@ MuiSelect.propTypes = {
  * The label content.
  */
   label: PropTypes.node,
-
 /**
  * material-ui. PROPS
  */
@@ -276,13 +281,7 @@ MuiSelect.propTypes = {
 };
 
 MuiSelect.defaultProps = {
-  passProps: field => ({
-    name: field.input.name,
-    value: field.input.value,
-    onChange: field.input.onChange,
-    label: field.input.label,
-    error: (field.meta.error && field.meta.touched),
-  }),
+  passProps: passPropsDefault,
   displayKey: '',
   // rff
   afterSubmit: undefined,

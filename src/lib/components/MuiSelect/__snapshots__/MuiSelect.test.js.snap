@@ -40,12 +40,7 @@ exports[`<Select /> snapshot 1`] = `
       }
     }
   >
-    <label
-      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
-      data-shrink={false}
-    >
-      cool
-    </label>
+    
     <div
       className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
       onClick={[Function]}
