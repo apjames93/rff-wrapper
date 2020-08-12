@@ -1,16 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormControlLabel } from '@material-ui/core';
 import RFFField from '../RFFField/RFFField';
+
+import Select from './components/Select/Select';
+
+const passPropsDefault = field => ({
+  name: field.input.name,
+  value: field.input.value,
+  onChange: field.input.onChange,
+  error: (field.meta.error && field.meta.touched),
+});
 
 export const HTMLSelect = ({
   name,
   label,
   options,
   displayKey,
-  labelPlacement,
   initialValue,
   passProps,
+  labelFlexDirection,
   // rff
   afterSubmit,
   allowNull,
@@ -27,7 +35,6 @@ export const HTMLSelect = ({
 }) => (
   <RFFField
     name={name}
-    label={label}
     passProps={passProps}
     afterSubmit={afterSubmit}
     allowNull={allowNull}
@@ -43,22 +50,11 @@ export const HTMLSelect = ({
     validate={validate}
     validateFields={validateFields}
   >
-    <FormControlLabel
-      control={(
-        <select name={name} id={name}>
-          {options.map((item, i) => {
-            const itemVal = item instanceof Object ? item[displayKey] : item;
-            const stringifyVal = item instanceof Object ? JSON.stringify(item) : item;
-            return (
-              <option value={stringifyVal} key={i}>
-                {itemVal}
-              </option>
-            );
-          })}
-        </select>
-      )}
+    <Select
+      displayKey={displayKey}
+      options={options}
       label={label}
-      labelPlacement={labelPlacement}
+      flexDirection={labelFlexDirection}
     />
   </RFFField>
 );
@@ -72,7 +68,12 @@ HTMLSelect.propTypes = {
   passProps: PropTypes.func,
   /** options for select */
   options: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.shape, PropTypes.string, PropTypes.number]),
+    PropTypes.oneOfType([
+      PropTypes.shape,
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.shape(),
+    ]),
   ).isRequired,
   /**
    * The name of your field. Field values may be deeply nested using dot-and-bracket syntax.
@@ -88,11 +89,11 @@ HTMLSelect.propTypes = {
    */
   label: PropTypes.node,
   /**
-   * MUI Props: 'bottom' | 'end' | 'start' | 'top'
-   * The position of the label.
+   * The flex-direction CSS property sets how flex items are placed in the flex container defining
+   the main axis and the direction (normal or reversed).
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction
    */
-  labelPlacement: PropTypes.string,
-
+  labelFlexDirection: PropTypes.string,
   /**
    * REACT FINAL FORM PROPS
    */
@@ -128,6 +129,7 @@ HTMLSelect.propTypes = {
   defaultValue: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
+    PropTypes.shape(),
   ]),
   /**
        * A function that takes the value from the form values
@@ -154,6 +156,7 @@ HTMLSelect.propTypes = {
   initialValue: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
+    PropTypes.shape(),
   ]),
   /**
        * Optional. Defaults to ===.
@@ -204,16 +207,10 @@ HTMLSelect.propTypes = {
 };
 
 HTMLSelect.defaultProps = {
-  passProps: field => ({
-    name: field.input.name,
-    value: field.input.value,
-    onChange: field.input.onChange,
-    label: (field.input.label || field.input.name),
-    error: (field.meta.error && field.meta.touched),
-  }),
+  passProps: passPropsDefault,
   label: '',
   displayKey: '',
-  labelPlacement: 'top',
+  labelFlexDirection: 'column',
   // rff
   afterSubmit: undefined,
   allowNull: false,

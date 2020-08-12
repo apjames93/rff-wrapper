@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormControlLabel } from '@material-ui/core';
 import RFFField from '../RFFField/RFFField';
+import Radio from './components/Radio/Radio';
+
+const passPropsDefault = field => ({
+  id: field.input.name,
+  value: field.input.value,
+  checked: field.input.checked,
+  onChange: field.input.onChange,
+});
 
 export const HTMLRadio = ({
   name,
   value,
   disabled,
   label,
-  labelPlacement,
+  flexDirection,
   passProps,
   // rff
   afterSubmit,
@@ -44,17 +51,11 @@ export const HTMLRadio = ({
     validate={validate}
     validateFields={validateFields}
   >
-    <FormControlLabel
-      control={(
-        <input
-          data-testid="HTMLRadio"
-          type="radio"
-          disabled={disabled}
-        />
-      )}
+
+    <Radio
+      disabled={disabled}
       label={label}
-      value={value}
-      labelPlacement={labelPlacement}
+      flexDirection={flexDirection}
     />
   </RFFField>
 );
@@ -83,10 +84,11 @@ HTMLRadio.propTypes = {
    */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.shape()]),
   /**
-   * MUI Props: 'bottom' | 'end' | 'start' | 'top'
-   * The position of the label.
+   * The flex-direction CSS property sets how flex items are placed in the flex container defining
+   the main axis and the direction (normal or reversed).
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction
    */
-  labelPlacement: PropTypes.string,
+  flexDirection: PropTypes.string,
   /**
    * REACT FINAL FORM PROPS
    */
@@ -199,16 +201,11 @@ HTMLRadio.propTypes = {
 };
 
 HTMLRadio.defaultProps = {
-  passProps: field => ({
-    id: field.input.name,
-    value: field.input.value,
-    checked: field.input.checked,
-    onChange: field.input.onChange,
-  }),
+  passProps: passPropsDefault,
   label: '',
   disabled: false,
   value: null,
-  labelPlacement: 'end',
+  flexDirection: 'column',
   // rff
   afterSubmit: undefined,
   allowNull: false,

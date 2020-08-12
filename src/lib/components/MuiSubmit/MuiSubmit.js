@@ -21,13 +21,12 @@ export const MuiSubmit = ({
   startIcon,
   variant,
   buttonText,
-}) => {
-  return (
-    <>
-      {submitting && (
+}) => (
+  <>
+    {submitting && (
       <CircularProgress />
-      )}
-      {!submitting && (
+    )}
+    {!submitting && (
       <Button
         type="submit"
         color={color}
@@ -47,11 +46,9 @@ export const MuiSubmit = ({
       >
         {buttonText}
       </Button>
-      )}
-
-    </>
-  );
-};
+    )}
+  </>
+);
 
 export default MuiSubmit;
 

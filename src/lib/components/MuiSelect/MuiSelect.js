@@ -10,6 +10,13 @@ import RFFField from '../RFFField/RFFField';
  * ⚠️ IMPORTANT ⚠️ – you must pass the options of the select as children.
 */
 
+const passPropsDefault = field => ({
+  name: field.input.name,
+  value: field.input.value,
+  onChange: field.input.onChange,
+  error: (field.meta.error && field.meta.touched),
+});
+
 export const MuiSelect = ({
   options,
   displayKey,
@@ -44,7 +51,6 @@ export const MuiSelect = ({
 }) => (
   <RFFField
     name={name}
-    label={label}
     passProps={passProps}
     afterSubmit={afterSubmit}
     allowNull={allowNull}
@@ -62,6 +68,7 @@ export const MuiSelect = ({
   >
     <TextField
       select
+      label={label}
       autoComplete={autoComplete}
       autoFocus={autoFocus}
       color={color}
@@ -74,11 +81,9 @@ export const MuiSelect = ({
       type="select"
       variant={variant}
     >
-      {options.map((item, i) => (
-        <MenuItem key={i} value={item}>
-          <option value={item}>
-            {item instanceof Object ? item[displayKey] : item}
-          </option>
+      {options.map((option, i) => (
+        <MenuItem key={i} value={option}>
+          {option instanceof Object ? option[displayKey] : option}
         </MenuItem>
       ))}
     </TextField>
@@ -95,7 +100,7 @@ MuiSelect.propTypes = {
   /** options for select */
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([
-      PropTypes.shape,
+      PropTypes.shape({}),
       PropTypes.string,
       PropTypes.number,
     ]),
@@ -113,7 +118,6 @@ MuiSelect.propTypes = {
  * The label content.
  */
   label: PropTypes.node,
-
 /**
  * material-ui. PROPS
  */
@@ -199,6 +203,7 @@ MuiSelect.propTypes = {
   defaultValue: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
+    PropTypes.shape(),
   ]),
   /**
    * A function that takes the value from the form values
@@ -225,6 +230,7 @@ MuiSelect.propTypes = {
   initialValue: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
+    PropTypes.shape(),
   ]),
   /**
    * Optional. Defaults to ===.
@@ -275,13 +281,7 @@ MuiSelect.propTypes = {
 };
 
 MuiSelect.defaultProps = {
-  passProps: field => ({
-    name: field.input.name,
-    value: field.input.value,
-    onChange: field.input.onChange,
-    label: (field.input.label || field.input.name),
-    error: (field.meta.error && field.meta.touched),
-  }),
+  passProps: passPropsDefault,
   displayKey: '',
   // rff
   afterSubmit: undefined,

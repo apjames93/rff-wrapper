@@ -5,56 +5,27 @@ exports[`<HTMLRadio /> snapshot 1`] = `
   onSubmit={[Function]}
 >
   <label
-    className="MuiFormControlLabel-root"
-    field={
+    htmlFor="cool"
+    style={
       Object {
-        "input": Object {
-          "checked": false,
-          "name": "cool",
-          "onBlur": [Function],
-          "onChange": [Function],
-          "onFocus": [Function],
-          "type": "radio",
-          "value": "htmlRadio1",
-        },
-        "meta": Object {
-          "active": false,
-          "data": Object {},
-          "dirty": false,
-          "dirtySinceLastSubmit": false,
-          "error": undefined,
-          "initial": undefined,
-          "invalid": false,
-          "length": undefined,
-          "modified": false,
-          "modifiedSinceLastSubmit": false,
-          "pristine": true,
-          "submitError": undefined,
-          "submitFailed": false,
-          "submitSucceeded": false,
-          "submitting": false,
-          "touched": false,
-          "valid": true,
-          "validating": false,
-          "visited": false,
-        },
+        "display": "flex",
+        "flexDirection": "column",
       }
     }
-    id="cool"
   >
+    apples
     <input
       checked={false}
       data-testid="HTMLRadio"
       disabled={false}
+      id="cool"
+      name="cool"
+      onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       type="radio"
       value="htmlRadio1"
     />
-    <span
-      className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-    >
-      apples
-    </span>
   </label>
 </form>
 `;

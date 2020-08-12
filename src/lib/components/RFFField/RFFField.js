@@ -127,6 +127,7 @@ RFFField.propTypes = {
     PropTypes.string,
     PropTypes.number,
     PropTypes.bool,
+    PropTypes.shape(),
   ]),
   /**
    * A function that takes the value from the form values and the name of the field and formats the value to give to the input. Common use cases include converting javascript Date values into a localized date string. Almost always used in conjunction with parse.
@@ -145,6 +146,7 @@ RFFField.propTypes = {
     PropTypes.string,
     PropTypes.number,
     PropTypes.bool,
+    PropTypes.shape(),
   ]),
   /**
    * Optional. Defaults to ===.

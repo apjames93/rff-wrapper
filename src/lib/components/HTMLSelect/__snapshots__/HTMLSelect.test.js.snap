@@ -5,45 +5,23 @@ exports[`<Select /> snapshot 1`] = `
   onSubmit={[Function]}
 >
   <label
-    className="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementTop"
-    field={
+    htmlFor="cool"
+    style={
       Object {
-        "input": Object {
-          "checked": undefined,
-          "name": "cool",
-          "onBlur": [Function],
-          "onChange": [Function],
-          "onFocus": [Function],
-          "value": "",
-        },
-        "meta": Object {
-          "active": false,
-          "data": Object {},
-          "dirty": false,
-          "dirtySinceLastSubmit": false,
-          "error": undefined,
-          "initial": undefined,
-          "invalid": false,
-          "length": undefined,
-          "modified": false,
-          "modifiedSinceLastSubmit": false,
-          "pristine": true,
-          "submitError": undefined,
-          "submitFailed": false,
-          "submitSucceeded": false,
-          "submitting": false,
-          "touched": false,
-          "valid": true,
-          "validating": false,
-          "visited": false,
-        },
+        "display": "flex",
+        "flexDirection": "column",
       }
     }
   >
+    <span>
+      
+    </span>
     <select
       id="cool"
       name="cool"
+      onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       value=""
     >
       <option
@@ -57,11 +35,6 @@ exports[`<Select /> snapshot 1`] = `
         nine
       </option>
     </select>
-    <span
-      className="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-    >
-      cool
-    </span>
   </label>
 </form>
 `;

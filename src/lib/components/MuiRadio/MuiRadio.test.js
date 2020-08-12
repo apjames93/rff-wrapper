@@ -4,7 +4,16 @@ import renderer from 'react-test-renderer';
 import MuiRadio from './MuiRadio';
 import Form from '../Form/Form';
 
-function setup(checkedIcon = '', icon = '') {
+
+const checkicon = {
+  iconName: 'star',
+};
+
+const muiIcon = {
+  iconName: 'email',
+};
+
+function setup(checkedIcon = checkicon, icon = muiIcon) {
   const props = {
     checkedIcon,
     icon,
@@ -65,7 +74,7 @@ describe('<MuiRadio />', () => {
   });
 
   it('should render a checkedIcon if provided', () => {
-    const { props } = setup('', { iconName: 'menu' });
+    const { props } = setup(null, { iconName: 'menu' });
     expect(props.icon).toEqual({ iconName: 'menu' });
   });
 });

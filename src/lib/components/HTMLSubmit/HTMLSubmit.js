@@ -9,7 +9,9 @@ export const HTMLSubmit = ({
   <>
     {submitting && (<CircularProgress />)}
     {!submitting && (
-      <input type="submit" value={buttonText} />
+      <button type="submit">
+        {buttonText}
+      </button>
     )}
   </>
 );

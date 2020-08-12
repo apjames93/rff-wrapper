@@ -4,15 +4,17 @@ import renderer from 'react-test-renderer';
 import { MuiInput } from '../MuiInput/MuiInput';
 import Form from './Form';
 
+const TestForm = props => (
+  <Form onSubmit={() => true}>
+    <MuiInput name="firstName" {...props} />
+  </Form>
+);
+
 function setup() {
   const props = {
     onSubmit: jest.fn(),
   };
-  const comp = mount(
-    <Form onSubmit={() => true}>
-      <MuiInput {...props} />
-    </Form>,
-  );
+  const comp = mount(<TestForm {...props} />);
   return { comp, props };
 }
 
@@ -24,24 +26,14 @@ describe('<Form />', () => {
 
   it('renders Form', () => {
     const { props } = setup();
-    const comp = mount(
-      <Form onSubmit={() => true}>
-        <MuiInput {...props} />
-        <MuiInput {...props} />
-      </Form>,
-    );
+    const comp = mount(<TestForm {...props} />);
     const inputs = comp.find('MuiInput');
-    expect(inputs.length).toBe(2);
+    expect(inputs.length).toBe(1);
   });
-
 
   test('snapshot', () => {
     const { props } = setup();
-    const tree = renderer.create((
-      <Form onSubmit={() => true}>
-        <MuiInput {...props} />
-      </Form>
-    ));
+    const tree = renderer.create(<TestForm {...props} />);
     expect(tree).toMatchSnapshot();
   });
 });
