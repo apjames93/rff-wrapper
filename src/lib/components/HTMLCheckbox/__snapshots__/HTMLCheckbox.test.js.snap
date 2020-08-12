@@ -16,6 +16,7 @@ exports[`<HTMLCheckbox /> snapshot 1`] = `
     apples
     <input
       checked={false}
+      disabled={false}
       id="cool"
       name="cool"
       onBlur={[Function]}
