@@ -41,35 +41,45 @@ const HTMLForm = () => {
       <Form
         onSubmit={onSubmitHTMLForm}
       >
-        <HTMLSelect
-          name="car"
-          options={cars}
-          displayKey="make"
-          label="pick a car"
-          initialValue={cars[0]}
-        />
-        <HTMLCheckbox name="hasInsurance" label="Has Insurance" />
-        <HTMLInput
-          name="horsePower"
-          label="horse power"
-          type="number"
-        />
-
-        <HTMLRadio
-          name="class"
-          value="A"
-          label="class A"
-        />
-        <HTMLRadio
-          name="class"
-          value="B"
-          label="class B"
-        />
-        <HTMLRadio
-          name="class"
-          value="C"
-          label="class C"
-        />
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <HTMLSelect
+            name="car"
+            options={cars}
+            displayKey="make"
+            label="pick a car"
+            initialValue={cars[0]}
+          />
+          <HTMLCheckbox name="hasInsurance" label="Has Insurance" />
+          <HTMLInput
+            name="horsePower"
+            label="horse power"
+            type="number"
+            validate={(value) => {
+              if (!value) return 'required';
+              return undefined;
+            }}
+          />
+          <HTMLRadio
+            name="class"
+            value="A"
+            label="class A"
+          />
+          <HTMLRadio
+            name="class"
+            value="B"
+            label="class B"
+          />
+          <HTMLRadio
+            name="class"
+            value="C"
+            label="class C"
+          />
+        </div>
         <HTMLSubmit />
       </Form>
     </Card>
