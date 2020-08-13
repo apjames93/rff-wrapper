@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { TextField } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -39,6 +39,10 @@ export const Select = ({
     }
     return null;
   };
+
+  useEffect(() => {
+    setTextFieldValue('');
+  }, [field.input.value]);
 
   return (
     <TextField
