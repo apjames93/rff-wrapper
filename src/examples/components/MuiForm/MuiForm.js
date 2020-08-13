@@ -11,22 +11,22 @@ import {
 
 const cars = [{
   make: 'Honda',
-  modle: 'rsx',
+  model: 'rsx',
   trim: 'type s',
   year: 2002,
 }, {
   make: 'Subaru',
-  modle: 'impreza',
+  model: 'impreza',
   trim: 'sti',
   year: 2007,
 }, {
   make: 'Nissan',
-  modle: '240SX',
+  model: '240SX',
   trim: 'LE',
   year: 1998,
 }, {
   make: 'Toyota',
-  modle: 'Supra',
+  model: 'Supra',
   trim: 'turbo',
   year: 1998,
 }];
@@ -41,33 +41,53 @@ const MuiForm = () => {
       <Form
         onSubmit={onSubmitMuiForm}
       >
-        <MuiInput name="name" label="name" />
-        <MuiCheckbox name="hasInsurance" label="Has Insurance" />
-        <MuiSelect
-          name="car"
-          label="pick a car"
-          options={cars}
-          displayKey="make"
-          initialValue={cars[2]}
-        />
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <MuiInput name="name" label="name" />
+          <MuiCheckbox name="hasInsurance" label="Has Insurance" />
+          <MuiSelect
+            name="car"
+            label="pick a car"
+            options={cars}
+            displayKey="make"
+            initialValue={{
+              make: 'Nissan',
+              model: '240SX',
+              trim: 'LE',
+              year: 1998,
+            }}
+          />
 
-        <MuiInput name="horsePower" label="horse power" type="number" />
+          <MuiSelect
+            size="small"
+            name="laps"
+            label="laps"
+            options={[1, 2, 3]}
+            initialValue={3}
+          />
 
-        <MuiRadio
-          name="class"
-          value="A"
-          label="class A"
-        />
-        <MuiRadio
-          name="class"
-          value="B"
-          label="class B"
-        />
-        <MuiRadio
-          name="class"
-          value="C"
-          label="class C"
-        />
+          <MuiInput name="time" label="time in seconds" type="number" />
+
+          <MuiRadio
+            name="class"
+            value="A"
+            label="class A"
+          />
+          <MuiRadio
+            name="class"
+            value="B"
+            label="class B"
+          />
+          <MuiRadio
+            name="class"
+            value="C"
+            label="class C"
+          />
+        </div>
         <MuiSubmit />
       </Form>
     </Card>

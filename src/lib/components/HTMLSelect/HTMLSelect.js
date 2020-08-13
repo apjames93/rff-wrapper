@@ -4,13 +4,6 @@ import RFFField from '../RFFField/RFFField';
 
 import Select from './components/Select/Select';
 
-const passPropsDefault = field => ({
-  name: field.input.name,
-  value: field.input.value,
-  onChange: field.input.onChange,
-  error: (field.meta.error && field.meta.touched),
-});
-
 export const HTMLSelect = ({
   name,
   label,
@@ -207,7 +200,7 @@ HTMLSelect.propTypes = {
 };
 
 HTMLSelect.defaultProps = {
-  passProps: passPropsDefault,
+  passProps: undefined,
   label: '',
   displayKey: '',
   labelFlexDirection: 'column',

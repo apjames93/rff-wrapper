@@ -14,9 +14,7 @@ exports[`<Select /> snapshot 1`] = `
     >
       <div
         aria-haspopup="listbox"
-        aria-labelledby="mui-component-select-cool"
         className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
-        id="mui-component-select-cool"
         onBlur={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -37,13 +35,16 @@ exports[`<Select /> snapshot 1`] = `
         autoComplete=""
         autoFocus={false}
         className="MuiSelect-nativeInput"
-        name="cool"
         onAnimationStart={[Function]}
         onChange={[Function]}
         placeholder=""
         required={false}
         tabIndex={-1}
-        value=""
+        value={
+          Object {
+            "cool": "thing",
+          }
+        }
       />
       <svg
         aria-hidden={true}

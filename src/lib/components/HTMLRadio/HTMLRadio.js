@@ -4,10 +4,7 @@ import RFFField from '../RFFField/RFFField';
 import Radio from './components/Radio/Radio';
 
 const passPropsDefault = field => ({
-  id: field.input.name,
-  value: field.input.value,
   checked: field.input.checked,
-  onChange: field.input.onChange,
 });
 
 export const HTMLRadio = ({

@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
  * RFFField
 */
 
-export const passPropsCallback = (field, type = 'text') => ({
+export const passPropsDefault = (field, type = 'text') => ({
   name: field.input.name,
   value: field.input.value,
   onChange: field.input.onChange,
@@ -59,7 +59,8 @@ export const RFFField = ({
           children,
           {
             field,
-            ...passProps(field),
+            ...passPropsDefault(field),
+            ...(passProps ? passProps(field) : {}),
           },
         )}
         {field.meta.error && typeof field.meta.error === 'string' && (
@@ -176,7 +177,7 @@ RFFField.propTypes = {
 };
 
 RFFField.defaultProps = {
-  passProps: passPropsCallback,
+  passProps: undefined,
   // rff
   type: undefined,
   afterSubmit: undefined,

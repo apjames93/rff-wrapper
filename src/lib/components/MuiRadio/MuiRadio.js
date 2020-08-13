@@ -5,10 +5,7 @@ import MuiIcon from '../MuiIcon/MuiIcon';
 import RFFField from '../RFFField/RFFField';
 
 const passPropsDefault = field => ({
-  id: field.input.name,
-  value: field.input.value,
   checked: field.input.checked,
-  onChange: field.input.onChange,
 });
 
 export const MuiRadio = ({

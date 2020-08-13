@@ -1,21 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextField } from '@material-ui/core';
-import MenuItem from '@material-ui/core/MenuItem';
 import RFFField from '../RFFField/RFFField';
-
+import Select from './components/Select/Select';
 /**
  * MuiSelect
  * Render a Select element while passing the Input element to Select as input parameter.
  * ⚠️ IMPORTANT ⚠️ – you must pass the options of the select as children.
 */
-
-const passPropsDefault = field => ({
-  name: field.input.name,
-  value: field.input.value,
-  onChange: field.input.onChange,
-  error: (field.meta.error && field.meta.touched),
-});
 
 export const MuiSelect = ({
   options,
@@ -66,7 +57,7 @@ export const MuiSelect = ({
     validate={validate}
     validateFields={validateFields}
   >
-    <TextField
+    <Select
       select
       label={label}
       autoComplete={autoComplete}
@@ -78,15 +69,10 @@ export const MuiSelect = ({
       margin={margin}
       placeholder={placeholder}
       size={size}
-      type="select"
       variant={variant}
-    >
-      {options.map((option, i) => (
-        <MenuItem key={i} value={option}>
-          {option instanceof Object ? option[displayKey] : option}
-        </MenuItem>
-      ))}
-    </TextField>
+      options={options}
+      displayKey={displayKey}
+    />
   </RFFField>
 );
 
@@ -118,7 +104,7 @@ MuiSelect.propTypes = {
  * The label content.
  */
   label: PropTypes.node,
-/**
+  /**
  * material-ui. PROPS
  */
   /**
@@ -167,13 +153,12 @@ MuiSelect.propTypes = {
  * mui prop: 'filled'| 'outlined'| 'standard'
  */
   variant: PropTypes.string,
-
   /**
    * REACT FINAL FORM PROPS
    */
   /**
-       * A callback to notify fields after submission has completed successfully.
-       * */
+   * A callback to notify fields after submission has completed successfully.
+   * */
   afterSubmit: PropTypes.func,
   /**
    * By default, if your value is null,
@@ -281,7 +266,7 @@ MuiSelect.propTypes = {
 };
 
 MuiSelect.defaultProps = {
-  passProps: passPropsDefault,
+  passProps: undefined,
   displayKey: '',
   // rff
   afterSubmit: undefined,
