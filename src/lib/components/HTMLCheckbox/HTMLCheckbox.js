@@ -4,8 +4,7 @@ import RFFField from '../RFFField/RFFField';
 import Checkbox from './components/Checkbox/Checkbox';
 
 const passPropsDefault = field => ({
-  id: field.input.name,
-  value: field.input.value || undefined,
+  value: field.input.value || false,
   onChange: (e) => { field.input.onChange(e.target.checked); },
 });
 
