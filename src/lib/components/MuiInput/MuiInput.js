@@ -6,13 +6,6 @@ import RFFField from '../RFFField/RFFField';
  * Input
 */
 
-const passPropsDefault = field => ({
-  name: field.input.name,
-  value: field.input.value,
-  error: (field.meta.error && field.meta.touched),
-  onChange: field.input.onChange,
-});
-
 export const customPropName = (props, propName, componentName) => {
   if (props.fields === undefined && !props.name) {
     return new Error(
@@ -288,7 +281,7 @@ MuiInput.propTypes = {
 };
 
 MuiInput.defaultProps = {
-  passProps: passPropsDefault,
+  passProps: undefined,
   afterSubmit: undefined,
   allowNull: false,
   beforeSubmit: undefined,

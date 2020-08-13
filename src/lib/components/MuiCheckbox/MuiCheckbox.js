@@ -8,6 +8,11 @@ import RFFField from '../RFFField/RFFField';
  * MuiCheckbox
 */
 
+const passPropsDefault = field => ({
+  value: field.input.value || false,
+  onChange: (e) => { field.input.onChange(e.target.checked); },
+});
+
 export const MuiCheckbox = ({
   name,
   // mui
@@ -263,11 +268,7 @@ MuiCheckbox.propTypes = {
 };
 
 MuiCheckbox.defaultProps = {
-  passProps: field => ({
-    id: field.input.name,
-    value: field.input.value || false,
-    onChange: (e) => { field.input.onChange(e.target.checked); },
-  }),
+  passProps: passPropsDefault,
   // mui
   label: '',
   checkedIcon: null,
