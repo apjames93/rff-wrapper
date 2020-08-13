@@ -37,6 +37,7 @@ export const Select = ({
     ) {
       return setTextFieldValue(option);
     }
+    return null;
   };
 
   return (
