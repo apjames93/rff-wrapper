@@ -41,7 +41,7 @@ exports[`<MuiRadio /> snapshot 1`] = `
         },
       }
     }
-    id="radioName"
+    type="text"
   >
     <span
       aria-disabled={false}
@@ -65,6 +65,7 @@ exports[`<MuiRadio /> snapshot 1`] = `
         <input
           checked={false}
           className="PrivateSwitchBase-input-4"
+          name="radioName"
           onChange={[Function]}
           type="radio"
           value="hello"

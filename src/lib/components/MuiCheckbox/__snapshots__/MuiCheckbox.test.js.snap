@@ -40,7 +40,7 @@ exports[`<MuiCheckbox /> snapshot 1`] = `
         },
       }
     }
-    id="cool"
+    type="text"
   >
     <span
       aria-disabled={false}
@@ -65,6 +65,7 @@ exports[`<MuiCheckbox /> snapshot 1`] = `
           className="PrivateSwitchBase-input-4"
           data-indeterminate={false}
           disabled={false}
+          name="cool"
           onChange={[Function]}
           type="checkbox"
           value={false}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { RFFField, passPropsCallback } from './RFFField';
+import { RFFField, passPropsDefault } from './RFFField';
 import Form from '../Form/Form';
 
 function setup(validate = undefined) {
@@ -29,7 +29,7 @@ describe('<RFFField />', () => {
     expect(comp.html().includes('bad')).toBe(true);
   });
 
-  it('passPropsCallback', () => {
+  it('passPropsDefault', () => {
     const field = {
       input: {
         name: 'coolName',
@@ -38,7 +38,7 @@ describe('<RFFField />', () => {
       },
     };
 
-    const value = passPropsCallback(field);
+    const value = passPropsDefault(field);
     expect(value.name).toEqual('coolName');
     expect(value.value).toEqual('value');
   });
