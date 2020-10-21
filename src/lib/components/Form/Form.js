@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Form as ReactFinalForm } from 'react-final-form';
@@ -25,30 +26,28 @@ export const RffWrapper = ({
     validateOnBlur={validateOnBlur}
     mutators={mutators}
   >
-    {({ handleSubmit, submitting, form }) => {
-      return (
-        <form onSubmit={handleSubmit}>
-          <>
-            {Array.isArray(children) && children.map((child, key) => cloneElement(
-              child,
-              {
-                key,
-                submitting,
-                form,
-              },
-            ))}
+    {({ handleSubmit, submitting, form }) => (
+      <form onSubmit={handleSubmit}>
+        <>
+          {Array.isArray(children) && children.map((child, key) => cloneElement(
+            child,
+            {
+              key,
+              submitting,
+              form,
+            },
+          ))}
 
-            {!Array.isArray(children) && cloneElement(
-              children,
-              {
-                submitting,
-                form,
-              },
-            )}
-          </>
-        </form>
-      )
-    }}
+          {!Array.isArray(children) && cloneElement(
+            children,
+            {
+              submitting,
+              form,
+            },
+          )}
+        </>
+      </form>
+    )}
   </ReactFinalForm>
 );
 export default RffWrapper;
