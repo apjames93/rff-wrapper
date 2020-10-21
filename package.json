@@ -171,6 +171,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.4",
     "@material-ui/icons": "^3.0.2",
+    "@unicef/material-ui-currency-textfield": "^0.8.6",
     "del-cli": "^3.0.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",

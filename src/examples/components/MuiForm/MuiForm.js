@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@material-ui/core/Card';
 import {
   Form,
@@ -7,6 +7,7 @@ import {
   MuiCheckbox,
   MuiRadio,
   MuiSubmit,
+  MuiCurrencyInput,
 } from '../../../lib/index';
 
 const cars = [{
@@ -36,6 +37,23 @@ const MuiForm = () => {
     console.log('onSubmitMuiForm values', values);
   };
 
+  const [value, setValue] = useState(0.00);
+
+  const handleCurrencyChange = (amount) => {
+    console.log(amount);
+    setValue(amount);
+    console.log(typeof value);
+  };
+
+  const passProps = field => ({
+    name: field.input.name,
+    value,
+    error: field.meta.error && field.meta.touched,
+    onChange: (e) => {
+      field.input.onChange(handleCurrencyChange(e.target.value));
+    },
+  });
+
   return (
     <Card>
       <Form
@@ -47,6 +65,12 @@ const MuiForm = () => {
             flexDirection: 'column',
           }}
         >
+          <MuiCurrencyInput
+            name="moneyInput"
+            label="Amount"
+            passProps={passProps}
+            initialValue={value}
+          />
           <MuiInput name="name" label="name" />
           <MuiCheckbox name="hasInsurance" label="Has Insurance" />
           <MuiSelect
