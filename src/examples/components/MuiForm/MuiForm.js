@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@material-ui/core/Card';
 import {
   Form,
@@ -7,6 +7,7 @@ import {
   MuiCheckbox,
   MuiRadio,
   MuiSubmit,
+  MuiCurrencyInput,
 } from '../../../lib/index';
 
 const cars = [{
@@ -36,6 +37,25 @@ const MuiForm = () => {
     console.log('onSubmitMuiForm values', values);
   };
 
+  const [currencyValue, setCurrencyValue] = useState(10.01);
+
+  const handleCurrencyChange = (amount) => {
+    if (typeof amount === 'string' && amount.includes(',')) {
+      const parseAmount = parseFloat(amount.replace(/,/g, ''));
+      return setCurrencyValue(parseFloat(parseAmount));
+    }
+    return setCurrencyValue(parseFloat(amount));
+  };
+
+  const passProps = field => ({
+    name: field.input.name,
+    value: currencyValue,
+    error: field.meta.error && field.meta.touched,
+    onChange: (e) => {
+      field.input.onChange(handleCurrencyChange(e.target.value));
+    },
+  });
+
   return (
     <Card>
       <Form
@@ -45,8 +65,17 @@ const MuiForm = () => {
           style={{
             display: 'flex',
             flexDirection: 'column',
+            width: '50%',
+            justifyContent: 'center',
           }}
         >
+          <MuiCurrencyInput
+            name="moneyInput"
+            label="Amount"
+            passProps={passProps}
+            initialValue={currencyValue}
+            outputFormat="number"
+          />
           <MuiInput name="name" label="name" />
           <MuiCheckbox name="hasInsurance" label="Has Insurance" />
           <MuiSelect

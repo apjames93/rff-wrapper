@@ -12,6 +12,7 @@ import MuiSubmit from './components/MuiSubmit/MuiSubmit';
 import RFFFieldArray from './components/RFFFieldArray/RFFFieldArray';
 import FileInput from './components/FileInput/FileInput';
 import TelephoneInput from './components/TelephoneInput/TelephoneInput';
+import MuiCurrencyInput from './components/MuiCurrencyInput/MuiCurrencyInput';
 
 export {
   Form,
@@ -21,6 +22,7 @@ export {
   HTMLSelect,
   HTMLSubmit,
   MuiCheckbox,
+  MuiCurrencyInput,
   MuiInput,
   MuiRadio,
   MuiSelect,
