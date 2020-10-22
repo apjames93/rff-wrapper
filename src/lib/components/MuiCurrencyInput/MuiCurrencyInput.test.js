@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
+// /* eslint-disable no-console */
 import React from 'react';
 import { mount } from 'enzyme';
-import renderer from 'react-test-renderer';
 import { MuiCurrencyInput, customPropName } from './MuiCurrencyInput';
 import Form from '../Form/Form';
 
@@ -11,7 +10,7 @@ const FormTest = props => (
   </Form>
 );
 
-function setup(name = undefined) {
+function setup() {
   const props = {
     name: 'apples',
     label: 'amount',
@@ -25,7 +24,7 @@ function setup(name = undefined) {
 
 describe('<MuiCurrencyInput />', () => {
   it('renders MuiCurrencyInput', () => {
-    const { comp } = setup('cool');
+    const { comp } = setup();
     expect(comp).toBeDefined();
   });
 
