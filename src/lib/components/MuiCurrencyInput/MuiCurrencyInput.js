@@ -57,11 +57,7 @@ export const MuiCurrencyInput = ({
   decimalPlacesShownOnFocus,
   maximumValue,
   minimumValue,
-  onBlur,
-  onChange,
-  onFocus,
-  onKeyDown,
-  onKeyUp,
+  outputFormat,
 }) => (
   <RFFField
     name={name}
@@ -97,20 +93,16 @@ export const MuiCurrencyInput = ({
       helperText={helperText}
       maximumValue={maximumValue}
       minimumValue={minimumValue}
-      onBlur={onBlur}
-      onChange={onChange}
-      onFocus={onFocus}
-      onKeyDown={onKeyDown}
-      onKeyUp={onKeyUp}
       margin={margin}
       multiline={multiline}
+      outputFormat={outputFormat}
       placeholder={placeholder}
       rows={rows}
       rowsMax={rowsMax}
       size={size}
       type={type}
       variant={variant}
-      />
+    />
   </RFFField>
 );
 
@@ -333,25 +325,10 @@ MuiCurrencyInput.propTypes = {
    */
   minimumValue: PropTypes.string,
   /**
-   * Callback fired on blur.
+   * | 'string', 'number' |
+   * how the value should be formatted, before storing it.
    */
-  onBlur: PropTypes.func,
-  /**
-   * Callback fired when the value is changed.
-   */
-  onChange: PropTypes.func,
-  /**
-   * Callback fired when focused on element.
-   */
-  onFocus: PropTypes.func,
-  /**
-   * Callback fired on key press.
-   */
-  onKeyDown: PropTypes.func,
-  /**
-   * Callback fired on key press.
-   */
-  onKeyUp: PropTypes.func,
+  outputFormat: PropTypes.string,
 };
 
 MuiCurrencyInput.defaultProps = {
@@ -394,9 +371,5 @@ MuiCurrencyInput.defaultProps = {
   decimalPlacesShownOnFocus: 2,
   maximumValue: '10000000000000',
   minimumValue: '-10000000000000',
-  onBlur: undefined,
-  onChange: undefined,
-  onFocus: undefined,
-  onKeyDown: undefined,
-  onKeyUp: undefined,
+  outputFormat: 'number',
 };

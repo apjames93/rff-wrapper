@@ -37,17 +37,19 @@ const MuiForm = () => {
     console.log('onSubmitMuiForm values', values);
   };
 
-  const [value, setValue] = useState(0.00);
+  const [currencyValue, setCurrencyValue] = useState(10.01);
 
   const handleCurrencyChange = (amount) => {
-    console.log(amount);
-    setValue(amount);
-    console.log(typeof value);
+    if (typeof amount === 'string' && amount.includes(',')) {
+      const parseAmount = parseFloat(amount.replace(/,/g, ''));
+      return setCurrencyValue(parseFloat(parseAmount));
+    }
+    return setCurrencyValue(parseFloat(amount));
   };
 
   const passProps = field => ({
     name: field.input.name,
-    value,
+    value: currencyValue,
     error: field.meta.error && field.meta.touched,
     onChange: (e) => {
       field.input.onChange(handleCurrencyChange(e.target.value));
@@ -63,13 +65,16 @@ const MuiForm = () => {
           style={{
             display: 'flex',
             flexDirection: 'column',
+            width: '50%',
+            justifyContent: 'center',
           }}
         >
           <MuiCurrencyInput
             name="moneyInput"
             label="Amount"
             passProps={passProps}
-            initialValue={value}
+            initialValue={currencyValue}
+            outputFormat="number"
           />
           <MuiInput name="name" label="name" />
           <MuiCheckbox name="hasInsurance" label="Has Insurance" />
