@@ -12,6 +12,7 @@ import MuiIcon from '../MuiIcon/MuiIcon';
 export const MuiSubmit = ({
   submitting,
   color,
+  disabled,
   disableElevation,
   disableFocusRipple,
   disableRipple,
@@ -33,6 +34,7 @@ export const MuiSubmit = ({
         disableElevation={disableElevation}
         disableFocusRipple={disableFocusRipple}
         disableRipple={disableRipple}
+        disabled={disabled}
         endIcon={endIcon ? (
           <MuiIcon iconName={endIcon} />
         ) : null}
@@ -62,6 +64,11 @@ MuiSubmit.propTypes = {
      * The color of the component. It supports those theme colors that make sense for this component.
      * */
   color: PropTypes.string,
+  /**
+     * mui prop: true | false
+     * If true, the button will be disabled.
+     */
+  disabled: PropTypes.bool,
   /**
      * mui prop: true | false
      * If true, no elevation is used.
@@ -111,6 +118,7 @@ MuiSubmit.defaultProps = {
   submitting: false,
   buttonText: 'submit',
   color: 'secondary',
+  disabled: false,
   disableElevation: false,
   disableFocusRipple: false,
   disableRipple: false,
