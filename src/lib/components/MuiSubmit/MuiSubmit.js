@@ -61,7 +61,8 @@ MuiSubmit.propTypes = {
   buttonText: PropTypes.string,
   /**
      * mui prop: 'default'| 'inherit'| 'primary'| 'secondary'
-     * The color of the component. It supports those theme colors that make sense for this component.
+     * The color of the component.
+     * It supports those theme colors that make sense for this component.
      * */
   color: PropTypes.string,
   /**
@@ -82,7 +83,8 @@ MuiSubmit.propTypes = {
   /**
      * mui prop: true | false
      * If true, the ripple effect will be disabled.
-     * Without a ripple there is no styling for :focus-visible by default. Be sure to highlight the element by applying separate styles with the focusVisibleClassName.
+     * Without a ripple there is no styling for :focus-visible by default.
+     *  Be sure to highlight the element by applying separate styles with the focusVisibleClassName.
      */
   disableRipple: PropTypes.bool,
   /**
