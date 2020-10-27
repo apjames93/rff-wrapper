@@ -12,6 +12,7 @@ import MuiIcon from '../MuiIcon/MuiIcon';
 export const MuiSubmit = ({
   submitting,
   color,
+  disabled,
   disableElevation,
   disableFocusRipple,
   disableRipple,
@@ -33,6 +34,7 @@ export const MuiSubmit = ({
         disableElevation={disableElevation}
         disableFocusRipple={disableFocusRipple}
         disableRipple={disableRipple}
+        disabled={disabled}
         endIcon={endIcon ? (
           <MuiIcon iconName={endIcon} />
         ) : null}
@@ -59,9 +61,15 @@ MuiSubmit.propTypes = {
   buttonText: PropTypes.string,
   /**
      * mui prop: 'default'| 'inherit'| 'primary'| 'secondary'
-     * The color of the component. It supports those theme colors that make sense for this component.
+     * The color of the component.
+     * It supports those theme colors that make sense for this component.
      * */
   color: PropTypes.string,
+  /**
+     * mui prop: true | false
+     * If true, the button will be disabled.
+     */
+  disabled: PropTypes.bool,
   /**
      * mui prop: true | false
      * If true, no elevation is used.
@@ -75,7 +83,8 @@ MuiSubmit.propTypes = {
   /**
      * mui prop: true | false
      * If true, the ripple effect will be disabled.
-     * Without a ripple there is no styling for :focus-visible by default. Be sure to highlight the element by applying separate styles with the focusVisibleClassName.
+     * Without a ripple there is no styling for :focus-visible by default.
+     *  Be sure to highlight the element by applying separate styles with the focusVisibleClassName.
      */
   disableRipple: PropTypes.bool,
   /**
@@ -111,6 +120,7 @@ MuiSubmit.defaultProps = {
   submitting: false,
   buttonText: 'submit',
   color: 'secondary',
+  disabled: false,
   disableElevation: false,
   disableFocusRipple: false,
   disableRipple: false,
