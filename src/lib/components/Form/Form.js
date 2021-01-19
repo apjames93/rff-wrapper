@@ -2,13 +2,6 @@ import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { Form as ReactFinalForm } from 'react-final-form';
 
-const passSubmitting = (eleName, submitting) => {
-  if (eleName === 'MuiSubmit' || eleName === 'HTMLSubmit') {
-    return submitting;
-  }
-  return submitting.toString();
-};
-
 export const RffWrapper = ({
   children,
   debug,
@@ -20,6 +13,7 @@ export const RffWrapper = ({
   validate,
   validateOnBlur,
   mutators,
+  render,
 }) => (
   <ReactFinalForm
     debug={debug}
@@ -31,6 +25,7 @@ export const RffWrapper = ({
     validate={validate}
     validateOnBlur={validateOnBlur}
     mutators={mutators}
+    render={render}
   >
     {({ handleSubmit, submitting, form }) => (
       <form onSubmit={handleSubmit}>
@@ -39,7 +34,7 @@ export const RffWrapper = ({
             child,
             {
               key,
-              submitting: passSubmitting(child.type.name, submitting),
+              submitting,
               form,
             },
           ))}
@@ -47,7 +42,7 @@ export const RffWrapper = ({
           {!Array.isArray(children) && cloneElement(
             children,
             {
-              submitting: passSubmitting(children.type.name, submitting),
+              submitting,
               form,
             },
           )}
@@ -64,7 +59,9 @@ RffWrapper.propTypes = {
    * A render function that is given FormRenderProps,
     as well as any non-API props passed into the <Form/> component.
    */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+  /** will default to render if provided and gives access to the fields render props */
+  render: PropTypes.func,
   /**
    * Function to call when the form is submitted.
     There are three possible ways to write an onSubmit function:
@@ -118,6 +115,7 @@ RffWrapper.propTypes = {
    * Named mutator functions.
    */
   mutators: PropTypes.shape(),
+
 };
 
 RffWrapper.defaultProps = {
@@ -129,4 +127,6 @@ RffWrapper.defaultProps = {
   validate: undefined,
   validateOnBlur: false,
   mutators: undefined,
+  render: undefined,
+  children: undefined,
 };
