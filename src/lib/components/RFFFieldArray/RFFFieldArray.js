@@ -4,14 +4,16 @@ import { FieldArray } from 'react-final-form-arrays';
 
 /**
  * RFFFieldArray
+ * https://www.npmjs.com/package/react-final-form-arrays#render-props-fieldarrayrenderprops--reactnode
 */
-
 export const RFFFieldArray = ({
   children,
+  render,
   fieldArrayName,
 }) => (
   <FieldArray
     name={fieldArrayName}
+    render={render}
   >
     {({ fields }) => (
       <>
@@ -43,10 +45,17 @@ export const RFFFieldArray = ({
 export default RFFFieldArray;
 
 RFFFieldArray.propTypes = {
+  /** if passed down as children will map over array data and assign the array field name */
   children: PropTypes.oneOfType(
     [PropTypes.arrayOf(PropTypes.element), PropTypes.element],
-  ).isRequired,
+  ),
+  /** will default to render if provided and gives access to the fields render props */
+  render: PropTypes.func,
+  /** name for array data */
   fieldArrayName: PropTypes.string.isRequired,
 };
 
-RFFFieldArray.defaultProps = {};
+RFFFieldArray.defaultProps = {
+  render: undefined,
+  children: undefined,
+};
