@@ -7,7 +7,6 @@ import TelephoneInputForm from './components/TelephoneInputForm/TelephoneInputFo
 import FileInputForm from './components/FileInputForm/FileInputForm';
 import FieldArrayForm from './components/FieldArrayForm/FieldArrayForm';
 import FieldArrayRender from './components/FieldArrayRender/FieldArrayRender';
-import InputTest from '../lib/components/InputTest/InputTest';
 
 const App = () => (
   <>
@@ -18,7 +17,6 @@ const App = () => (
     <TelephoneInputForm />
     <FieldArrayForm />
     <FieldArrayRender />
-    <InputTest />
   </>
 );
 
