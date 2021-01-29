@@ -77,7 +77,7 @@ const MuiForm = () => {
             initialValue={currencyValue}
             outputFormat="number"
           />
-          <MuiInput name="name" label="name" type="password" />
+          <MuiInput name="name" label="name" />
           <MuiCheckbox name="hasInsurance" label="Has Insurance" />
           <MuiSelect
             name="car"
