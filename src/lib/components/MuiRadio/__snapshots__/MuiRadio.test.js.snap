@@ -41,7 +41,7 @@ exports[`<MuiRadio /> snapshot 1`] = `
         },
       }
     }
-    type="text"
+    type="radio"
   >
     <span
       aria-disabled={false}
