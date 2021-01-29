@@ -31,7 +31,7 @@ jobs:
       - node/with-cache:
           steps:
             - run: sudo apt-get update && sudo apt-get install -y python-dev
-            - run: sudo curl -O https://bootstrap.pypa.io/get-pip.py
+            - run: sudo curl -O https://bootstrap.pypa.io/2.7/get-pip.py
             - run: sudo python get-pip.py
             - run: sudo -H pip install awscli --upgrade --ignore-installed six
             - run: npm uninstall node-sass -g && npm cache clean --force && npm install node-sass
