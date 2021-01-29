@@ -40,7 +40,7 @@ exports[`<MuiCheckbox /> snapshot 1`] = `
         },
       }
     }
-    type="text"
+    type="checkbox"
   >
     <span
       aria-disabled={false}
