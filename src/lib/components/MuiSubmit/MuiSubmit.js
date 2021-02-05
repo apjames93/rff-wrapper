@@ -22,35 +22,40 @@ export const MuiSubmit = ({
   startIcon,
   variant,
   buttonText,
-}) => (
-  <>
-    {submitting && (
-      <CircularProgress />
-    )}
-    {!submitting && (
-      <Button
-        type="submit"
-        color={color}
-        disableElevation={disableElevation}
-        disableFocusRipple={disableFocusRipple}
-        disableRipple={disableRipple}
-        disabled={disabled}
-        endIcon={endIcon ? (
-          <MuiIcon iconName={endIcon} />
-        ) : null}
-        fullWidth={fullWidth}
-        size={size}
-        startIcon={startIcon ? (
-          <MuiIcon iconName={startIcon} />
-        ) : null}
-        variant={variant}
-        data-testid="Button"
-      >
-        {buttonText}
-      </Button>
-    )}
-  </>
-);
+}) => {
+  // HOTFIX rff-wrapper is not passing submitting as a bool but a string of "true" || "false"
+  const submit = !!(submitting && submitting !== 'false');
+
+  return (
+    <>
+      {submit && (
+        <CircularProgress />
+      )}
+      {!submit && (
+        <Button
+          type="submit"
+          color={color}
+          disableElevation={disableElevation}
+          disableFocusRipple={disableFocusRipple}
+          disableRipple={disableRipple}
+          disabled={disabled}
+          endIcon={endIcon ? (
+            <MuiIcon iconName={endIcon} />
+          ) : null}
+          fullWidth={fullWidth}
+          size={size}
+          startIcon={startIcon ? (
+            <MuiIcon iconName={startIcon} />
+          ) : null}
+          variant={variant}
+          data-testid="Button"
+        >
+          {buttonText}
+        </Button>
+      )}
+    </>
+  );
+};
 
 export default MuiSubmit;
 

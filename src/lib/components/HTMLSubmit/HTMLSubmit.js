@@ -5,16 +5,21 @@ import { CircularProgress } from '@material-ui/core';
 export const HTMLSubmit = ({
   submitting,
   buttonText,
-}) => (
-  <>
-    {submitting && (<CircularProgress />)}
-    {!submitting && (
+}) => {
+  // HOTFIX rff-wrapper is not passing submitting as a bool but a string of "true" || "false"
+  const submit = !!(submitting && submitting !== 'false');
+
+  return (
+    <>
+      {submit && (<CircularProgress />)}
+      {!submit && (
       <button type="submit">
         {buttonText}
       </button>
-    )}
-  </>
-);
+      )}
+    </>
+  );
+};
 
 export default HTMLSubmit;
 

@@ -34,7 +34,8 @@ const cars = [{
 
 const MuiForm = () => {
   const onSubmitMuiForm = async (values) => {
-    console.log('onSubmitMuiForm values', values);
+    console.log(values);
+    return new Promise(resolve => setTimeout(resolve, 200));
   };
 
   const [currencyValue, setCurrencyValue] = useState(10.01);

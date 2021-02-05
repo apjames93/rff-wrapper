@@ -9,7 +9,8 @@ import {
 
 const FieldArrayRender = () => {
   const onSubmitFieldArrayRender = async (values) => {
-    console.log('onSubmitFieldArrayRender values', values);
+    console.log(values);
+    return new Promise(resolve => setTimeout(resolve, 200));
   };
 
   return (

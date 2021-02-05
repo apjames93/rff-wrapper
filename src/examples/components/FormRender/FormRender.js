@@ -9,7 +9,8 @@ import {
 
 const FormRender = () => {
   const onSubmitFormRender = async (values) => {
-    console.log('onSubmitFormRender values', values);
+    console.log(values);
+    return new Promise(resolve => setTimeout(resolve, 200));
   };
 
   return (

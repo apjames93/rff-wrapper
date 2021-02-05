@@ -8,7 +8,8 @@ import {
 
 const FileInputForm = () => {
   const onSubmitFileInputForm = async (values) => {
-    console.log('onSubmitFileInputForm values', values);
+    console.log(values);
+    return new Promise(resolve => setTimeout(resolve, 200));
   };
 
   return (

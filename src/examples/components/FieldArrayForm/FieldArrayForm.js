@@ -16,7 +16,8 @@ import Buttons from './components/Buttons/Buttons';
 
 const FieldArrayForm = () => {
   const onSubmitFieldArrayForm = async (values) => {
-    console.log('onSubmitHTMLForm values', values);
+    console.log(values);
+    return new Promise(resolve => setTimeout(resolve, 200));
   };
 
   return (
