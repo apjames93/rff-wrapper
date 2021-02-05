@@ -33,7 +33,8 @@ const cars = [{
 
 const HTMLForm = () => {
   const onSubmitHTMLForm = async (values) => {
-    console.log('onSubmitHTMLForm values', values);
+    console.log(values);
+    return new Promise(resolve => setTimeout(resolve, 200));
   };
 
   return (
